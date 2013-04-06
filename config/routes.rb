@@ -1,5 +1,9 @@
 Rdaily::Application.routes.draw do
   root :to => "posts#index"
+
+  namespace :account do
+    resources :users, :only => [:new, :create]
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
