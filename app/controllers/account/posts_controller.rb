@@ -8,8 +8,20 @@ class Account::PostsController < ApplicationController
   end
 
   def create
+    category_ids = []
+    if params[:post][:category_ids] != "0"
+      category_ids = params[:post][:category_ids].split(',')
+      category_ids.map! { |category_id| category_id.to_i }
+      category_ids.shift
+    end
+    params[:post].delete(:category_ids)
     @post = resources.new(params[:post])
     @post.user_id = current_user.id
+    category_ids.each do |category_id|
+      categorization = @post.categorizations.build
+      categorization.category_id = category_id
+      categorization.save!
+    end
     if @post.save
       flash[:notice] = "Post is successfully created."
       redirect_to account_path
