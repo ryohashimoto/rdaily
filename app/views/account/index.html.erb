@@ -1,0 +1,17 @@
+<div class="large-6 columns">
+  <% if current_user %>
+    <h2>Logout</h2>
+    <%= render :partial => 'account/sessions/form_logout' %>    
+  <% else %>
+    <h2>Login</h2>
+    <%= render :partial => 'account/sessions/form_login' %>
+  <% end %>
+</div>
+
+<% unless current_user %>
+<div class="large-6 column">
+  <h2>Create your account</h2>
+
+  <%= render :partial => 'account/users/form', :locals => { :user => @user } %>
+</div>
+<% end %>

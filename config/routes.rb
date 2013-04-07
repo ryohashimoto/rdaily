@@ -1,7 +1,8 @@
 Rdaily::Application.routes.draw do
   root :to => "posts#index"
-
+  
   namespace :account do
+    get '/' => 'account#index'
     resources :users, :only => [:new, :create]
     resources :sessions, :only => [:new, :create] do
       collection do
