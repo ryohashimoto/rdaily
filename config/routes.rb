@@ -3,7 +3,11 @@ Rdaily::Application.routes.draw do
 
   namespace :account do
     resources :users, :only => [:new, :create]
-    resources :sessions, :only => [:new, :create, :destroy]
+    resources :sessions, :only => [:new, :create] do
+      collection do
+        delete :destroy
+      end
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

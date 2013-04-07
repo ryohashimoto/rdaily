@@ -37,9 +37,28 @@
         </ul>
       </section>
     </nav>
-
-    <%= yield %>
-
+    
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <% if flash[:error] %>
+          <div class="error"><%= flash[:error] %></div>
+          <% end %>        
+          <% if flash[:notice] %>
+          <div class="notice"><%= flash[:notice] %></div>
+          <% end %>
+          <% if flash[:alert] %>
+          <div class="alert"><%= flash[:alert] %></div>
+          <% end %>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="twelve columns">      
+          <%= yield %>
+        </div>
+      </div>
+    </div>
     
     <%= javascript_include_tag "application" %>
   </body>
