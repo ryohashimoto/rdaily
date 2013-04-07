@@ -1,6 +1,18 @@
 <div class="panel">
   <h3><%= link_to post.title, post %></h3>
   <p><%= simple_format(post.body) %></p>
-  <p style="font-size:small;text-align:right;">by <%= post.user.name %><br>
-  <%= post.created_at.strftime("%B %d, %Y") %></p>
+  <div class="row">
+    <div class="small-8 columns">
+      Category:
+      <p>
+        <% post.categories.each do |category| %>
+          <%= category.name %>
+        <% end %>
+      </p>
+    </div>
+    <div class="small-4 columns">
+      <p style="font-size:small;text-align:right;">by <%= post.user.name %><br>
+        <%= post.created_at.strftime("%B %d, %Y") %></p>
+    </div>
+  </div>
 </div>

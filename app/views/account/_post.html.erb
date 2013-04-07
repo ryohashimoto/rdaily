@@ -3,7 +3,12 @@
   <p><%= abbrev(post.body) %></p>
   <div class="row" style="height:28px;">
     <div class="small-8 columns">
-      &nbsp;
+      Category:
+      <p>
+        <% post.categories.each do |category| %>
+          <%= category.name %>
+        <% end %>
+      </p>
     </div>
     <div class="small-2 columns">
       <% if post.published? %>
