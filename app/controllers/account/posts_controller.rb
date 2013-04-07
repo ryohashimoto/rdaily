@@ -1,14 +1,14 @@
 class Account::PostsController < ApplicationController
   def index
-    @posts = current_user.posts.order(:created_at).reverse_order
+    @posts = resources.order(:created_at).reverse_order
   end
 
   def new
-    @post = current_user.posts.build
+    @post = resources.build
   end
 
   def create
-    @post = Post.new(params[:post])
+    @post = resources.new(params[:post])
     @post.user_id = current_user.id
     if @post.save
       flash[:notice] = "Post is successfully created."
@@ -19,7 +19,7 @@ class Account::PostsController < ApplicationController
   end
 
   def update
-    @post = Post.find(params[:id])
+    @post = resources.find(params[:id])
     if params[:post]
       if params[:post][:published] == "1"
         @post.published_at = Time.now
@@ -30,12 +30,25 @@ class Account::PostsController < ApplicationController
       end
       if @post.save && message
         flash[:notice] = message
-        redirect_to account_path
       else
-        redirect_to :action => :index
+        flash[:alert] = 'Post is not updated.'
       end
     else
-      redirect_to :action => :index
+      flash[:alert] = 'Post is not updated.'
     end
+    redirect_to account_path
+  end
+
+  def destroy
+    @post = resources.find(params[:id])
+    if @post.destroy
+      flash[:notice] = 'Post is successfully deleted.'
+      redirect_to account_path
+    end
+  end
+
+  private
+  def resources
+    current_user.posts
   end
 end
