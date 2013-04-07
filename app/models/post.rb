@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  has_many :categorizations
+  has_many :categories, :through => :categories, :dependent => :destroy
+  
   belongs_to :user
   
   attr_accessible :title, :body, :published_at
