@@ -2,6 +2,7 @@ Rdaily::Application.routes.draw do
   root :to => "posts#index"
 
   resources :posts, :only => [:show]
+  resources :categories, :only => [:show]
   
   namespace :account do
     get '/' => 'account#index'
