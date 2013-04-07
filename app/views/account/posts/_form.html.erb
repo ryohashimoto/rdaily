@@ -3,5 +3,23 @@
 <%= f.text_field :title %>
 <%= f.label :body %>
 <%= f.text_area :body, :style => 'height: 160px;' %>
-<%= f.submit :class => 'button' %>
+<%= f.label :category %>
+<div class="row">
+  <div class="small-3 columns">
+    <p><a href="#" data-dropdown="choose_post_categories" class="button small secondary">Choose category</a></p>
+    <ul id="choose_post_categories" class="f-dropdown" data-dropdown-content>
+      <li><a href="#">New Category</a></li>
+      <% current_user.categories.each do |category| %>
+        <li class="post_category" data-category-id="<%= category.id %>" data-category-selected="false"><a href="#"><%= category.name %></a></li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="small-6 columns">
+    <ul id="new_post_categories" class="disc">
+    </ul>
+  </div>
+  <div class="small-3 columns">
+    <%= f.submit :class => 'button' %>
+  </div>
+</div>
 <% end %>

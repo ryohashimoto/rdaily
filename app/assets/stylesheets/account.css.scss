@@ -1,3 +1,17 @@
 // Place all the styles related to the account controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.category_selected {
+  color: #fff;
+  background-color: #2ba6cb;
+}
+
+ul#new_post_categories {
+  list-style-type: none;
+  li {
+    font-weight: bold;
+    float: left;
+    margin-right: 10px;
+  }
+}

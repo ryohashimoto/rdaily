@@ -15,3 +15,19 @@ $ ->
       $(this).data('open', true)
       $('#new_post').slideDown()
     return false
+  $(document).on 'click', '.post_category', ->
+    if $(this).attr('data-category-selected') == 'false'
+      $(this).attr('data-category-selected', 'true')
+      $(this).addClass('category_selected')
+      categoryID = $(this).attr('data-category-id')
+      categoryName = $(this).find('a').text()
+      console.log categoryID
+      console.log categoryName
+      $('#new_post_categories').append('<li id="post_category_' + categoryID + '">' + categoryName + '</li>')
+    else
+      $(this).attr('data-category-selected', 'false')
+      $(this).removeClass('category_selected')
+      categoryID = $(this).attr('data-category-id')
+      console.log categoryID
+      $('#new_post_categories').find('li#post_category_' + categoryID).remove()
+    return false
