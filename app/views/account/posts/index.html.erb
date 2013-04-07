@@ -1,8 +1,16 @@
 <h2>Recent Posts</h2>
 
-<%= link_to 'Create new post', new_account_post_path %>
+<p><%= link_to 'Create new post', new_account_post_path %></p>
 
 <% @posts.each do |post| %>
-<h3><%= post.title %></h3>
-<p><%= post.body %></p>
+<div class="panel">
+  <h3><%= post.title %></h3>
+  <p><%= post.body %></p>
+  <% unless post.published_at %>
+    <%= form_for [:account, post] do |f| %>
+      <%= f.hidden_field 'published', :value => true %>
+      <%= f.submit 'Publish', :class => 'small success button' %>
+    <% end %>
+  <% end %>
+</div>
 <% end %>

@@ -1,6 +1,6 @@
 class Account::PostsController < ApplicationController
   def index
-    @posts = current_user.posts.all
+    @posts = current_user.posts.order(:created_at).reverse_order
   end
 
   def new
@@ -15,5 +15,8 @@ class Account::PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
   end
 end

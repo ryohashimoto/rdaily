@@ -8,7 +8,7 @@ Rdaily::Application.routes.draw do
         delete :destroy
       end
     end
-    resources :posts, :only => [:index, :new, :create]
+    resources :posts, :only => [:index, :new, :create, :update]
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
