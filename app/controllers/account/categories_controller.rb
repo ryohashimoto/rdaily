@@ -7,6 +7,11 @@ class Account::CategoriesController < ApplicationController
     @category = resources.new
   end
 
+  def show
+    @category = resources.find(params[:id])
+    @posts = @category.posts
+  end
+
   def create
     @category = resources.new(params[:category])
     if @category.save
