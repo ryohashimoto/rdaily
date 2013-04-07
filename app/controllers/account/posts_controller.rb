@@ -18,5 +18,13 @@ class Account::PostsController < ApplicationController
   end
 
   def update
+    @post = Post.find(params[:id])
+    if params[:post] && params[:post][:published] == "1"
+      @post.published_at = Time.now
+    end
+    if @post.save
+      flash[:notice] = "Post is successfully published."
+    end
+      redirect_to :action => :index
   end
 end

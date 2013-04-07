@@ -45,10 +45,10 @@
           <div class="error"><%= flash[:error] %></div>
           <% end %>        
           <% if flash[:notice] %>
-          <div class="notice"><%= flash[:notice] %></div>
+          <div class="notice panel callout radius"><%= flash[:notice] %></div>
           <% end %>
           <% if flash[:alert] %>
-          <div class="alert"><%= flash[:alert] %></div>
+          <div class="alert panel callout radius" style="border-color:#ff8da1;backgroud:pink;"><%= flash[:alert] %></div>
           <% end %>
         </div>
       </div>
