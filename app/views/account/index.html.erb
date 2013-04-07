@@ -1,3 +1,10 @@
+<% content_for :title do %>
+  <% if current_user %>
+    <%= rdaily_title('Dashboard') %>
+  <% else %>
+    <%= rdaily_title('Login') %>
+  <% end %>
+<% end %>
 <% if current_user %>
   <div class="large-9 columns">
     <h3>New Post</h3>
