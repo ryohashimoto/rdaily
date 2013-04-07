@@ -24,10 +24,15 @@ $ ->
       console.log categoryID
       console.log categoryName
       $('#new_post_categories').append('<li id="post_category_' + categoryID + '">' + categoryName + '</li>')
+      categoryIDs = $('#post_category_ids').attr('value')
+      $('#post_category_ids').attr('value', categoryIDs + ',' + categoryID)
     else
       $(this).attr('data-category-selected', 'false')
       $(this).removeClass('category_selected')
       categoryID = $(this).attr('data-category-id')
       console.log categoryID
       $('#new_post_categories').find('li#post_category_' + categoryID).remove()
+      categoryIDs = $('#post_category_ids').attr('value')
+      newCategoryIDs = categoryIDs.split(',').filter (x) -> x != categoryID
+      $('#post_category_ids').attr('value', newCategoryIDs.join(','))        
     return false
