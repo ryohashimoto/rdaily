@@ -3,5 +3,5 @@ class Post < ActiveRecord::Base
   
   attr_accessible :title, :body, :published_at
 
-  validates :title, :body, :published_at, :user_id, :presence => true
+  validates :title, :body, :user_id, :presence => true
 end

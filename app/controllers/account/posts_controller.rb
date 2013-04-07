@@ -11,7 +11,7 @@ class Account::PostsController < ApplicationController
     @post = Post.new(params[:post])
     @post.user_id = current_user.id
     if @post.save
-      redirect_to :index
+      redirect_to :action => :index
     else
       render :new
     end

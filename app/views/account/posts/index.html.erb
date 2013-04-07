@@ -1,0 +1,8 @@
+<h2>Recent Posts</h2>
+
+<%= link_to 'Create new post', new_account_post_path %>
+
+<% @posts.each do |post| %>
+<h3><%= post.title %></h3>
+<p><%= post.body %></p>
+<% end %>
