@@ -1,3 +1,17 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+$ ->
+  $(document).on 'click', '#toggle_new_post', ->
+    if $(this).data('open')
+      $(this).text('Create new post')
+      $(this).removeClass('secondary')
+      $(this).data('open', false)
+      $('#new_post').slideUp()
+    else
+      $(this).text('Close the form')
+      $(this).addClass('secondary')
+      $(this).data('open', true)
+      $('#new_post').slideDown()
+    return false

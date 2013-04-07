@@ -2,7 +2,11 @@
   <div class="large-9 columns">
     <h3>New Post</h3>
 
-    <%= render :partial => 'account/posts/form', :locals => { :post => @post } %>
+    <p><a href="#" id="toggle_new_post" class="button small">Create new post</a></p>
+
+    <div id="new_post" style="display:none;">
+      <%= render :partial => 'account/posts/form', :locals => { :post => @post } %>
+    </div>
     <h3>Recent Posts</h3>
     <%= render :partial => 'account/posts', :locals => { :posts => @posts } %>
   </div>
