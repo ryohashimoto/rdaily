@@ -6,4 +6,8 @@ class Post < ActiveRecord::Base
   validates :title, :body, :user_id, :presence => true
 
   scope :published, where("published_at not ?", nil)
+
+  def published?
+    !!self.published_at
+  end
 end

@@ -1,0 +1,17 @@
+<% posts.each do |post| %>
+<div class="panel">
+  <h3><%= post.title %></h3>
+  <p><%= post.body %></p>
+  <% if post.published? %>
+    <%= form_for [:account, post] do |f| %>
+      <%= hidden_field_tag 'post[published]', 0 %>
+      <%= f.submit 'Published', :class => 'small button secondary' %>
+    <% end %>    
+  <% else %>
+    <%= form_for [:account, post] do |f| %>
+      <%= hidden_field_tag 'post[published]', 1 %>
+      <%= f.submit 'Publish', :class => 'small button' %>
+    <% end %>
+  <% end %>
+</div>
+<% end %>

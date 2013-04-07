@@ -1,17 +1,23 @@
-<div class="large-6 columns">
-  <% if current_user %>
-    <h2>Logout</h2>
-    <%= render :partial => 'account/sessions/form_logout' %>    
-  <% else %>
+<% if current_user %>
+  <div class="large-9 columns">
+    <h3>New Post</h3>
+
+    <%= render :partial => 'account/posts/form', :locals => { :post => @post } %>
+    <h3>Recent Posts</h3>
+    <%= render :partial => 'account/posts', :locals => { :posts => @posts } %>
+  </div>
+  <div class="large-3 columns">
+    <h3>Logout</h3>
+    <%= render :partial => 'account/sessions/form_logout' %>
+  </div>
+<% else %>
+  <div class="large-6 columns">
     <h2>Login</h2>
     <%= render :partial => 'account/sessions/form_login' %>
-  <% end %>
-</div>
+  </div>
 
-<% unless current_user %>
-<div class="large-6 column">
-  <h2>Create your account</h2>
-
-  <%= render :partial => 'account/users/form', :locals => { :user => @user } %>
-</div>
+  <div class="large-6 column">
+    <h2>Create your account</h2>
+    <%= render :partial => 'account/users/form', :locals => { :user => @user } %>
+  </div>
 <% end %>
