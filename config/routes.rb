@@ -8,7 +8,7 @@ Rdaily::Application.routes.draw do
   
   namespace :account do
     get '/' => :index
-    resources :users, :only => [:new, :create]
+  #  resources :users, :only => [:new, :create]
     resources :sessions, :only => [:new, :create] do
       collection do
         delete :destroy
