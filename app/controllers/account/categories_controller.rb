@@ -1,4 +1,6 @@
 class Account::CategoriesController < ApplicationController
+  before_filter :find_category, :only => [:show, :edit, :update, :destroy]
+  
   def index
     @categories = resources.order('name asc')
   end
@@ -8,7 +10,6 @@ class Account::CategoriesController < ApplicationController
   end
 
   def show
-    @category = resources.find(params[:id])
     @posts = @category.posts
   end
 
@@ -23,11 +24,9 @@ class Account::CategoriesController < ApplicationController
   end
 
   def edit
-    @category = resources.find(params[:id])
   end
 
   def update
-    @category = resources.find(params[:id])
     if @params[:category] && @cateogry.update_attributes(params[:category])
       redirect_to account_categories_path
     else
@@ -36,13 +35,17 @@ class Account::CategoriesController < ApplicationController
   end
   
   def destroy
-    @category = resources.find(params[:id])
     if @category.destroy
       redirect_to account_categories_path      
     end
   end
 
+  private
   def resources
     current_user.categories
+  end
+
+  def find_category
+    @category ||= resources.find_by_slug(params[:id])
   end
 end
