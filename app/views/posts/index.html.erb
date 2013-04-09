@@ -1,7 +1,5 @@
-<% if @posts.present? %>
 <%= render :partial => 'post', :collection => @posts %>
 
 <div class="pagination-centered">
   <%= paginate @posts %>
 </div>
-<% end %>
