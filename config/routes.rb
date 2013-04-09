@@ -7,7 +7,7 @@ Rdaily::Application.routes.draw do
   resources :categories, :only => [:show]
   
   namespace :account do
-    get '/' => 'account#index'
+    get '/' => :index
     resources :users, :only => [:new, :create]
     resources :sessions, :only => [:new, :create] do
       collection do
