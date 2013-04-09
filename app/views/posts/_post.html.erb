@@ -10,9 +10,12 @@
         <% end %>
       </p>
     </div>
-    <div class="small-4 columns">
-      <p style="font-size:small;text-align:right;">by <%= post.user.name %><br>
+    <div class="small-3 columns">
+      <p style="font-size:small;text-align:right;">by <b><%= post.user.name %></b><br>
         <%= post.created_at.strftime("%B %d, %Y") %></p>
+    </div>
+    <div class="small-1 columns" style="text-align: right;">
+      <%= image_tag post.user.gravatar_url, :width => 48, :height => 48 %>
     </div>
   </div>
 </div>

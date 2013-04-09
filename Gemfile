@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'sqlite3'
 gem 'redcarpet' # for Markdown syntax
 gem 'kaminari'  # for paginations
+gem 'gravtastic' # for gravatar
 
 # Gems used only for assets and not required
 # in production environments by default.
