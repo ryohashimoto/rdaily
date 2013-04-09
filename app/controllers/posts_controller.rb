@@ -1,11 +1,22 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = resources.order(:created_at).reverse_order
+    @posts = resources.order("published_at desc")
   end
 
   def show
     @post = resources.find(params[:id])
+  end
+
+  def feed
+    @title = "Rdaily"
+    @posts = resources.order("updated_at desc")
+    @updated = @posts.maximum(:updated_at)
+    respond_to do |format|
+      format.atom { render :layout => false }
+      format.rss { redirect_to feed_path(:format => :atom),
+        :status => :moved_permanently }
+    end
   end
 
   private

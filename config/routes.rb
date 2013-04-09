@@ -1,6 +1,8 @@
 Rdaily::Application.routes.draw do
   root :to => "posts#index"
 
+  match '/feed' => 'posts#feed', :as => :feed, :defaults => { :format => 'atom' }    
+
   resources :posts, :only => [:show]
   resources :categories, :only => [:show]
   
@@ -15,6 +17,7 @@ Rdaily::Application.routes.draw do
     resources :posts
     resources :categories
   end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -18,6 +18,8 @@
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
     <%= csrf_meta_tags %>
+    <%= auto_discovery_link_tag :atom, "/feed" %>
+    <%= auto_discovery_link_tag :rss, "/feed.rss" %>
   </head>
 
   <body>
