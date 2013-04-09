@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = resources.order("published_at desc")
+    @posts = resources.order("created_at desc").page(params[:page]).per(5)
   end
 
   def show
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def feed
     @title = "Rdaily"
-    @posts = resources.order("updated_at desc")
+    @posts = resources.order("created_at desc")
     @updated = @posts.maximum(:updated_at)
     respond_to do |format|
       format.atom { render :layout => false }
