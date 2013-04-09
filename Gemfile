@@ -5,7 +5,6 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem 'redcarpet' # for Markdown syntax
 gem 'kaminari'  # for paginations
 gem 'gravtastic' # for gravatar
@@ -42,4 +41,11 @@ gem 'debugger'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'sqlite3'
+  gem 'heroku'
+end
+
+group :production do
+  gem 'pg'
+  gem 'thin'
 end
