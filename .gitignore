@@ -17,3 +17,20 @@
 *~
 #*
 
+*.rbc
+*.sassc
+.sass-cache
+capybara-*.html
+.rspec
+.rvmrc
+/vendor/bundle
+/log/*
+/tmp/*
+/public/system/*
+/public/assets/**
+/coverage/
+/spec/tmp/*
+**.orig
+rerun.txt
+pickle-email-*.html
+.project
