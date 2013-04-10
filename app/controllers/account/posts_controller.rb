@@ -3,6 +3,10 @@ class Account::PostsController < ApplicationController
     @posts = resources.order(:created_at).reverse_order
   end
 
+  def show
+    @post = resources.find(params[:id])
+  end
+
   def new
     @post = resources.build
   end

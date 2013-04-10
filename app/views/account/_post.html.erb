@@ -1,6 +1,6 @@
-<div class="panel">
-  <h3><%= post.title %></h3>
-  <p><%= abbrev(post.body) %></p>
+<div class="panel post">
+  <h3><%= link_to post.title, [:account, post] %></h3>
+  <p><%= abbrev post.body, 80 %></p>
   <div class="row">
     <div class="large-6 columns">
       Category:
