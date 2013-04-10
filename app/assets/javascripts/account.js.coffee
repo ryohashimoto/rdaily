@@ -7,12 +7,12 @@ $ ->
     if $(this).data('open')
       $(this).text('Create new post')
       $(this).removeClass('secondary')
-      $(this).data('open', false)
+      $(this).data('new-post-open', false)
       $('#new_post').slideUp()
-    else
+    else if $(this).data('open') == false
       $(this).text('Close the form')
       $(this).addClass('secondary')
-      $(this).data('open', true)
+      $(this).data('new-post-open', true)
       $('#new_post').slideDown()
     return false
   $(document).on 'click', '.post_category', ->
