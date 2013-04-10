@@ -25,6 +25,9 @@
             <% end %>
           <% end %>
         </div>
+        <div style="width:66px; float:left;">
+          <%= link_to 'Edit', edit_account_post_path(post), :class => "small button" %>
+        </div>
         <div style="width:80px; float:left;">
           <%= form_for [:account, post], :method => :delete do |f| %>
             <%= f.submit 'Delete', :class => 'small button alert', :confirm => 'Are you sure?' %>

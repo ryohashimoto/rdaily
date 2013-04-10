@@ -11,6 +11,11 @@ class Account::PostsController < ApplicationController
     @post = resources.build
   end
 
+  def edit
+    puts params
+    @post = resources.find(params[:id])
+  end
+  
   def create
     category_ids = []
     if params[:post][:category_ids] != "0"
