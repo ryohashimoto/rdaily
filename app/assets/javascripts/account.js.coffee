@@ -4,32 +4,34 @@
 
 $ ->
   $(document).on 'click', '#toggle_new_post', ->
-    if $(this).data('open')
-      $(this).text('Create new post')
-      $(this).removeClass('secondary')
-      $(this).data('new-post-open', false)
+    $this = $(this)
+    if $this.data('new-post-open') == true
+      $this.text('Create new post')
+      $this.removeClass('secondary')
+      $this.data('new-post-open', false)
       $('#new_post').slideUp()
-    else if $(this).data('open') == false
-      $(this).text('Close the form')
-      $(this).addClass('secondary')
-      $(this).data('new-post-open', true)
+    else
+      $this.text('Close the form')
+      $this.addClass('secondary')
+      $this.data('new-post-open', true)
       $('#new_post').slideDown()
     return false
   $(document).on 'click', '.post_category', ->
-    if $(this).attr('data-category-selected') == 'false'
-      $(this).attr('data-category-selected', 'true')
-      $(this).addClass('category_selected')
-      categoryID = $(this).attr('data-category-id')
-      categoryName = $(this).find('a').text()
+    $this = $(this)
+    if $this.attr('data-category-selected') == 'false'
+      $this.attr('data-category-selected', 'true')
+      $this.addClass('category_selected')
+      categoryID = $this.attr('data-category-id')
+      categoryName = $this.find('a').text()
       console.log categoryID
       console.log categoryName
       $('#new_post_categories').append('<li id="post_category_' + categoryID + '">' + categoryName + '</li>')
       categoryIDs = $('#post_category_ids').attr('value')
       $('#post_category_ids').attr('value', categoryIDs + ',' + categoryID)
     else
-      $(this).attr('data-category-selected', 'false')
-      $(this).removeClass('category_selected')
-      categoryID = $(this).attr('data-category-id')
+      $this.attr('data-category-selected', 'false')
+      $this.removeClass('category_selected')
+      categoryID = $this.attr('data-category-id')
       console.log categoryID
       $('#new_post_categories').find('li#post_category_' + categoryID).remove()
       categoryIDs = $('#post_category_ids').attr('value')
