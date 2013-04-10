@@ -1012,5 +1012,14 @@
 @import 'foundation';
 
 .post {
+  font-size: 90%;
   word-break:break-all;
+  ul, ol, dl {
+    list-style-position: inside;
+  }
+  code {
+    line-height: 150%;
+    font-weight: normal;
+    color: #000;
+  }
 }

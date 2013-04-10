@@ -9,5 +9,5 @@ atom_feed do |feed|
         author.name post.user.name
       end
     end
-  end  	     
+  end
 end
