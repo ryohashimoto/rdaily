@@ -18,6 +18,10 @@ Rdaily::Application.routes.draw do
     resources :categories
   end
 
+  namespace :about do
+    get '/' => :index
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
