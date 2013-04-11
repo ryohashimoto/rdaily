@@ -1,4 +1,4 @@
-class Account::CategoriesController < ApplicationController
+class Account::CategoriesController < Account::BaseController
   before_filter :find_category, :only => [:show, :edit, :update, :destroy]
   
   def index

@@ -1,4 +1,4 @@
-class AccountController < ApplicationController
+class AccountController < Account::BaseController
   def index
     if current_user
       @post = current_user.posts.build

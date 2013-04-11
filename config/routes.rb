@@ -1,7 +1,9 @@
 Rdaily::Application.routes.draw do
   root :to => "posts#index"
 
-  match '/feed' => 'posts#feed', :as => :feed, :defaults => { :format => 'atom' }    
+  match '/feed' => 'posts#feed', :as => :feed, :defaults => { :format => 'atom' }
+  match '/login' => 'account/sessions#new'
+  match '/logout' => 'account/sessions#destroy'
 
   resources :posts, :only => [:show]
   resources :categories, :only => [:show]

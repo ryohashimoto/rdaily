@@ -1,4 +1,4 @@
-class Account::PostsController < ApplicationController
+class Account::PostsController < Account::BaseController
   def index
     @posts = resources.order(:created_at).reverse_order
   end
