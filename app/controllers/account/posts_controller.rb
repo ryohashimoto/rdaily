@@ -12,7 +12,6 @@ class Account::PostsController < ApplicationController
   end
 
   def edit
-    puts params
     @post = resources.find(params[:id])
   end
   

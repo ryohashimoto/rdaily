@@ -18,8 +18,8 @@ $ ->
     return false
   $(document).on 'click', '.post_category', ->
     $this = $(this)
-    if $this.attr('data-category-selected') == 'false'
-      $this.attr('data-category-selected', 'true')
+    if $this.attr('data-category-selected') == false
+      $this.attr('data-category-selected', true)
       $this.addClass('category_selected')
       categoryID = $this.attr('data-category-id')
       categoryName = $this.find('a').text()
@@ -28,8 +28,8 @@ $ ->
       $('#new_post_categories').append('<li id="post_category_' + categoryID + '">' + categoryName + '</li>')
       categoryIDs = $('#post_category_ids').attr('value')
       $('#post_category_ids').attr('value', categoryIDs + ',' + categoryID)
-    else
-      $this.attr('data-category-selected', 'false')
+    else if $this.attr('data-category-selected') == true
+      $this.attr('data-category-selected', false)
       $this.removeClass('category_selected')
       categoryID = $this.attr('data-category-id')
       console.log categoryID
