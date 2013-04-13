@@ -32,6 +32,7 @@ class Account::PostsController < Account::BaseController
     end
     if @post.save
       flash[:notice] = "Post is successfully created."
+      expire_page '/'
       redirect_to account_path
     else
       render :new
@@ -49,6 +50,7 @@ class Account::PostsController < Account::BaseController
         message = "Post is not published now."
       end
       if @post.save && message
+        expire_page '/'
         flash[:notice] = message
       else
         flash[:alert] = 'Post is not updated.'
