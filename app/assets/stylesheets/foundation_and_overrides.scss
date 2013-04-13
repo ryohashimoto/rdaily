@@ -1011,6 +1011,16 @@
 
 @import 'foundation';
 
+nav.top-bar {
+  h1, ul {
+    font-family: 'Ruda', sans-serif;
+  }
+}
+
+h2, h3 {
+  font-family: 'Ruda', sans-serif;
+}
+
 .post {
   font-size: 90%;
   word-break:break-all;
