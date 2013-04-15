@@ -9,6 +9,7 @@ gem 'redcarpet' # for Markdown syntax
 gem 'kaminari'  # for paginations
 gem 'gravtastic' # for gravatar
 gem 'carrierwave'
+gem 'fog'
 
 # Gems used only for assets and not required
 # in production environments by default.
