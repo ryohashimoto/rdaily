@@ -38,3 +38,16 @@ $ ->
       newCategoryIDs = categoryIDs.split(',').filter (x) -> x != categoryID
       $('#post_category_ids').attr('value', newCategoryIDs.join(','))        
     return false
+  jQuery.event.props.push('dataTransfer')
+  $('textarea').bind 'drop', (event) ->
+    $textarea = $(this)
+    event.stopPropagation()
+    event.preventDefault()
+    dt = event.dataTransfer
+    file = dt.files[0]
+    console.log(file)
+    console.log($textarea.val())
+    $textarea.val($textarea.val() + '{' + file.name + '}')
+    $textarea.attr('selectionEnd', 0)
+    $textarea.attr('selectionStart', 0)
+    $textarea.focus()
