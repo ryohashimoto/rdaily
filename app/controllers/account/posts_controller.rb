@@ -40,6 +40,7 @@ class Account::PostsController < Account::BaseController
   end
 
   def update
+    debugger
     @post = resources.find(params[:id])
     if params[:post]
       if params[:post][:published] == "1"
@@ -49,9 +50,14 @@ class Account::PostsController < Account::BaseController
         @post.published_at = nil
         message = "Post is not published now."
       end
-      if @post.save && message
+      params[:post].delete(:published) if params[:post][:published]
+      if @post.update_attributes(params[:post])
         expire_page '/'
-        flash[:notice] = message
+        if message
+          flash[:notice] = message
+        else
+          flash[:notice] = "The post is successfully updated."
+        end
       else
         flash[:alert] = 'Post is not updated.'
       end
