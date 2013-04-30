@@ -1,5 +1,7 @@
 class Account::PhotosController < ApplicationController
   def create
-    debugger
+    photo = current_user.photos.build
+    photo.image = params[:image]
+    photo.save!
   end
 end
