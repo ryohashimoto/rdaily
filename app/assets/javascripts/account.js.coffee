@@ -47,6 +47,10 @@ $ ->
     file = dt.files[0]
     console.log(file)
     console.log($textarea.val())
+    $.ajax '/account/photos',
+      type: 'POST'
+      data: { photo: { name: file.name } }
+    .done (data) => console.log(data)
     $textarea.val($textarea.val() + '{' + file.name + '}')
     $textarea.attr('selectionEnd', 0)
     $textarea.attr('selectionStart', 0)

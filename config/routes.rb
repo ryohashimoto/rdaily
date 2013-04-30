@@ -18,6 +18,7 @@ Rdaily::Application.routes.draw do
     end
     resources :posts
     resources :categories
+    resources :photos
   end
 
   namespace :about do
