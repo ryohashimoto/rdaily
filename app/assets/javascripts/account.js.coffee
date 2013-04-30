@@ -45,8 +45,6 @@ $ ->
     event.preventDefault()
     dt = event.dataTransfer
     file = dt.files[0]
-    console.log(file)
-    console.log($textarea.val())
     formData = new FormData()
     formData.append('image', file)
     $.ajax '/account/photos',
@@ -55,8 +53,7 @@ $ ->
       cache: false
       contentType: false
       processData: false
-    .done (data) => console.log(data)
-    $textarea.val($textarea.val() + '{' + file.name + '}')
+    .done (data) => $textarea.val($textarea.val() + '![' + data.image.name + '](' + data.image.url + ')')
     $textarea.attr('selectionEnd', 0)
     $textarea.attr('selectionStart', 0)
     $textarea.focus()
