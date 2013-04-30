@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :posts
   has_many :categories
+  has_many :photos
 
   attr_accessible :name, :email, :password, :password_confirmation
 
