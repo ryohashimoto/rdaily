@@ -44,8 +44,16 @@ gem 'debugger'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
   gem 'sqlite3'
   gem 'heroku'
+end
+
+group :test do
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
 end
 
 group :production do
