@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Post do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "is valid with a title, body, user_id"
+  it "is invalid without a title"
+  it "is invalid without a body"
+  it "is invalid without a user_id"
 end

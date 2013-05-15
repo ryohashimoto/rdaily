@@ -1,5 +1,5 @@
 require 'spec_helper'
 
 describe Photo do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "is valid with an image and user_id"
 end

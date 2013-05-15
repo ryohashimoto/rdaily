@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Category do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "is valid with a name"
+  it "is valid with a name and slug"
+  it "is invalid without a name"
 end
