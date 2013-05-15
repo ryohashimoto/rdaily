@@ -1,30 +1,25 @@
 require 'spec_helper'
 
 describe Post do
-  before do
-    @user = FactoryGirl.create(:user)
+  let(:post) do
+    create(:post)
   end
   
   it "is valid with a title, body, user_id" do
-    post = @user.posts.build
-    post.title = 'hoge'
-    post.body = 'foobar'
     expect(post).to be_valid
   end
 
   it "is invalid without a title" do
-    post = @user.posts.build
-    post.body = 'foobar'
+    post.title = nil
     expect(post).to be_invalid    
   end
 
   it "is invalid without a body" do
-    post = @user.posts.build
-    post.title = 'hoge'
+    post.body = nil
     expect(post).to be_invalid    
   end
   it "is invalid without a user_id" do
-    post = Post.new(title: 'hoge', body: 'foobar')
+    post.user_id = nil
     expect(post).to be_invalid
   end
 end
