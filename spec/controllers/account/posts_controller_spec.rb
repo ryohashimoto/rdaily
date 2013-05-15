@@ -117,7 +117,19 @@ describe Account::PostsController do
   end
 
   describe 'DELETE #destroy' do
-    it "deletes the post from the database"
-    it "redirects to the home page"
+    before :each do
+      @post = post1
+    end
+    
+    it "deletes the post from the database" do
+      expect{
+        delete :destroy, id: @post
+      }.to change(Post,:count).by(-1)
+    end
+
+    it "redirects to the home page" do
+      delete :destroy, id: @post
+      expect(response).to redirect_to account_path
+    end
   end
 end
