@@ -15,6 +15,7 @@ class Category < ActiveRecord::Base
   end
 
   def generate_slug
+    return nil unless name
     self.slug ||= name.parameterize
   end
 end

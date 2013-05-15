@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Post do
-  before :each do
+  before do
     @user = User.create(name: 'ryo', email: 'ryo@example.com', password: 'hogehoge')
   end
   
