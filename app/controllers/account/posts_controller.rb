@@ -42,7 +42,6 @@ class Account::PostsController < Account::BaseController
   end
 
   def update
-    debugger
     @post = resources.find(params[:id])
     if params[:post]
       if params[:post][:published] == "1"

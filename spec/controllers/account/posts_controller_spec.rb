@@ -88,13 +88,31 @@ describe Account::PostsController do
   end
 
   describe 'PUT #update' do
+    before :each do
+      @post = post1
+    end
+    
     context "with valid attributes" do
-      it "updates the post in the database"
-      it "redirects to the post"
+      it "updates the post in the database" do
+        put :update, id: @post, post: attributes_for(:post, title: "fuga3")
+        @post.reload
+        expect(@post.title).to eq("fuga3")
+      end
+      it "redirects to the updated post" do
+        put :update, id: @post, post: attributes_for(:post, title: "fuga3")
+        expect(response).to redirect_to account_path
+      end
     end
     context "with invalid attributes" do
-      it "does not update the post"
-      it "re-renders the #edit template"
+      it "does not update the post" do
+        put :update, id: @post, post: attributes_for(:post, title: "")
+        @post.reload
+        expect(@post.title).to_not eq("")
+      end
+      it "re-renders the #edit template" do
+        put :update, id: @post, post: attributes_for(:post, title: "")
+        expect(response).to redirect_to account_path
+      end
     end
   end
 
