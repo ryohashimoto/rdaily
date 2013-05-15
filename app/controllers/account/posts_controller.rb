@@ -16,19 +16,21 @@ class Account::PostsController < Account::BaseController
   end
   
   def create
-    category_ids = []
-    if params[:post][:category_ids] != "0"
+    if params[:post][:category_ids] && params[:post][:category_ids] != "0"
+      category_ids = []
       category_ids = params[:post][:category_ids].split(',')
       category_ids.map! { |category_id| category_id.to_i }
       category_ids.shift
+      params[:post].delete(:category_ids)
     end
-    params[:post].delete(:category_ids)
     @post = resources.new(params[:post])
     @post.user_id = current_user.id
-    category_ids.each do |category_id|
-      categorization = @post.categorizations.build
-      categorization.category_id = category_id
-      categorization.save!
+    if category_ids
+      category_ids.each do |category_id|
+        categorization = @post.categorizations.build
+        categorization.category_id = category_id
+        categorization.save!
+      end
     end
     if @post.save
       flash[:notice] = "Post is successfully created."

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Account::PostsController do
   let(:user) { create(:user) }
-  let(:post) {
+  let(:post1) {
     post = user.posts.build
     post.title = "Dolorum rerum minus est."
     post.body = "Ratione sapiente deleniti nemo iusto voluptatem "
@@ -16,7 +16,7 @@ describe Account::PostsController do
   describe 'GET #index' do
     it "popurates an array of posts created by a user" do
       get :index
-      expect(assigns(:posts)).to match_array [post]
+      expect(assigns(:posts)).to match_array [post1]
     end
     
     it "renders the :index view" do
@@ -27,12 +27,12 @@ describe Account::PostsController do
 
   describe 'GET #show' do
     it "assigns the requested post to @post" do
-      get :show, id: post
-      expect(assigns(:post)).to eq post
+      get :show, id: post1
+      expect(assigns(:post)).to eq post1
     end
     
     it "renders the :show template" do
-      get :show, id: post
+      get :show, id: post1
       expect(response).to render_template :show
     end
   end
@@ -49,19 +49,41 @@ describe Account::PostsController do
   end
 
   describe 'GET #edit' do
-    it "assigns the requested post to @post"
-    it "renders the :edit template"
+    it "assigns the requested post to @post" do
+      get :edit, id: post1
+      expect(assigns(:post)).to eq post1
+    end
+    it "renders the :edit template" do
+      get :edit, id: post1
+      expect(response).to render_template :edit
+    end
   end
 
   describe 'POST #create' do
     context "with valid attributes" do
-      it "saves the new post in the database"
-      it "redirect to the home page"
+      it "saves the new post in the database" do
+        expect {
+          post :create, post: {title: "hoge1", body: "foobar1"}
+        }.to change(Post, :count).by(1)
+      end
+      it "redirect to the home page" do
+        post :create, post: {title: "hoge2", body: "foobar2"}
+        expect(response).to redirect_to account_path
+      end
     end
 
+    context "with valid attributes (and categories)"
+
     context "with invalid attributes" do
-      it "does not save the new post in the database"
-      it "re-renders the :new template"
+      it "does not save the new post in the database" do
+        expect {
+          post :create, post: {body: "foobar1"}
+        }.to_not change(Post, :count)
+      end
+      it "re-renders the :new template" do
+        post :create, post: {body: "foobar1"}
+        expect(response).to render_template :new
+      end
     end
   end
 
