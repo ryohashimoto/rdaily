@@ -2,16 +2,21 @@ require 'spec_helper'
 
 describe Account::PostsController do
   let(:user) { create(:user) }
-  
+  let(:post) {
+    post = user.posts.build
+    post.title = "Dolorum rerum minus est."
+    post.body = "Ratione sapiente deleniti nemo iusto voluptatem "
+    post.save!
+    post
+  }  
   before do
-    request.session[:user] = user.id
+    request.session[:user_id] = user.id
   end
   
   describe 'GET #index' do
     it "popurates an array of posts created by a user" do
-      post = create(:post)
       get :index
-      expect(assigns(:post)).to match_array [post]
+      expect(assigns(:posts)).to match_array [post]
     end
     
     it "renders the :index view" do
@@ -22,13 +27,11 @@ describe Account::PostsController do
 
   describe 'GET #show' do
     it "assigns the requested post to @post" do
-      post = create(:post)
       get :show, id: post
       expect(assigns(:post)).to eq post
     end
     
     it "renders the :show template" do
-      post = create(:post)
       get :show, id: post
       expect(response).to render_template :show
     end
@@ -46,10 +49,7 @@ describe Account::PostsController do
   end
 
   describe 'GET #edit' do
-    it "assigns the requested post to @post" do
-      post = create(:post)
-      get :edit, id: post
-    end
+    it "assigns the requested post to @post"
     it "renders the :edit template"
   end
 
