@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Post do
   before do
-    @user = User.create(name: 'ryo', email: 'ryo@example.com', password: 'hogehoge')
+    @user = FactoryGirl.create(:user)
   end
   
   it "is valid with a title, body, user_id" do
