@@ -1,4 +1,10 @@
 module ApplicationHelper
+  class PygmentsRenderer < Redcarpet::Render::HTML
+    def block_code(code, language)
+      Pygments.highlight(code, lexer: language)
+    end
+  end
+  
   def rdaily_title(title)
     'Rdaily - ' + title
   end
@@ -12,8 +18,15 @@ module ApplicationHelper
   end
 
   def markdown(text)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-    :autolink => true, :space_after_headers => true)
-    markdown.render(text).html_safe
+    renderer = PygmentsRenderer.new(hard_wrap: true, filter_html: true)
+    options = {
+      autolink: true,
+      no_intra_emphasis: true,
+      fenced_code_blocks: true,
+      lax_html_blocks: true,
+      strikethrough: true,
+      superscript: true
+    }
+    Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
 end
