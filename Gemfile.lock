@@ -126,7 +126,6 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.0)
       pry (>= 0.9.10)
-    posix-spawn (0.3.6)
     pygments.rb (0.4.2)
       posix-spawn (~> 0.3.6)
       yajl-ruby (~> 1.1.0)
