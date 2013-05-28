@@ -21,8 +21,8 @@ class Account::PostsController < Account::BaseController
       category_ids = params[:post][:category_ids].split(',')
       category_ids.map! { |category_id| category_id.to_i }
       category_ids.shift
-      params[:post].delete(:category_ids)
     end
+    params[:post].delete(:category_ids)
     @post = resources.new(params[:post])
     @post.user_id = current_user.id
     if category_ids
