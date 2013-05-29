@@ -4,6 +4,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :fog
 
+  def extension_white_list
+    %w(jpg jpeg gif png)
+  end
+
   def cache_dir
     "#{Rails.root}/tmp/uploads"
   end
