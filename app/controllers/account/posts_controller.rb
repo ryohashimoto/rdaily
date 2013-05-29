@@ -84,7 +84,7 @@ class Account::PostsController < Account::BaseController
     current_user.posts
   end
 
-  def expire_pages
+  def expire_pages(category_ids)
     expire_page '/'
     if category_ids.present?
       category_ids.each do |category_id|
