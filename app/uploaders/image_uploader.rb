@@ -10,7 +10,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def filename
     if original_filename 
-      @name ||= Digest::MD5.hexdigest(File.dirname(current_path))
+      @name ||= Digest::MD5.hexdigest(Time.now.to_s + File.dirname(current_path))
       "#{@name}.#{file.extension}"
     end
   end
