@@ -7,7 +7,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   def cache_dir
     "#{Rails.root}/tmp/uploads"
   end
-  
+
+  def filename
+    if original_filename 
+      @name ||= Digest::MD5.hexdigest(File.dirname(current_path))
+      "#{@name}.#{file.extension}"
+    end
+  end
+
   version :thumb do
     process :resize_to_fit => [32, 32]
   end
