@@ -1033,4 +1033,10 @@ h2, h3 {
     font-weight: normal;
     color: #000;
   }
+  pre {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 80%;
+    line-height: 150%;
+    padding: 12px;
+  }
 }
