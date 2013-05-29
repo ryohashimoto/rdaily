@@ -33,7 +33,7 @@ class Account::PostsController < Account::BaseController
       end
     end
     if @post.save!
-      expire_page posts_path(@post)
+      expire_page post_path(@post)
       expire_pages category_ids
       flash[:notice] = "Post is successfully created."
       redirect_to account_path
@@ -54,7 +54,7 @@ class Account::PostsController < Account::BaseController
       end
       params[:post].delete(:published) if params[:post][:published]
       if @post.update_attributes(params[:post])
-        expire_page posts_path(@post)
+        expire_page post_path(@post)
         expire_pages @post.categories(&:id)
         if message
           flash[:notice] = message
