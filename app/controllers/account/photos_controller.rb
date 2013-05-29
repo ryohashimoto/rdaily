@@ -9,7 +9,7 @@ class Account::PhotosController < ApplicationController
         'success' => true,
         'image' => {
           'name' => @photo.image.identifier,
-          'url' => @photo.image_url(:full)
+          'url' => @photo.image.url
         }
       }
     end
