@@ -5,17 +5,18 @@
 <%= f.text_area :body, :style => 'height: 160px;' %>
 <div class="row">
   <div class="small-3 columns">
-    <% if params[:action] != 'edit' %>
     <%= f.label :category %>
     <p><a href="#" data-dropdown="choose_post_categories" class="button small secondary">Choose...</a></p>
     <ul id="choose_post_categories" class="f-dropdown" data-dropdown-content>
       <li><a href="#">New Category</a></li>
       <% current_user.categories.each do |category| %>
+        <% if params[:action] == 'edit' && post.categories.include?(category) %>
+        <li class="post_category category_selected" data-category-id="<%= category.id %>" data-category-selected="true"><a href="#"><%= category.name %></a></li>
+        <% else %>
         <li class="post_category" data-category-id="<%= category.id %>" data-category-selected="false"><a href="#"><%= category.name %></a></li>
+        <% end  %>
       <% end %>
     </ul>
-    <% else %>
-    <% end %>
   </div>
   <div class="small-6 columns">
     <ul id="new_post_categories" class="disc">
