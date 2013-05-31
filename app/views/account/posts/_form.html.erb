@@ -19,6 +19,11 @@
   </div>
   <div class="small-6 columns">
     <ul id="new_post_categories" class="disc">
+      <% if params[:action] == 'edit' %>
+        <% post.categories.each do |category| %>
+          <li id="post_category_<%= category.id %>"><%= category.name %></li>
+        <% end %>
+      <% end  %>
     </ul>
   </div>
   <div class="small-3 columns">
