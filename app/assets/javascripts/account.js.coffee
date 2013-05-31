@@ -39,7 +39,7 @@ $ ->
       $('#post_category_ids').attr('value', newCategoryIDs.join(','))        
     return false
   jQuery.event.props.push('dataTransfer')
-  $('textarea').bind 'drop', (event) ->
+  $('textarea#post_body').bind 'drop', (event) ->
     $textarea = $(this)
     event.stopPropagation()
     event.preventDefault()
