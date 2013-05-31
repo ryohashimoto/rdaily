@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   has_many :categorizations
-  has_many :categories, :through => :categorizations, :dependent => :destroy
+  has_many :categories, :through => :categorizations, :uniq => true, :dependent => :destroy
   
   belongs_to :user
   
