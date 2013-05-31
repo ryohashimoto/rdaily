@@ -43,7 +43,26 @@ class Account::PostsController < Account::BaseController
   end
 
   def update
+    if params[:post][:category_ids] && params[:post][:category_ids] != "0"
+      category_ids = []
+      category_ids = params[:post][:category_ids].split(',')
+      category_ids.map! { |category_id| category_id.to_i }
+      category_ids.shift
+    end
+    params[:post].delete(:category_ids)
     @post = resources.find(params[:id])
+    if category_ids
+      prev_category_ids = @post.categories.map(&:id)
+      (category_ids - prev_category_ids).each do |category_id|
+        categorization = @post.categorizations.build
+        categorization.category_id = category_id
+        categorization.save!
+      end
+      (prev_category_ids - category_ids).each do |category_id|
+        categorization = @post.categorizations.find_by_category_id(category_id)
+        categorization.destroy
+      end
+    end
     if params[:post]
       if params[:post][:published] == "1"
         @post.published_at = Time.now

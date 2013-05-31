@@ -31,7 +31,9 @@
     <%= f.submit :class => 'button' %>
   </div>
 </div>
-<% if params[:action] != 'edit' %>
+<% if params[:action] == 'edit' %>
+<%= hidden_field_tag 'post[category_ids]', "0,#{post.categories.map(&:id).join(',')}" %>
+<% else %>
 <%= hidden_field_tag 'post[category_ids]', "0" %>
 <% end %>
 <% end %>
