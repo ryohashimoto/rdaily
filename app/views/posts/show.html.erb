@@ -5,7 +5,7 @@
   <div class="large-9 columns">
     <%= render :partial => 'post', :locals => { :post => @post } %>
   </div>
-  <div class="large-3 columns">
+  <div id="archives" class="large-3 columns">
     <%= render :partial => 'post_archives', :locals => { :posts => @monthly_posts} %>
   </div>
 </div>

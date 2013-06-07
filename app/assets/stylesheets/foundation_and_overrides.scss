@@ -1017,7 +1017,7 @@ nav.top-bar {
   }
 }
 
-h2, h3 {
+h2, h3, h4 {
   font-family: 'Ruda', sans-serif;
 }
 
@@ -1039,6 +1039,12 @@ h2, h3 {
     line-height: 150%;
     padding: 12px;
     overflow-x: scroll;
+  }
+}
+
+#archives {
+  li {
+    font-family: "Lucida Console", Monaco, monospace;
   }
 }
 

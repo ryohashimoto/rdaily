@@ -5,7 +5,7 @@
       <%= paginate @posts %>
     </div>
   </div>
-  <div class="large-3 columns">
+  <div id="archives" class="large-3 columns">
     <%= render :partial => 'post_archives', :locals => { :posts => @monthly_posts } %>
   </div>
 </div>
