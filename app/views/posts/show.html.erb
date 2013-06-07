@@ -1,4 +1,11 @@
 <% content_for :title do %>
   <%= rdaily_title(@post.title) %>
 <% end %>
-<%= render :partial => 'post', :locals => { :post => @post } %>
+<div class="row">
+  <div class="large-9 columns">
+    <%= render :partial => 'post', :locals => { :post => @post } %>
+  </div>
+  <div class="large-3 columns">
+    <%= render :partial => 'post_archives', :locals => { :posts => @monthly_posts} %>
+  </div>
+</div>

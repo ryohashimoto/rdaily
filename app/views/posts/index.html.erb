@@ -6,15 +6,7 @@
     </div>
   </div>
   <div class="large-3 columns">
-    <h3>Archives</h3>
-    <% @monthly_posts.sort.reverse.each do |month, posts| %>
-    <h4><%=h month.strftime("%B %Y") %></h4>
-    <ul style="list-style-type: none;font-size:small;">
-      <% posts.each do |post| %>
-      <li><%=h link_to post.title, post_path(post) %></li>
-      <% end  %>
-    </ul>
-    <% end %>
+    <%= render :partial => 'post_archives', :locals => { :posts => @monthly_posts } %>
   </div>
 </div>
 

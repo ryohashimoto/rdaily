@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
   def index
     @posts = resources.order("created_at desc").page(params[:page]).per(5)
-    @monthly_posts = resources.order("created_at desc").limit(10).group_by { |t| t.created_at.beginning_of_month }
+    @monthly_posts = monthly_posts
   end
 
   def show
     @post = resources.find(params[:id])
+    @monthly_posts = monthly_posts
   end
 
   def feed
@@ -22,5 +23,9 @@ class PostsController < ApplicationController
   private
   def resources
     Post.published
+  end
+
+  def monthly_posts
+    @monthly_posts ||=  resources.order("created_at desc").limit(10).group_by { |t| t.created_at.beginning_of_month }
   end
 end
