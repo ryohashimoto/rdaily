@@ -1,6 +1,6 @@
 <div class="row">
   <div class="large-9 columns">
-    <%= render :partial => 'post', :collection => @posts %>
+    <%= render :partial => 'posts/post', :collection => @posts %>
     <div class="pagination-centered">
       <%= paginate @posts %>
     </div>
@@ -17,4 +17,3 @@
     <% end %>
   </div>
 </div>
-
