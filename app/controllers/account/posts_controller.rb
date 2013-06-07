@@ -33,8 +33,6 @@ class Account::PostsController < Account::BaseController
       end
     end
     if @post.save!
-      expire_page post_path(@post)
-      expire_pages category_ids
       flash[:notice] = "Post is successfully created."
       redirect_to account_path
     else
@@ -73,8 +71,6 @@ class Account::PostsController < Account::BaseController
       end
       params[:post].delete(:published) if params[:post][:published]
       if @post.update_attributes(params[:post])
-        expire_page post_path(@post)
-        expire_pages @post.categories(&:id)
         if message
           flash[:notice] = message
         else
@@ -92,7 +88,6 @@ class Account::PostsController < Account::BaseController
   def destroy
     @post = resources.find(params[:id])
     if @post.destroy
-      expire_pages(@post.category_ids(&:id))
       flash[:notice] = 'Post is successfully deleted.'
       redirect_to account_path
     end
@@ -101,18 +96,5 @@ class Account::PostsController < Account::BaseController
   private
   def resources
     current_user.posts
-  end
-
-  def expire_pages(category_ids)
-    expire_page '/'
-    if category_ids.present?
-      category_ids.each do |category_id|
-        category = Category.find(category_id)
-        if category
-          expire_page "/categories/#{category.id}"
-          expire_page "/categories/#{category.slug}"
-        end
-      end
-    end
   end
 end

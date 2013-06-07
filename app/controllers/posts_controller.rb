@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  caches_page :index, :show, :feed
-
   def index
     @posts = resources.order("created_at desc").page(params[:page]).per(5)
   end

@@ -1,7 +1,6 @@
 class CategoriesController < ApplicationController
   before_filter :find_category, :only => [:show]
-  caches_page :show
-  
+
   def show
     @posts = @category.posts.published
   end
