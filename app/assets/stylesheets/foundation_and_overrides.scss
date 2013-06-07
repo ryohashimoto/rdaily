@@ -1041,3 +1041,9 @@ h2, h3 {
     overflow-x: scroll;
   }
 }
+
+@media only screen and (max-width: 58.75em) {
+  #github_ribbon {
+    display: none;
+  }
+}
