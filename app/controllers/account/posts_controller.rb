@@ -16,17 +16,11 @@ class Account::PostsController < Account::BaseController
   end
   
   def create
-    if params[:post][:category_ids] && params[:post][:category_ids] != "0"
-      category_ids = []
-      category_ids = params[:post][:category_ids].split(',')
-      category_ids.map! { |category_id| category_id.to_i }
-      category_ids.shift
-    end
-    params[:post].delete(:category_ids)
-    @post = resources.new(params[:post])
+    post_form = ::Account::PostForm.new(params[:post])    
+    @post = resources.new(post_form.to_params)
     @post.user_id = current_user.id
-    if category_ids
-      category_ids.each do |category_id|
+    if post_form.category_ids
+      post_form.category_ids.each do |category_id|
         categorization = @post.categorizations.build
         categorization.category_id = category_id
         categorization.save!
@@ -41,44 +35,25 @@ class Account::PostsController < Account::BaseController
   end
 
   def update
-    if params[:post][:category_ids] && params[:post][:category_ids] != "0"
-      category_ids = []
-      category_ids = params[:post][:category_ids].split(',')
-      category_ids.map! { |category_id| category_id.to_i }
-      category_ids.shift
-    end
-    params[:post].delete(:category_ids)
+    post_form = ::Account::PostForm.new(params[:post])
+    binding.pry
     @post = resources.find(params[:id])
-    if category_ids
+    if post_form.category_ids
       prev_category_ids = @post.categories.map(&:id)
-      (category_ids - prev_category_ids).each do |category_id|
+      (post_form.category_ids - prev_category_ids).each do |category_id|
         categorization = @post.categorizations.build
         categorization.category_id = category_id
         categorization.save!
       end
-      (prev_category_ids - category_ids).each do |category_id|
+      (prev_category_ids - post_form.category_ids).each do |category_id|
         categorization = @post.categorizations.find_by_category_id(category_id)
         categorization.destroy
       end
     end
-    if params[:post]
-      if params[:post][:published] == "1"
-        @post.published_at = Time.now
-        message = "Post is successfully published."
-      elsif params[:post][:published] == "0"
-        @post.published_at = nil
-        message = "Post is not published now."
-      end
-      params[:post].delete(:published) if params[:post][:published]
-      if @post.update_attributes(params[:post])
-        if message
-          flash[:notice] = message
-        else
-          flash[:notice] = "The post is successfully updated."
-        end
-      else
-        flash[:alert] = 'Post is not updated.'
-      end
+    post_params = post_form.to_params
+    binding.pry
+    if @post.update_attributes(post_params)
+      flash[:notice] = "The post is successfully updated."
     else
       flash[:alert] = 'Post is not updated.'
     end
