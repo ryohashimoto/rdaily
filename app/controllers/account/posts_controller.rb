@@ -36,7 +36,6 @@ class Account::PostsController < Account::BaseController
 
   def update
     post_form = ::Account::PostForm.new(params[:post])
-    binding.pry
     @post = resources.find(params[:id])
     if post_form.category_ids
       prev_category_ids = @post.categories.map(&:id)
@@ -51,7 +50,6 @@ class Account::PostsController < Account::BaseController
       end
     end
     post_params = post_form.to_params
-    binding.pry
     if @post.update_attributes(post_params)
       flash[:notice] = "The post is successfully updated."
     else
@@ -66,6 +64,22 @@ class Account::PostsController < Account::BaseController
       flash[:notice] = 'Post is successfully deleted.'
       redirect_to account_path
     end
+  end
+  
+  def publish
+    @post = resources.find(params[:id])
+    unless @post.published?
+      @post.publish!
+    end
+    redirect_to account_path
+  end
+  
+  def unpublish
+    @post = resources.find(params[:id])
+    if @post.published?
+      @post.unpublish!
+    end
+    redirect_to account_path
   end
 
   private

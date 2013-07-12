@@ -16,7 +16,12 @@ Rdaily::Application.routes.draw do
         delete :destroy
       end
     end
-    resources :posts
+    resources :posts do
+      member do
+        post :publish
+        post :unpublish
+      end
+    end
     resources :categories
     resources :photos
   end
