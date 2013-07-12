@@ -68,16 +68,18 @@ class Account::PostsController < Account::BaseController
   
   def publish
     @post = resources.find(params[:id])
-    unless @post.published?
-      @post.publish!
+    policy = @post.published_policy
+    unless policy.active?
+      policy.activate!
     end
     redirect_to account_path
   end
   
   def unpublish
     @post = resources.find(params[:id])
-    if @post.published?
-      @post.unpublish!
+    policy = @post.published_policy
+    if policy.active?
+      policy.stop!
     end
     redirect_to account_path
   end

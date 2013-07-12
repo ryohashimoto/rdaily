@@ -13,7 +13,7 @@
     <div class="large-6 columns" style="text-align: right;">
       <div style="float:right; height: 30px;">
         <div style="width:100px; float:left;">
-          <% if post.published? %>
+          <% if post.published_policy.active? %>
             <%= form_tag unpublish_account_post_path(id: post.id), method: :post do %>
               <%= submit_tag 'Published', :class => 'small button secondary' %>
             <% end %>    

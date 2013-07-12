@@ -4,23 +4,13 @@ class Post < ActiveRecord::Base
   
   belongs_to :user
   
-  attr_accessible :title, :body
+  attr_accessible :title, :body, :published_at
 
   validates :title, :body, :user_id, :presence => true
 
-  scope :published, where("published_at is not null")
-
-  def published?
-    !!self.published_at
-  end
+  scope :published, where("published_at is not null") 
   
-  def publish!
-    self.published_at = Time.now
-    self.save!
-  end
-  
-  def unpublish!
-    self.published_at = nil
-    self.save!
-  end
+  def published_policy
+    @published_policy ||= PostPublishedPolicy.new(self)
+  end 
 end
