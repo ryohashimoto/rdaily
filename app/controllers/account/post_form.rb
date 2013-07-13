@@ -17,10 +17,8 @@ module Account
     def set_category_ids(params)
       ids = params[:category_ids]
       if ids
-        if ids == "0"
-          @category_ids = []
-        else
-          @category_ids = []
+        @category_ids = []
+        if ids != "0"
           @category_ids = ids.split(',').map(&:to_i)
           if @category_ids[0] == 0
             @category_ids.shift
