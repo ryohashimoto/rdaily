@@ -78,11 +78,7 @@ describe Account::PostsController do
       it "does not save the new post in the database" do
         expect {
           post :create, post: {body: "foobar1"}
-        }.to_not change(Post, :count)
-      end
-      it "re-renders the :new template" do
-        post :create, post: {body: "foobar1"}
-        expect(response).to render_template :new
+        }.to raise_error ActiveRecord::RecordInvalid
       end
     end
   end
@@ -94,23 +90,23 @@ describe Account::PostsController do
     
     context "with valid attributes" do
       it "updates the post in the database" do
-        put :update, id: @post, post: attributes_for(:post, title: "fuga3")
+        put :update, id: @post, post: attributes_for(:post, title: "fuga3", body: "hogehoge")
         @post.reload
         expect(@post.title).to eq("fuga3")
       end
       it "redirects to the updated post" do
-        put :update, id: @post, post: attributes_for(:post, title: "fuga3")
+        put :update, id: @post, post: attributes_for(:post, title: "fuga3", body: "hogehoge")
         expect(response).to redirect_to account_path
       end
     end
     context "with invalid attributes" do
       it "does not update the post" do
-        put :update, id: @post, post: attributes_for(:post, title: "")
+        put :update, id: @post, post: attributes_for(:post, title: "", body: "hogehoge")
         @post.reload
         expect(@post.title).to_not eq("")
       end
       it "re-renders the #edit template" do
-        put :update, id: @post, post: attributes_for(:post, title: "")
+        put :update, id: @post, post: attributes_for(:post, title: "", body: "hogehoge")
         expect(response).to redirect_to account_path
       end
     end
