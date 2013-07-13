@@ -7,6 +7,8 @@
 <% end %>
 <% if current_user %>
   <div class="large-9 columns">
+    <h2>Dashboard</h2>
+
     <h3>New Post</h3>
 
     <p><a href="#" id="toggle_new_post" class="button">Create new post</a></p>
@@ -16,8 +18,21 @@
     </div>
     <h3>Recent Posts</h3>
     <%= render :partial => 'post', :collection => @posts %>
+    <%= link_to 'More posts', account_posts_path %>
   </div>
   <div class="large-3 columns">
+    <h3>Posts</h3>
+    <ul>
+      <li><%= link_to 'List', account_posts_path %></li>
+      <li><%= link_to 'Create New', new_account_post_path %></li>
+    </ul>
+
+    <h3>Categories</h3>
+    <ul>
+      <li>List</li>
+      <li>Create New</li>
+    </ul>
+    
     <h3>Logout</h3>
     <%= render :partial => 'account/sessions/form_logout' %>
   </div>

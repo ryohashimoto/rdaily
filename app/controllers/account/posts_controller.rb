@@ -1,6 +1,6 @@
 class Account::PostsController < Account::BaseController
   def index
-    @posts = resources.order(:created_at).reverse_order
+    @posts = resources.order("created_at desc").page(params[:page]).per(5)
   end
 
   def show
