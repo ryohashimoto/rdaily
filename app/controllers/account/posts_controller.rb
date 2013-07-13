@@ -19,13 +19,7 @@ class Account::PostsController < Account::BaseController
     post_form = ::Account::PostForm.new(params[:post])    
     @post = resources.new(post_form.to_params)
     @post.user_id = current_user.id
-    if post_form.category_ids
-      post_form.category_ids.each do |category_id|
-        categorization = @post.categorizations.build
-        categorization.category_id = category_id
-        categorization.save!
-      end
-    end
+    @post.categorization_builder.build_from(post_form.category_ids)
     if @post.save!
       flash[:notice] = "Post is successfully created."
       redirect_to account_path
@@ -37,19 +31,8 @@ class Account::PostsController < Account::BaseController
   def update
     post_form = ::Account::PostForm.new(params[:post])
     @post = resources.find(params[:id])
-    if post_form.category_ids
-      prev_category_ids = @post.categories.map(&:id)
-      (post_form.category_ids - prev_category_ids).each do |category_id|
-        categorization = @post.categorizations.build
-        categorization.category_id = category_id
-        categorization.save!
-      end
-      (prev_category_ids - post_form.category_ids).each do |category_id|
-        categorization = @post.categorizations.find_by_category_id(category_id)
-        categorization.destroy
-      end
-    end
     post_params = post_form.to_params
+    @post.categorization_builder.update_from(post_form.category_ids)    
     if @post.update_attributes(post_params)
       flash[:notice] = "The post is successfully updated."
     else

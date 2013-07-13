@@ -12,5 +12,9 @@ class Post < ActiveRecord::Base
   
   def published_policy
     @published_policy ||= PublishedPolicy.new(self)
-  end 
+  end
+  
+  def categorization_builder
+    @categorization_builder ||= CategorizationBuilder.new(self)
+  end
 end
