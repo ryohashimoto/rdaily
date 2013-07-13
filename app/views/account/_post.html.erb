@@ -2,7 +2,7 @@
   <h3><%= link_to post.title, [:account, post] %></h3>
   <p><%= abbrev post.body, 80 %></p>
   <div class="row">
-    <div class="large-6 columns">
+    <div class="large-12 columns">
       Category:
       <p>
         <% post.categories.each do |category| %>
@@ -10,28 +10,16 @@
         <% end %>
       </p>
     </div>
-    <div class="large-6 columns" style="text-align: right;">
-      <div style="float:right; height: 30px;">
-        <div style="width:100px; float:left;">
-          <% if post.published_policy.active? %>
-            <%= form_tag unpublish_account_post_path(id: post.id), method: :post do %>
-              <%= submit_tag 'Published', :class => 'small button secondary' %>
-            <% end %>    
-          <% else %>
-            <%= form_tag publish_account_post_path(id: post.id), method: :post do %>
-              <%= submit_tag 'Publish', :class => 'small button' %>
-            <% end %>
-          <% end %>
-        </div>
-        <div style="width:66px; float:left;">
-          <%= link_to 'Edit', edit_account_post_path(post), :class => "small button" %>
-        </div>
-        <div style="width:80px; float:left;">
-          <%= form_for [:account, post], :method => :delete do |f| %>
-            <%= f.submit 'Delete', :class => 'small button alert', :confirm => 'Are you sure?' %>
-          <% end %>
-        </div>
-      </div>
+    <div class="large-12 columns">
+      <% if post.published_policy.active? %>
+        <%= link_to 'Published', unpublish_account_post_path(post), method: post, class: "small button secondary" %>
+      <% else %>
+        <%= link_to 'Publish', publish_account_post_path(post), method: post, class: "small button" %>
+      <% end %>
+      &nbsp;
+      <%= link_to 'Edit', edit_account_post_path(post), class: "small button" %>
+      &nbsp;
+      <%= link_to 'Delete', account_post_path(post), method: :delete, class: "small button alert", confirm: "Are you sure?" %>
     </div>
   </div>
 </div>
