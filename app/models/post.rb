@@ -11,6 +11,6 @@ class Post < ActiveRecord::Base
   scope :published, where("published_at is not null") 
   
   def published_policy
-    @published_policy ||= PostPublishedPolicy.new(self)
+    @published_policy ||= PublishedPolicy.new(self)
   end 
 end
