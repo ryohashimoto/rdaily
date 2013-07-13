@@ -1,9 +1,9 @@
 <ul class="breadcrumbs">
   <li><%= link_to 'Dashboard', account_path %></li>
-  <li class="current"><%= link_to 'Listing posts', account_posts_path %></li>
+  <li class="current"><%= link_to 'All posts', account_posts_path %></li>
 </ul>
 
-<h2>Listing posts</h2>
+<h2>All posts</h2>
 
 <%= render partial: 'account/post', collection: @posts %>
 

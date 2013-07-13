@@ -1,5 +1,6 @@
 class Account::CategoriesController < Account::BaseController
   before_filter :find_category, :only => [:show, :edit, :update, :destroy]
+  layout 'account'
   
   def index
     @categories = resources.order('name asc')

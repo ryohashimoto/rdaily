@@ -28,7 +28,7 @@
     </ul>
   </div>
   <div class="small-12 columns">
-    <%= f.submit :class => 'button' %>
+    <%= f.submit class: 'button success' %>
     <% if params[:action] == 'edit' %>
     <%= hidden_field_tag 'post[category_ids]', "0,#{post.categories.map(&:id).join(',')}" %>
     <% else %>
