@@ -1,4 +1,6 @@
 class AccountController < Account::BaseController
+  layout 'account'
+  
   def index
     if current_user
       @post = current_user.posts.build

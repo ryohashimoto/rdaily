@@ -1,8 +1,11 @@
+<ul class="breadcrumbs">
+  <li><%= link_to 'Dashboard', account_path %></li>
+  <li class="current"><%= link_to 'Listing posts', account_posts_path %></li>
+</ul>
+
 <h2>Listing posts</h2>
 
-<p><%= link_to 'Create new post', new_account_post_path %></p>
-
-<%= render :partial => 'account/post', :collection => @posts %>
+<%= render partial: 'account/post', collection: @posts %>
 
 <div class="pagination-centered">
   <%= paginate @posts %>

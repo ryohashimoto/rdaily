@@ -4,7 +4,7 @@
 <%= f.label :body %>
 <%= f.text_area :body, :style => 'height: 160px;' %>
 <div class="row">
-  <div class="small-3 columns">
+  <div class="small-4 columns">
     <%= f.label :category %>
     <p><a href="#" data-dropdown="choose_post_categories" class="button small secondary">Choose...</a></p>
     <ul id="choose_post_categories" class="f-dropdown" data-dropdown-content>
@@ -18,7 +18,7 @@
       <% end %>
     </ul>
   </div>
-  <div class="small-6 columns">
+  <div class="small-8 columns">
     <ul id="new_post_categories" class="disc">
       <% if params[:action] == 'edit' %>
         <% post.categories.each do |category| %>
@@ -27,13 +27,13 @@
       <% end  %>
     </ul>
   </div>
-  <div class="small-3 columns">
+  <div class="small-12 columns">
     <%= f.submit :class => 'button' %>
+    <% if params[:action] == 'edit' %>
+    <%= hidden_field_tag 'post[category_ids]', "0,#{post.categories.map(&:id).join(',')}" %>
+    <% else %>
+    <%= hidden_field_tag 'post[category_ids]', "0" %>
+    <% end %>
   </div>
 </div>
-<% if params[:action] == 'edit' %>
-<%= hidden_field_tag 'post[category_ids]', "0,#{post.categories.map(&:id).join(',')}" %>
-<% else %>
-<%= hidden_field_tag 'post[category_ids]', "0" %>
-<% end %>
 <% end %>
