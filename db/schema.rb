@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130415073551) do
+ActiveRecord::Schema.define(:version => 20130716043311) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -32,6 +32,19 @@ ActiveRecord::Schema.define(:version => 20130415073551) do
 
   add_index "categorizations", ["category_id"], :name => "index_categorizations_on_category_id"
   add_index "categorizations", ["post_id"], :name => "index_categorizations_on_post_id"
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "sequence"
+    t.integer  "user_id"
+    t.datetime "published_at"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "pages", ["id"], :name => "index_pages_on_id", :unique => true
+  add_index "pages", ["published_at"], :name => "index_pages_on_published_at"
 
   create_table "photos", :force => true do |t|
     t.string   "image",      :null => false
