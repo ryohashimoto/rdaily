@@ -6,6 +6,7 @@ Rdaily::Application.routes.draw do
   match '/logout' => 'account/sessions#destroy'
 
   resources :posts, :only => [:show]
+  resources :pages, :only => [:show]
   resources :categories, :only => [:show]
   
   namespace :account do
@@ -17,6 +18,12 @@ Rdaily::Application.routes.draw do
       end
     end
     resources :posts do
+      member do
+        post :publish
+        post :unpublish
+      end
+    end
+    resources :pages do
       member do
         post :publish
         post :unpublish
