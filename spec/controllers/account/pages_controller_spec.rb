@@ -6,6 +6,7 @@ describe Account::PagesController do
     page = user.pages.build
     page.title = "Dolorum rerum minus est."
     page.body = "Ratione sapiente deleniti nemo iusto voluptatem "
+    page.slug = "dolorum"
     page.save!
     page
   }  
