@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
 
   def show
-    @post = resources.find(params[:id])
+    @page = resources.find(params[:id])
   end
   
   private

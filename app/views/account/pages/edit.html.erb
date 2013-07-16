@@ -1,0 +1,9 @@
+<ul class="breadcrumbs">
+  <li><%= link_to 'Dashboard', account_path %></li>
+  <li><%= link_to "Your pages", account_pages_path %></li>
+  <li class="current"><%= link_to "Editing page (#{@page.title})", edit_account_page_path(@page) %></li>
+</ul>
+
+<h2>Editing page (<%= @page.title %>)</h2>
+
+<%= render :partial => 'form', :locals => {:page => @page } %>

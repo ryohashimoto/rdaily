@@ -1,0 +1,12 @@
+<ul class="breadcrumbs">
+  <li><%= link_to 'Dashboard', account_path %></li>
+  <li class="current"><%= link_to 'Your pages', account_pages_path %></li>
+</ul>
+
+<h2>Your pages</h2>
+
+<%= render partial: 'account/page', collection: @pages %>
+
+<div class="pagination-centered">
+  <%= paginate @pages %>
+</div>

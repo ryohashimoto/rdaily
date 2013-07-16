@@ -38,7 +38,7 @@ class Account::PostsController < Account::BaseController
     if @post.update_attributes(post_params)
       flash[:notice] = "The post is successfully updated."
     else
-      flash[:alert] = 'Post is not updated.'
+      flash[:alert] = 'The post is not updated.'
     end
     redirect_to account_path
   end
@@ -46,7 +46,7 @@ class Account::PostsController < Account::BaseController
   def destroy
     @post = resources.find(params[:id])
     if @post.destroy
-      flash[:notice] = 'Post is successfully deleted.'
+      flash[:notice] = 'The post is successfully deleted.'
       redirect_to account_path
     end
   end
