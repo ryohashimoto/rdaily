@@ -2,7 +2,7 @@ class Page < ActiveRecord::Base
   belongs_to :user
   
   validates :title, :body, :user_id, presence: true
-  validates :slug, presence: true, uniqueness: true, format: { with: /^[a-z][_a-z0-9]*/i }, length: { maximum: 16 }
+  validates :slug, presence: true, uniqueness: true, format: { with: /\A[a-z][_a-z0-9]*/i }, length: { maximum: 16 }
   
   scope :published, where("published_at is not null")
 
