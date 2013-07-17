@@ -252,7 +252,7 @@
 // $button-font-tny: emCalc(11px);
 // $button-font-sml: emCalc(13px);
 // $button-font-lrg: emCalc(20px);
-// $button-font-weight: bold;
+//$button-font-weight: bold;
 // $button-font-align: center;
 
 // We use these to control various hover effects.
@@ -1008,23 +1008,23 @@
 // $topbar-breakpoint: emCalc(940px); // Change to 9999px for always mobile layout
 // $topbar-media-query: "only screen and (min-width "#{$topbar-breakpoint}")";
 
+$button-med: emCalc(12px);
+$button-sml: emCalc(9px);
+$button-border-width: 0px;
 
 @import 'foundation';
 
-nav.top-bar {
-  h1, ul {
-    font-family: 'Ruda', sans-serif;
-  }
+body {
+  font-family: 'Ruda', sans-serif;  
 }
 
-h2, h3, h4 {
-  font-family: 'Ruda', sans-serif;
+h1, h2, h3, h4 {
+  font-family: 'Ruda', sans-serif;    
 }
 
 .post {
   font-size: 90%;
-  font-family: 'Ruda', sans-serif;
-  word-break:break-all;
+  word-break: break-all;
   ul, ol, dl {
     list-style-position: inside;
   }
@@ -1039,12 +1039,6 @@ h2, h3, h4 {
     line-height: 150%;
     padding: 12px;
     overflow-x: scroll;
-  }
-}
-
-#archives {
-  li {
-    font-family: "Lucida Console", Monaco, monospace;
   }
 }
 

@@ -12,14 +12,14 @@
     </div>
     <div class="large-12 columns">
       <% if post.published_policy.active? %>
-        <%= link_to 'Published', unpublish_account_post_path(post), method: post, class: "small button secondary" %>
+        <%= link_to 'Published', unpublish_account_post_path(post), method: post, class: "small button radius secondary" %>
       <% else %>
-        <%= link_to 'Publish', publish_account_post_path(post), method: post, class: "small button" %>
+        <%= link_to 'Publish', publish_account_post_path(post), method: post, class: "small button radius success" %>
       <% end %>
       &nbsp;
-      <%= link_to 'Edit', edit_account_post_path(post), class: "small button" %>
+      <%= link_to 'Edit', edit_account_post_path(post), class: "small button radius" %>
       &nbsp;
-      <%= link_to 'Delete', account_post_path(post), method: :delete, class: "small button alert", confirm: "Are you sure?" %>
+      <%= link_to 'Delete', account_post_path(post), method: :delete, class: "small button radius alert", confirm: "Are you sure?" %>
     </div>
   </div>
 </div>
