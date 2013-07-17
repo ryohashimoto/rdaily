@@ -19,6 +19,7 @@ gem 'dalli'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'compass-rails'
   gem 'sass-rails',   '~> 4.0.0'
   gem 'coffee-rails', '~> 4.0.0'
 
@@ -26,7 +27,7 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.3.0'
-  gem 'zurb-foundation', '~> 4.0.0'
+  gem 'zurb-foundation'
 end
 
 gem 'jquery-rails'

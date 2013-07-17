@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Category do
   before do
-    @user = User.create(name: 'ryo', email: 'ryo@example.com', password: 'hogehoge')
+    @user = User.create(name: 'ryo', email: 'ryo@example.com', password: 'hogehoge', password_confirmation: 'hogehoge')
   end
   
   it "is valid with a name" do

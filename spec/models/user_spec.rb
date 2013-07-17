@@ -18,6 +18,7 @@ describe User do
   end
   it "is invalid without a password" do
     user.password = nil
+    user.password_confirmation = nil
     expect(user).to be_invalid
   end
   it "is invalid with a duplicate email address" do
