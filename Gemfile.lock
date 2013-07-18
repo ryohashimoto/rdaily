@@ -26,6 +26,9 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
+    amazon-ecs (2.2.4)
+      nokogiri (~> 1.4)
+      ruby-hmac (~> 0.3)
     arel (4.0.0)
     atomic (1.1.10)
     bcrypt-ruby (3.0.1)
@@ -201,6 +204,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  amazon-ecs
   bcrypt-ruby (~> 3.0.0)
   capybara
   carrierwave

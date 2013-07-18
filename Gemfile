@@ -15,6 +15,7 @@ gem 'mini_magick'
 gem 'pygments.rb' # for syntax highlighting
 gem 'memcachier'
 gem 'dalli'
+gem 'amazon-ecs'
 
 # Gems used only for assets and not required
 # in production environments by default.
