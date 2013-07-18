@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :posts
   has_many :pages
+  has_many :reviews
   has_many :categories
   has_many :photos
 

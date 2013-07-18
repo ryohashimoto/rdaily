@@ -16,18 +16,24 @@
       <li><%= link_to 'Create New', new_account_post_path %></li>
     </ul>
     
-    <h3>Categories</h3>
+    <h3>Reviews</h3>
     <ul class="side-nav">
-      <li><%= link_to 'Your Categories', account_categories_path %></li>
-      <li><%= link_to 'Create New', new_account_category_path %></li>
+      <li><%= link_to 'Your Reviews', account_reviews_path %></li>
+      <li><%= link_to 'Create New', new_account_review_path%></li>
     </ul>
-
+    
     <h3>Pages</h3>
     <ul class="side-nav">
       <li><%= link_to 'Your Pages', account_pages_path %></li>
       <li><%= link_to 'Create New', new_account_page_path%></li>
     </ul>
     
+    <h3>Categories</h3>
+    <ul class="side-nav">
+      <li><%= link_to 'Your Categories', account_categories_path %></li>
+      <li><%= link_to 'Create New', new_account_category_path %></li>
+    </ul>
+
     <h3>Logout</h3>
     <%= render :partial => 'account/sessions/form_logout' %>
   </div>

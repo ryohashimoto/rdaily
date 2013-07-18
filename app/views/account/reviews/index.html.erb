@@ -1,0 +1,12 @@
+<ul class="breadcrumbs">
+  <li><%= link_to 'Dashboard', account_path %></li>
+  <li class="current"><%= link_to 'All reviews', account_reviews_path %></li>
+</ul>
+
+<h2>All reviews</h2>
+
+<%= render partial: 'account/review', collection: @reviews %>
+
+<div class="pagination-centered">
+  <%= paginate @reviews %>
+</div>
