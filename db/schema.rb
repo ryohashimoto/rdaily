@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130718123411) do
+ActiveRecord::Schema.define(version: 20130716112736) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -65,19 +65,6 @@ ActiveRecord::Schema.define(version: 20130718123411) do
 
   add_index "posts", ["id"], name: "index_posts_on_id", unique: true
   add_index "posts", ["published_at"], name: "index_posts_on_published_at"
-
-  create_table "reviews", force: true do |t|
-    t.string   "title"
-    t.text     "body"
-    t.integer  "user_id"
-    t.datetime "published_at"
-    t.string   "asin"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "reviews", ["id"], name: "index_reviews_on_id", unique: true
-  add_index "reviews", ["published_at"], name: "index_reviews_on_published_at"
 
   create_table "users", force: true do |t|
     t.string   "name"
