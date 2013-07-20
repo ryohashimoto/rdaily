@@ -1,4 +1,9 @@
 <div class="row">
+  <% if User.count == 0 %>
+    <h2>Welcome to Rdaily !</h2>
+    <p>Rdaily setup is simple and easy.</p>
+    <%= link_to 'Create new user for Rdaily', new_account_user_path, class: 'button radius'%>
+  <% else %>
   <div class="large-9 columns">
     <%= render :partial => 'post', :collection => @posts %>
     <div class="pagination-centered">
@@ -8,5 +13,6 @@
   <div id="archives" class="large-3 columns">
     <%= render :partial => 'post_archives', :locals => { :posts => @monthly_posts } %>
   </div>
+  <% end %>
 </div>
 
