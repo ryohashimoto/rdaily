@@ -18,7 +18,7 @@ class Account::PagesController < Account::BaseController
   end
   
   def create
-    @page = resources.new(params[:page])
+    @page = resources.new(page_params)
     if @page.save!
       flash[:notice] = "Page is successfully created."
       redirect_to account_pages_path
@@ -29,7 +29,7 @@ class Account::PagesController < Account::BaseController
   
   def update
     @page = resources.find(params[:id])
-    if @page.update_attributes(params[:page])
+    if @page.update_attributes(page_params)
       flash[:notice] = "The page is successfully updated."
     else
       flash[:alert] = 'The page is not updated.'
@@ -66,5 +66,9 @@ class Account::PagesController < Account::BaseController
   private
   def resources
     current_user.pages
+  end
+  
+  def page_params
+    params.require(:page).permit(:title, :body, :slug)
   end
 end
