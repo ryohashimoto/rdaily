@@ -1011,6 +1011,11 @@
 $button-med: emCalc(12px);
 $button-sml: emCalc(9px);
 $button-border-width: 0px;
+@mixin opacity($alphavalue) {
+    opacity: $alphavalue;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{ $alphavalue * 100 })"; // for IE 8
+    filter: alpha(opacity=#{ $alphavalue * 100 }); // for IE 5-7
+}
 
 @import 'foundation';
 
@@ -1069,3 +1074,10 @@ h1, h2, h3, h4 {
 }
 
 .warning { @include alert(#ff6c3c); }
+.alert-box {
+  position: absolute;
+  width: 100%;
+  top: -26px;
+  z-index: 3000;
+  @include opacity(0.9);
+}
