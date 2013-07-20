@@ -13,25 +13,29 @@
 
 ActiveRecord::Schema.define(version: 20130719060032) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
+
   create_table "categories", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "slug"
   end
 
-  add_index "categories", ["slug"], name: "index_categories_on_slug"
+  add_index "categories", ["slug"], name: "index_categories_on_slug", using: :btree
 
   create_table "categorizations", force: true do |t|
     t.integer  "post_id"
     t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id"
-  add_index "categorizations", ["post_id"], name: "index_categorizations_on_post_id"
+  add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
+  add_index "categorizations", ["post_id"], name: "index_categorizations_on_post_id", using: :btree
 
   create_table "pages", force: true do |t|
     t.string   "title"
@@ -39,19 +43,19 @@ ActiveRecord::Schema.define(version: 20130719060032) do
     t.integer  "sequence"
     t.integer  "user_id"
     t.datetime "published_at"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "slug"
   end
 
-  add_index "pages", ["id"], name: "index_pages_on_id", unique: true
-  add_index "pages", ["published_at"], name: "index_pages_on_published_at"
+  add_index "pages", ["id"], name: "index_pages_on_id", unique: true, using: :btree
+  add_index "pages", ["published_at"], name: "index_pages_on_published_at", using: :btree
 
   create_table "photos", force: true do |t|
     t.string   "image",      null: false
     t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "posts", force: true do |t|
@@ -59,20 +63,20 @@ ActiveRecord::Schema.define(version: 20130719060032) do
     t.text     "body"
     t.integer  "user_id"
     t.datetime "published_at"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "type"
   end
 
-  add_index "posts", ["id"], name: "index_posts_on_id", unique: true
-  add_index "posts", ["published_at"], name: "index_posts_on_published_at"
+  add_index "posts", ["id"], name: "index_posts_on_id", unique: true, using: :btree
+  add_index "posts", ["published_at"], name: "index_posts_on_published_at", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

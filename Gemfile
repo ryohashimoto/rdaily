@@ -42,11 +42,13 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'debugger'
 gem 'rails_12factor', group: :production
 
+gem 'pg'
+gem 'thin'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'sqlite3'
   gem 'heroku'
 end
 
@@ -58,6 +60,4 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
-  gem 'thin'
 end
