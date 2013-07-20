@@ -12,9 +12,9 @@
     </div>
     <div class="large-12 columns">
       <% if post.published_policy.active? %>
-        <%= link_to 'Published', unpublish_account_post_path(post), method: post, class: "small button radius secondary" %>
+        <%= link_to 'Published', unpublish_account_post_path(post), method: :post, class: "small button radius secondary" %>
       <% else %>
-        <%= link_to 'Publish', publish_account_post_path(post), method: post, class: "small button radius success" %>
+        <%= link_to 'Publish', publish_account_post_path(post), method: :post, class: "small button radius success" %>
       <% end %>
       &nbsp;
       <%= link_to 'Edit', edit_account_post_path(post), class: "small button radius" %>

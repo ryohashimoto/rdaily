@@ -8,7 +8,7 @@ class Account::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save!
       flash.notice = "User is successfully created."
-      redirect_to root_path
+      redirect_to account_path
     end
   end
   
