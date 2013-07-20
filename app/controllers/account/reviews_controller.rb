@@ -1,4 +1,4 @@
-class Account::ReviewsController < ApplicationController
+class Account::ReviewsController < Account::BaseController
   layout 'account'
   
   def index
@@ -29,6 +29,39 @@ class Account::ReviewsController < ApplicationController
   end
   
   def update
+    @review = resources.find(params[:id])
+    if @review.update_attributes(review_params)
+      flash[:notice] = "The review is successfully updated."
+    else
+      flash[:alert] = 'The review is not updated.'
+    end
+    redirect_to account_reviews_path
+  end
+
+  def destroy
+    @review = resources.find(params[:id])
+    if @review.destroy
+      flash[:notice] = 'The review is successfully deleted.'
+      redirect_to account_reviews_path
+    end
+  end
+  
+  def publish
+    @review = resources.find(params[:id])
+    policy = @review.published_policy
+    unless policy.active?
+      policy.activate!
+    end
+    redirect_to account_reviews_path
+  end
+  
+  def unpublish
+    @review = resources.find(params[:id])
+    policy = @review.published_policy
+    if policy.active?
+      policy.stop!
+    end
+    redirect_to account_reviews_path
   end
 
   private
