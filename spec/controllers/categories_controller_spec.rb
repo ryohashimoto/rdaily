@@ -21,12 +21,17 @@ describe CategoriesController do
   end
 
   describe 'GET #show' do
+    before do
+      category1
+      post1
+    end
+    
     context "when accessing using category's id" do
       it "popurates an array of posts for a category" do
         get :show, id: category1
-        expect(assigns(:posts)).to match_array [post1]
+        expect(assigns(:posts)).to eq [post1]
       end
-      
+
       it "renders the :show template" do
         get :show, id: category1
         expect(response).to render_template :show
@@ -35,8 +40,9 @@ describe CategoriesController do
 
     context "when accessing using category's slug" do
       it "popurates an array of posts for a category" do
+        pending
         get :show, id: category1.slug
-        expect(assigns(:posts)).to match_array [post1]
+        expect(assigns(:posts)).to eq [post1]
       end
       
       it "renders the :show template" do
