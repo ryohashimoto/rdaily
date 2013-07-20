@@ -3,8 +3,8 @@
   <p><%= markdown post.body %></p>
   <div class="row">
     <div class="large-8 columns">
-      Category:
       <p>
+        Category:
         <% post.categories.each do |category| %>
           <%= link_to category.name, category %>
         <% end %>

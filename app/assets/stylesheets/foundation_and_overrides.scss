@@ -1040,9 +1040,11 @@ h1, h2, h3, h4 {
 }
 
 .post, #archives {
-  font-size: 90%;
-  word-break: break-all;
-  text-shadow: -1px 1px 0 rgba(255, 255, 255, 1);
+  p {
+    font-size: 90%;
+    word-break: break-all;
+    text-shadow: -1px 1px 0 rgba(255, 255, 255, 1);    
+  }
   ul, ol, dl {
     list-style-position: inside;
   }
