@@ -1,0 +1,10 @@
+<ul class="breadcrumbs">
+  <li><%= link_to 'Dashboard', account_path %></li>
+  <li class="current"><%= link_to 'Create a new review', new_account_review_path %></li>
+</ul>
+
+<div class="large-8" columns">
+<h2>Create a new review</h2>
+
+<%= render :partial => 'form', :locals => { :review => @review } %>
+</div>
