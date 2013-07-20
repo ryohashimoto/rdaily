@@ -5,6 +5,8 @@ gemfile:
   - Gemfile
 env:
   - DB=sqlite3
+before_script:
+  - psql -c 'create database rdaily_test;' -U postgres
 script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate
   - bundle exec rake db:test:prepare
