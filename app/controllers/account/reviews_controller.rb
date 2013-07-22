@@ -63,6 +63,12 @@ class Account::ReviewsController < Account::BaseController
     end
     redirect_to account_reviews_path
   end
+  
+  def search_product
+    @amazon_service ||= AmazonService.new
+    binding.pry
+    @amazon_service.search(params[:keyword], 'Music')
+  end
 
   private
   def resources

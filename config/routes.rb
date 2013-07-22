@@ -31,6 +31,9 @@ Rdaily::Application.routes.draw do
       end
     end
     resources :reviews do
+      collection do
+        post :search_product
+      end
       member do
         post :publish
         post :unpublish
