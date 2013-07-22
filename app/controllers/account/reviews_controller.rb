@@ -65,9 +65,11 @@ class Account::ReviewsController < Account::BaseController
   end
   
   def search_product
-    @amazon_service ||= AmazonService.new
-    binding.pry
-    @amazon_service.search(params[:keyword], 'Music')
+    @amazon_service ||= AmazonService.new('Books')
+    @result = @amazon_service.search(params[:search][:keyword])
+    respond_to do |format|
+      format.json { render json: @result }
+    end
   end
 
   private

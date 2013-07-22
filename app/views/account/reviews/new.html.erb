@@ -5,8 +5,8 @@
 
 <div class="large-8" columns">
 <h2>Create a new review</h2>
-<%= form_tag search_product_account_reviews_path, remote: true do %>
-  <%= text_field_tag :keyword, nil, placeholder: 'Keyword'%>
+<%= form_tag search_product_account_reviews_path(:format => "json") do %>
+  <%= text_field_tag 'search[keyword]', nil, placeholder: 'Keyword'%>
   <%= submit_tag 'Search Product', class: 'button radius' %>
 <% end %>
 <%= render :partial => 'form', :locals => { :review => @review } %>
