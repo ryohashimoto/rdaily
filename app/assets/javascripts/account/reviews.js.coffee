@@ -3,6 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
+  source = $('#product_template').html()
+  template = Handlebars.compile(source)
+
   $('input#search_product_button').on 'click', (event) =>
     keyword = $('input#search_keyword').val()
     unless keyword == ''
@@ -21,3 +24,6 @@ $ ->
   renderSearchResult = (ajax) ->
     if ajax
       console.dir(ajax)
+      for item in ajax.items
+        html = template(item)
+        $('#products').append(html)

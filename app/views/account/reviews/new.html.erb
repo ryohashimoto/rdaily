@@ -3,9 +3,25 @@
   <li class="current"><%= link_to 'Create a new review', new_account_review_path %></li>
 </ul>
 
-<div class="large-8" columns">
+<div class="large-12" columns">
 <h2>Create a new review</h2>
 <%= text_field_tag 'search[keyword]', nil, placeholder: 'Keyword'%>
 <%= submit_tag 'Search Product', id: 'search_product_button', class: 'button radius' %>
 <%= render :partial => 'form', :locals => { :review => @review } %>
 </div>
+
+<div id="products" class="large-12 columns">
+</div>
+
+
+<script id="product_template" type="text/x-handlebars-template">
+  <div class="product post">
+    <h3>{{title}}</h3>
+    <div class="details">
+      {{author}}
+      {{#published_on}}
+        | Released {{published_on}}
+      {{/published_on}}
+    </div>
+  </div>
+</script>
