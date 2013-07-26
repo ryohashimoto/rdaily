@@ -39,6 +39,9 @@ Rdaily::Application.routes.draw do
         post :unpublish
       end
     end
+    resources :products do
+      resources :reviews, controller: 'products/reviews'
+    end
     resources :categories
     resources :photos
   end
