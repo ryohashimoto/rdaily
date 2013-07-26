@@ -7,10 +7,12 @@ $ ->
   template = Handlebars.compile(source)
 
   $('input#search_product_button').on 'click', (event) =>
-    keyword = $('input#search_keyword').val()
-    unless keyword == ''
+    $('#products').empty()
+    search_keyword = $('input#search_keyword').val()
+    search_index = $('select#search_index').val()
+    unless search_keyword == ''
       postSearchKeyword '/account/reviews/search_product',
-        {search: { keyword: keyword } }, 
+        {search: { keyword: search_keyword, index: search_index } }, 
         renderSearchResult
   
   postSearchKeyword = (url, data, callback) ->

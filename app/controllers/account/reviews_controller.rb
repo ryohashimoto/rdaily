@@ -65,7 +65,7 @@ class Account::ReviewsController < Account::BaseController
   end
   
   def search_product
-    @amazon_service ||= AmazonService.new('Books')
+    @amazon_service ||= AmazonService.new(params[:search][:index])
     @result = @amazon_service.search(params[:search][:keyword])
     respond_to do |format|
       format.json { render json: @result }

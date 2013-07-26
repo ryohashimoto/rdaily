@@ -3,25 +3,31 @@
   <li class="current"><%= link_to 'Create a new review', new_account_review_path %></li>
 </ul>
 
-<div class="large-12" columns">
+<div class="large-12 columns">
 <h2>Create a new review</h2>
 <%= text_field_tag 'search[keyword]', nil, placeholder: 'Keyword'%>
+<%= select_tag 'search[index]', options_for_select({"Books" => "Books", "Music" => "Music", "DVD" => "DVD"})%>
 <%= submit_tag 'Search Product', id: 'search_product_button', class: 'button radius' %>
 <%= render :partial => 'form', :locals => { :review => @review } %>
 </div>
 
+<h3>Seach Results:</h3>
 <div id="products" class="large-12 columns">
 </div>
 
 
 <script id="product_template" type="text/x-handlebars-template">
-  <div class="product post">
-    <h3>{{title}}</h3>
-    <div class="details">
-      {{author}}
-      {{#published_on}}
-        | Released {{published_on}}
-      {{/published_on}}
+  <div class="product_result panel" style="font-size: 80%;">
+    <div class="row">
+    <div class="small-4 columns">
+      <img src="{{image_large_url}}" width="160">
+    </div>
+    <div class="small-8 columns">
+      <h3>{{title}}</h3>
+      <p>{{author}}<br>
+      {{publisher}} {{isbn}} | Released {{published_on}}
+      <a href="{{page_url}}" target="_blank">View details on Amazon</a></p>
+    </div>
     </div>
   </div>
 </script>

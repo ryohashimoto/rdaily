@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'zurb-foundation'
 gem 'handlebars_assets'
+gem 'compass-rails', github: "milgner/compass-rails", branch: "rails4"
 
 gem 'jquery-rails'
 

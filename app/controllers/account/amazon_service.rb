@@ -26,7 +26,8 @@ class AmazonService
   
   private
   def parse_item(item)
-    if @search_index == 'Books'
+    case @search_index
+    when 'Books'
       info = {
         asin: item.get('ASIN'),
         isbn: item.get('ItemAttributes/ISBN'),
@@ -39,7 +40,25 @@ class AmazonService
         image_small_url: item.get('SmallImage/URL'),
         image_large_url: item.get('LargeImage/URL')
       }
-      info
+    when 'Music'
+      info = {
+        asin: item.get('ASIN'),
+        title: item.get('ItemAttributes/Title'),
+        page_url: URI.decode(item.get('DetailPageURL')),
+        image_url: item.get('MediumImage/URL'),
+        image_small_url: item.get('SmallImage/URL'),
+        image_large_url: item.get('LargeImage/URL')
+      }
+    else
+      info = {
+        asin: item.get('ASIN'),
+        title: item.get('ItemAttributes/Title'),
+        page_url: URI.decode(item.get('DetailPageURL')),
+        image_url: item.get('MediumImage/URL'),
+        image_small_url: item.get('SmallImage/URL'),
+        image_large_url: item.get('LargeImage/URL')
+      }
     end
+    info
   end
 end
