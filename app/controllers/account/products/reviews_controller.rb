@@ -2,14 +2,13 @@ class Account::Products::ReviewsController < Account::BaseController
   
   def new
     @review = resources.new(asin: params[:product_id])
-    amazon_service = AmazonService.new('All')
     @product_params = amazon_service.lookup(params[:product_id])
   end
   
   def create    
     @review = resources.new(review_params)
-    binding.pry
     if @review.save!
+      amazon_service.store(review_params[:asin])
       flash[:notice] = "Review is successfully created."
       redirect_to account_reviews_path
     else
@@ -24,5 +23,9 @@ class Account::Products::ReviewsController < Account::BaseController
   
   def review_params
     params.require(:review).permit(:title, :body, :asin)
+  end
+
+  def amazon_service
+    @amazon_service ||= AmazonService.new('All')
   end
 end

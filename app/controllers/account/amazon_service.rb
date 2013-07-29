@@ -15,7 +15,15 @@ class AmazonService
     raise 'Item not found.' if result.items.count == 0
     item = result.items.first
     parse_item(item)
-  end 
+  end
+
+  def store(asin)
+    result = Amazon::Ecs.item_lookup(asin, { response_group: 'Medium'})
+    raise 'Amazon API Error' if result.has_error?
+    raise 'Item not found.' if result.items.count == 0
+    item = result.items.first
+    store_item(item)
+  end
   
   def search(keyword)
     result = Amazon::Ecs.item_search(keyword, {
@@ -30,6 +38,14 @@ class AmazonService
       result_hash[:items] << parse_item(item)
     end
     result_hash
+  end
+
+  def store_item(item)
+    product = Product.new
+    product.asin = item.get('ASIN')
+    product.title = item.get('ItemAttributes/Title')
+    product.data = Hash.from_xml(item.to_s)
+    product.save!
   end
   
   private

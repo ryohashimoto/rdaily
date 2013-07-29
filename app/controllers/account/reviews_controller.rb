@@ -21,6 +21,8 @@ class Account::ReviewsController < Account::BaseController
     @review = resources.new(review_params)
     @review.user_id = current_user.id
     if @review.save!
+      amazon_service = AmazonService.new('All')
+      amazon_service.lookup(review_params[:asin])
       flash[:notice] = "Review is successfully created."
       redirect_to account_reviews_path
     else
@@ -78,6 +80,6 @@ class Account::ReviewsController < Account::BaseController
   end
 
   def review_params
-    params.require(:review).permit(:title, :body)
+    params.require(:review).permit(:title, :body, :asin)
   end
 end
