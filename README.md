@@ -1,4 +1,4 @@
-# Rdaily [<img src="https://secure.travis-ci.org/ryohashimoto/rdaily.png"/>](http://travis-ci.org/ryohashimoto/rdaily)
+# Rdaily
 
 * Author: Ryo Hashimoto
 * Copyright: Copyright (c) 2013 Ryo Hashimoto
