@@ -44,6 +44,8 @@ class AmazonService
     product = Product.new
     product.asin = item.get('ASIN')
     product.title = item.get('ItemAttributes/Title')
+    product.page_url = URI.decode(item.get('DetailPageURL'))
+    product.image_url = item.get('LargeImage/URL')
     product.data = Hash.from_xml(item.to_s)
     product.save!
   end

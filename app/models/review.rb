@@ -4,4 +4,8 @@ class Review < Post
   def review?
     true
   end
+
+  def product
+    Product.find_by(asin: self.asin)
+  end
 end
