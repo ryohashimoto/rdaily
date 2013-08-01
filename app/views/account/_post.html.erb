@@ -1,5 +1,5 @@
 <% if post.try(:review?) %>
-<%= render partial: 'review', locals: { review: post } %>
+<%= render partial: 'account/review', locals: { review: post } %>
 <% else %>
 <div class="panel post">
   <h3><%= link_to post.title, [:account, post] %></h3>
