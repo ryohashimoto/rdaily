@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_filter :find_category, :only => [:show]
 
   def show
-    @posts = @category.posts.published
+    @posts = @category.posts.where("published_at is not null")
   end
 
   private

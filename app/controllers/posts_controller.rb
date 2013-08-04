@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   private
   def resources
-    Post.published
+    Post.where("published_at is not null")
   end
 
   def monthly_posts

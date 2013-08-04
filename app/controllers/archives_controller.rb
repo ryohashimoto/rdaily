@@ -6,6 +6,6 @@ class ArchivesController < ApplicationController
 
   private
   def resources
-    Post.published
+    Post.where("published_at is not null")
   end
 end

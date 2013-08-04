@@ -6,6 +6,6 @@ class PagesController < ApplicationController
   
   private
   def resources
-    Page.published
+    Page.where("published_at is not null")
   end
 end
