@@ -47,7 +47,7 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def find_category
-    @category ||= resources.find_by_slug(params[:id])
+    @category ||= resources.find_by(slug: params[:id])
   end
 
   def category_params
