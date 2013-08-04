@@ -7,11 +7,12 @@ Rdaily::Application.routes.draw do
 
   resources :posts, :only => [:show]
   resources :pages, :only => [:show]
+  resources :reviews, :only => [:index, :show]
   resources :categories, :only => [:show]
   
   namespace :account do
     get '/' => :index
-  #  resources :users, :only => [:new, :create]
+    resources :users, :only => [:new, :create]
     resources :sessions, :only => [:new, :create] do
       collection do
         delete :destroy
@@ -28,6 +29,18 @@ Rdaily::Application.routes.draw do
         post :publish
         post :unpublish
       end
+    end
+    resources :reviews do
+      collection do
+        post :search_product
+      end
+      member do
+        post :publish
+        post :unpublish
+      end
+    end
+    resources :products do
+      resources :reviews, controller: 'products/reviews'
     end
     resources :categories
     resources :photos

@@ -15,6 +15,7 @@ gem 'mini_magick'
 gem 'pygments.rb' # for syntax highlighting
 gem 'memcachier'
 gem 'dalli'
+gem 'amazon-ecs'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -22,6 +23,8 @@ gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'zurb-foundation'
+gem 'handlebars_assets'
+gem 'compass-rails', github: "milgner/compass-rails", branch: "rails4"
 
 gem 'jquery-rails'
 
@@ -29,7 +32,7 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
-# gem 'jbuilder'
+gem 'jbuilder'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -41,11 +44,13 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # gem 'debugger'
 gem 'rails_12factor', group: :production
 
+gem 'pg'
+gem 'thin'
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'sqlite3'
   gem 'heroku'
 end
 
@@ -57,6 +62,4 @@ group :test do
 end
 
 group :production do
-  gem 'pg'
-  gem 'thin'
 end

@@ -21,6 +21,8 @@
         <%= auto_discovery_link_tag :atom, "/feed" %>
         <%= auto_discovery_link_tag :rss, "/feed.rss" %>
         <link href='http://fonts.googleapis.com/css?family=Ruda:400,900' rel='stylesheet' type='text/css'>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.0.0/handlebars.min.js"></script>
+    <script>window.Handlebars || document.write('<%= escape_javascript(javascript_include_tag "handlebars") %>')</script>
   </head>
 
   <body>
@@ -31,7 +33,6 @@
         </li>
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
-
       <section class="top-bar-section">
         <ul class="left">
           <li class="divider"></li>
@@ -52,12 +53,7 @@
           <% end %>
           <% if flash[:alert] %>
           <div data-alert class="alert-box warning radius"><%= flash[:alert] %><a href="#" class="close">&times;</a></div>
-          <% end %>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="twelve columns">      
+          <% end %>               
           <%= yield %>
         </div>
       </div>

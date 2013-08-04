@@ -1,3 +1,6 @@
+<% if post.try(:review?) %>
+<%= render partial: 'account/review', locals: { review: post } %>
+<% else %>
 <div class="panel post">
   <h3><%= link_to post.title, [:account, post] %></h3>
   <p><%= abbrev post.body, 80 %></p>
@@ -12,9 +15,9 @@
     </div>
     <div class="large-12 columns">
       <% if post.published_policy.active? %>
-        <%= link_to 'Published', unpublish_account_post_path(post), method: post, class: "small button radius secondary" %>
+        <%= link_to 'Published', unpublish_account_post_path(post), method: :post, class: "small button radius secondary" %>
       <% else %>
-        <%= link_to 'Publish', publish_account_post_path(post), method: post, class: "small button radius success" %>
+        <%= link_to 'Publish', publish_account_post_path(post), method: :post, class: "small button radius success" %>
       <% end %>
       &nbsp;
       <%= link_to 'Edit', edit_account_post_path(post), class: "small button radius" %>
@@ -23,3 +26,4 @@
     </div>
   </div>
 </div>
+<% end %>

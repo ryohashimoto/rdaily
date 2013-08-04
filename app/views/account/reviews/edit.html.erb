@@ -1,0 +1,9 @@
+<ul class="breadcrumbs">
+  <li><%= link_to 'Dashboard', account_path %></li>
+  <li><%= link_to "Your reviews", account_reviews_path %></li>
+  <li class="current"><%= link_to "Editing review ##{@review.id}", edit_account_review_path(@review) %></li>
+</ul>
+
+<h2>Editing review #<%= @review.id %></h2>
+
+<%= render :partial => 'form', :locals => {review: @review } %>
