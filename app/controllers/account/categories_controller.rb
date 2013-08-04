@@ -15,7 +15,7 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def create
-    @category = resources.new(params[:category])
+    @category = resources.new(category_params)
     if @category.save
       flash[:notice] = 'Category is successfully created.'
     else
@@ -28,7 +28,7 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def update
-    if @params[:category] && @cateogry.update_attributes(params[:category])
+    if @cateogry.update_attributes(category_params)
       redirect_to account_categories_path
     else
       render :action => :edit
@@ -48,5 +48,9 @@ class Account::CategoriesController < Account::BaseController
 
   def find_category
     @category ||= resources.find_by_slug(params[:id])
+  end
+
+  def category_params
+    params.require(:category).permit(:name)
   end
 end
