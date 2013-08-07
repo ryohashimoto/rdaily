@@ -8,7 +8,9 @@
     <%= f.label :category %>
     <p><a href="#" data-dropdown="choose_post_categories" class="button radius small secondary">Choose...</a></p>
     <ul id="choose_post_categories" class="f-dropdown" data-dropdown-content>
-      <li><a href="#">New Category</a></li>
+      <% if current_user.categories.empty? %>
+      <li><%= link_to 'New Category', new_account_category_path %></li>
+      <% end %>
       <% current_user.categories.each do |category| %>
         <% if params[:action] == 'edit' && post.categories.include?(category) %>
         <li class="post_category category_selected" data-category-id="<%= category.id %>" data-category-selected="true"><a href="#"><%= category.name %></a></li>
