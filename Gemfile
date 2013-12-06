@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.0.0'
 
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -10,6 +10,7 @@ gem 'redcarpet' # for Markdown syntax
 gem 'kaminari'  # for paginations
 gem 'gravtastic' # for gravatar
 gem 'carrierwave'
+gem 'unf'
 gem 'fog'
 gem 'mini_magick'
 gem 'pygments.rb' # for syntax highlighting
@@ -24,12 +25,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'zurb-foundation'
 gem 'handlebars_assets'
-gem 'compass-rails', github: "milgner/compass-rails", branch: "rails4"
+gem 'compass-rails'
 
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.1.0'
 
 # To use Jbuilder templates for JSON
 gem 'jbuilder'
