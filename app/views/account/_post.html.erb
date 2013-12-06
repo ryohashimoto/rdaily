@@ -2,7 +2,7 @@
 <%= render partial: 'account/review', locals: { review: post } %>
 <% else %>
 <div class="panel post">
-  <h3><%= link_to post.title, [:account, post] %></h3>
+  <h2><%= link_to post.title, [:account, post] %></h2>
   <p><%= abbrev post.body, 80 %></p>
   <div class="row">
     <div class="large-12 columns">

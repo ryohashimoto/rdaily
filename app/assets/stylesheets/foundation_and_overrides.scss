@@ -1030,7 +1030,7 @@ body {
 
 .top-bar.expanded .title-area {
   background: #333;
-  text-shadow: 1px -1px 0 rgba(0,0,0,1);  
+  text-shadow: 1px -1px 0 rgba(0,0,0,1);
 }
 .top-bar-section {
   ul {
@@ -1041,14 +1041,28 @@ body {
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Ruda', sans-serif;    
+  font-family: 'Ruda', sans-serif;
 }
+
+h2 {
+  font-size: 150%;
+}
+
+h3 {
+  font-size: 120%;
+}
+
+h4 {
+  font-size: 100%;
+}
+
+
 
 .post, #archives {
   p {
     font-size: 90%;
     word-break: break-all;
-    text-shadow: -1px 1px 0 rgba(255, 255, 255, 1);    
+    text-shadow: -1px 1px 0 rgba(255, 255, 255, 1);
   }
   ul, ol, dl {
     list-style-position: inside;

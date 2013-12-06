@@ -1,7 +1,7 @@
 <div class="panel post">
   <div class="row">
     <div class="large-8 columns">
-      <h3><%= link_to review.title, [:account, review] %></h3>
+      <h2><%= link_to review.title, [:account, review] %></h2>
       <p><%= abbrev review.body, 80 %></p>
       <% if review.published_policy.active? %>
         <%= link_to 'Published', unpublish_account_review_path(review), method: :post, class: "small button radius secondary" %>

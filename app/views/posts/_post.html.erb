@@ -2,7 +2,7 @@
 <%= render partial: 'reviews/review', locals: { review: post } %>
 <% else %>
 <div class="panel post">
-  <h3><%= link_to post.title, post %></h3>
+  <h2><%= link_to post.title, post %></h2>
   <p><%= markdown post.body %></p>
   <div class="row">
     <div class="large-8 columns">
