@@ -9,7 +9,6 @@ before_script:
   - sudo apt-get install postgresql-contrib
   - sudo /etc/init.d/postgresql restart
   - psql -c 'create database rdaily_test;' -U postgres
-  - psql -c 'create extension hstore;' -U postgres -d template1
 script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate
   - bundle exec rake db:test:prepare
