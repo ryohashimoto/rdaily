@@ -7,9 +7,8 @@ Rdaily::Application.routes.draw do
 
   resources :posts, :only => [:show]
   resources :pages, :only => [:show]
-  resources :reviews, :only => [:index, :show]
   resources :categories, :only => [:show]
-  
+
   namespace :account do
     get '/' => :index
     resources :users, :only => [:new, :create]

@@ -1,7 +1,0 @@
-<ul class="breadcrumbs">
-  <li><%= link_to 'Dashboard', account_path %></li>
-  <li><%= link_to "Listing reviews", account_reviews_path %></li>
-  <li class="current"><%= link_to "Review ##{@review.id}", account_review_path(id: @review.id) %></li>
-</ul>
-
-<%= render :partial => 'reviews/review', :locals => { :review => @review } %>
