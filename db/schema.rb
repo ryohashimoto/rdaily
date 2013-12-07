@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130801110600) do
+ActiveRecord::Schema.define(version: 20131207123600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "hstore"
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -66,22 +65,10 @@ ActiveRecord::Schema.define(version: 20130801110600) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
-    t.string   "asin"
   end
 
-  add_index "posts", ["asin"], name: "index_posts_on_asin", unique: true, using: :btree
   add_index "posts", ["id"], name: "index_posts_on_id", unique: true, using: :btree
   add_index "posts", ["published_at"], name: "index_posts_on_published_at", using: :btree
-
-  create_table "products", force: true do |t|
-    t.string   "asin"
-    t.string   "title"
-    t.hstore   "data"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "page_url"
-    t.string   "image_url"
-  end
 
   create_table "users", force: true do |t|
     t.string   "name"
