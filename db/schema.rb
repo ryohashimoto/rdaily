@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20131207123600) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.string   "slug"
   end
@@ -29,8 +29,8 @@ ActiveRecord::Schema.define(version: 20131207123600) do
   create_table "categorizations", force: true do |t|
     t.integer  "post_id"
     t.integer  "category_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 20131207123600) do
     t.integer  "sequence"
     t.integer  "user_id"
     t.datetime "published_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "slug"
   end
 
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 20131207123600) do
   create_table "photos", force: true do |t|
     t.string   "image",      null: false
     t.integer  "user_id",    null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: true do |t|
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(version: 20131207123600) do
     t.text     "body"
     t.integer  "user_id"
     t.datetime "published_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "type"
   end
 
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(version: 20131207123600) do
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
 end
