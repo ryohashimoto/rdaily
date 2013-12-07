@@ -29,18 +29,6 @@ Rdaily::Application.routes.draw do
         post :unpublish
       end
     end
-    resources :reviews do
-      collection do
-        post :search_product
-      end
-      member do
-        post :publish
-        post :unpublish
-      end
-    end
-    resources :products do
-      resources :reviews, controller: 'products/reviews'
-    end
     resources :categories
     resources :photos
   end
