@@ -246,6 +246,7 @@ DEPENDENCIES
   launchy
   memcachier
   mini_magick
+  minitest
   pg
   pry-rails
   pygments.rb
