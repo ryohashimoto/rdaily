@@ -16,10 +16,9 @@
   	<title><%= content_for?(:title) ? yield(:title) : "Rdaily" %></title>
 
   	<%= stylesheet_link_tag    "application" %>
-        <%= csrf_meta_tags %>
-        <%= auto_discovery_link_tag :atom, "/feed" %>
-        <%= auto_discovery_link_tag :rss, "/feed.rss" %>
-        <link href='http://fonts.googleapis.com/css?family=Ruda:400,900' rel='stylesheet' type='text/css'>
+    <%= csrf_meta_tags %>
+    <%= auto_discovery_link_tag :atom, "/feed" %>
+    <%= auto_discovery_link_tag :rss, "/feed.rss" %>
   </head>
 
   <body>
@@ -55,8 +54,8 @@
         </div>
       </div>
       <div class="row">
-        <div class="twelve columns" style="font-size: 80%;margin-left:24px;">
-          <p>&copy; 2013 Rdaily all rights reverved.</p>
+        <div class="twelve columns" style="margin-left:24px;">
+          <p style="font-size:small;">&copy; 2013 Rdaily all rights reverved.</p>
         </div>
       </div>
     </div>
