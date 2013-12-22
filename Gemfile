@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
+
 ruby '2.1.0'
 
 gem 'rails', '4.1.0.beta1'
@@ -24,8 +26,8 @@ gem 'sass-rails',   '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'zurb-foundation'
-gem 'handlebars_assets'
 gem 'compass-rails'
+gem 'rails-assets-handlebars'
 
 gem 'jquery-rails'
 
