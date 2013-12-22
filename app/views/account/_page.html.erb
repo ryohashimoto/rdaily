@@ -4,7 +4,7 @@
   <div class="row">
     <div class="large-12 columns">
       <% if page.published_policy.active? %>
-        <%= link_to 'Published', unpublish_account_page_path(page), method: :post, class: "small button radius secondary" %>
+        <%= link_to 'Published', unpublish_account_page_path(page), method: :post, class: "small button secondary" %>
       <% else %>
         <%= link_to 'Publish', publish_account_page_path(page), method: :post, class: "small button" %>
       <% end %>

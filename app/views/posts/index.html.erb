@@ -2,7 +2,7 @@
   <% if User.count == 0 %>
     <h2>Welcome to Rdaily !</h2>
     <p>Rdaily setup is simple and easy.</p>
-    <%= link_to 'Create new user for Rdaily', new_account_user_path, class: 'button radius'%>
+    <%= link_to 'Create new user for Rdaily', new_account_user_path, class: 'button'%>
   <% else %>
   <div class="large-9 columns">
     <%= render :partial => 'post', :collection => @posts %>

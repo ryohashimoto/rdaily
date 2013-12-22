@@ -43,13 +43,13 @@
       <div class="row">
         <div class="twelve columns">
           <% if flash[:error] %>
-          <div data-alert class="alert-box alert radius"><%= flash[:error] %><a href="#" class="close">&times;</a></div>
+          <div data-alert class="alert-box alert"><%= flash[:error] %><a href="#" class="close">&times;</a></div>
           <% end %>
           <% if flash[:notice] %>
-          <div data-alert class="alert-box radius"><%= flash[:notice] %><a href="#" class="close">&times;</a></div>
+          <div data-alert class="alert-box"><%= flash[:notice] %><a href="#" class="close">&times;</a></div>
           <% end %>
           <% if flash[:alert] %>
-          <div data-alert class="alert-box warning radius"><%= flash[:alert] %><a href="#" class="close">&times;</a></div>
+          <div data-alert class="alert-box warning"><%= flash[:alert] %><a href="#" class="close">&times;</a></div>
           <% end %>
           <%= yield %>
         </div>
