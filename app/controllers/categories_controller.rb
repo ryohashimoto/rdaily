@@ -1,12 +1,15 @@
 class CategoriesController < ApplicationController
-  before_filter :find_category, :only => [:show]
 
   def show
-    @posts = @category.posts.where("published_at is not null")
+    @posts = resources.page(params[:page]).per(5)
   end
 
   private
-  def find_category
+  def resources
+    category.posts.where("published_at is not null").order("created_at desc")
+  end
+
+  def category
     @category ||= Category.find_by(slug: params[:id])
   end
 end
