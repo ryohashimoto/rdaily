@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :password, :on => :create
   validates_presence_of :name
-  validates :email, :presence => :true, :uniqueness => :true
+  validates :email, :presence => true, :uniqueness => true
   validates_format_of :email, :with => /\A[-a-z0-9_+\.]+\@([-a-z0-9]+\.)+[a-z0-9]{2,4}\z/i
 
   include Gravtastic

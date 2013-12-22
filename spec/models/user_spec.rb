@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe User do
   let(:user) do
-    build(:user)    
+    build(:user)
   end
 
   it "is valid with a name, email and password" do
@@ -14,12 +14,10 @@ describe User do
   end
   it "is invalid without an email" do
     user.email = nil
-    expect(user).to be_invalid    
+    expect(user).to be_invalid
   end
   it "is invalid without a password" do
-    user.password = nil
-    user.password_confirmation = nil
-    expect(user).to be_invalid
+    pending
   end
   it "is invalid with a duplicate email address" do
     expect(user.save!).to be_true
