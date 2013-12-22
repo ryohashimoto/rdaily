@@ -2,7 +2,7 @@
   <h2><%= link_to post.title, post %></h2>
   <p><%= markdown post.body %></p>
   <div class="row">
-    <div class="large-8 columns">
+    <div class="large-6 columns">
       <p>
         Category:
         <% post.categories.each do |category| %>
@@ -10,13 +10,14 @@
         <% end %>
       </p>
     </div>
-    <div class="large-4 columns" style="text-align: right;">
-      <div style="float: right;">
-      <div style="width: 100px; float:left;">
-        <p style="font-size:small;text-align:right;">by <b><%= post.user.name %></b><br>
-        <%= post.created_at.strftime("%B %d, %Y") %></p>
+    <div class="large-6 columns" style="text-align: right;">
+      <div style="float:right;height:48px;">
+      <div style="width:120px;height:48px;float:left;">
+        <p style="font-size:small;text-align:right;vertical-align:middle;">by <b><%= post.user.name %></b><br>
+        <%= post.created_at.strftime("%B %d, %Y") %>
+        </p>
       </div>
-      <div style="width: 60px; float: left;">
+      <div style="width:60px;float:left;">
         <%= image_tag post.user.gravatar_url, :width => 48, :height => 48 %>
       </div>
       </div>

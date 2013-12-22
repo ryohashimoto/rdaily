@@ -1059,6 +1059,13 @@ h4 {
 
 
 .post, #archives {
+  padding: 28px;
+  border-radius: 2px;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+
   p {
     font-size: 90%;
     word-break: break-all;
