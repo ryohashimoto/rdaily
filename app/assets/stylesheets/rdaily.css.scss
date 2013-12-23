@@ -1,0 +1,92 @@
+@import "foundation";
+
+$button-med: emCalc(12px);
+$button-sml: emCalc(9px);
+$button-border-width: 0px;
+@mixin opacity($alphavalue) {
+    opacity: $alphavalue;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{ $alphavalue * 100 })"; // for IE 8
+    filter: alpha(opacity=#{ $alphavalue * 100 }); // for IE 5-7
+}
+
+.top-bar, .top-bar-section li a:not(.button) {
+  background: #333;
+  text-shadow: 1px -1px 0 rgba(0,0,0,1);
+}
+
+.top-bar.expanded .title-area {
+  background: #333;
+  text-shadow: 1px -1px 0 rgba(0,0,0,1);
+}
+.top-bar-section {
+  ul {
+    .divider {
+      border-color: #333;
+    }
+  }
+}
+
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h2 {
+  font-size: 150%;
+}
+
+h3 {
+  font-size: 120%;
+}
+
+h4 {
+  font-size: 100%;
+}
+
+
+
+.post, #archives {
+  padding: 28px;
+  border-radius: 2px;
+
+  h2 {
+    line-height: 140%;
+    margin-bottom: 24px;
+  }
+
+  p {
+    font-size: 90%;
+    line-height: 160%;
+    word-break: break-all;
+    text-shadow: -1px 1px 0 rgba(255, 255, 255, 1);
+  }
+  ul, ol, dl {
+    list-style-position: inside;
+  }
+  code {
+    line-height: 150%;
+    font-weight: normal;
+    color: #000;
+  }
+  pre {
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 80%;
+    line-height: 150%;
+    padding: 12px;
+    overflow-x: scroll;
+  }
+}
+
+@media only screen and (max-width: 58.75em) {
+  #github_ribbon {
+    display: none;
+  }
+}
+
+.warning { @include alert(#ff6c3c); }
+.alert-box {
+  position: absolute;
+  width: 100%;
+  top: -26px;
+  z-index: 3000;
+  @include opacity(0.9);
+}

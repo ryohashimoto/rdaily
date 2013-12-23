@@ -20,3 +20,5 @@ $(document).foundation();
 setTimeout(function() {
   $('.alert-box').fadeOut();
 }, 2000);
+
+$(function(){ $(document).foundation(); });
