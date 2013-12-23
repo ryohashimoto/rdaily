@@ -30,6 +30,15 @@ body {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.top-bar .name {
+  h1 {
+    a {
+      font-family:'Ruda',sans-serif;
+      font-weight: 700;
+    }
+  }
+}
+
 h2 {
   font-size: 150%;
 }
