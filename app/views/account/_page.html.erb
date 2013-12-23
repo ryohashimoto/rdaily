@@ -1,8 +1,8 @@
-<div class="panel post">
+<div class="post">
   <h2><%= link_to page.title, [:account, page] %></h2>
   <p><%= abbrev page.body, 80 %></p>
   <div class="row">
-    <div class="large-12 columns">
+    <div class="medium-12 columns">
       <% if page.published_policy.active? %>
         <%= link_to 'Published', unpublish_account_page_path(page), method: :post, class: "small button secondary" %>
       <% else %>

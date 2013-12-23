@@ -2,7 +2,7 @@
   <h2><%= link_to post.title, post, :style => 'color:#333;' %></h2>
   <p><%= markdown post.body %></p>
   <div class="row">
-    <div class="large-6 columns">
+    <div class="medium-6 columns">
       <p>
         Category:
         <% post.categories.each do |category| %>
@@ -10,7 +10,7 @@
         <% end %>
       </p>
     </div>
-    <div class="large-6 columns" style="text-align: right;">
+    <div class="medium-6 columns" style="text-align: right;">
       <div style="float:right;height:48px;">
       <div style="width:120px;height:48px;float:left;">
         <p style="font-size:small;text-align:right;vertical-align:middle;">by <b><%= post.user.name %></b><br>

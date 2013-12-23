@@ -1,8 +1,8 @@
-<div class="panel post">
+<div class="post">
   <h2><%= link_to post.title, [:account, post] %></h2>
   <p><%= abbrev post.body, 80 %></p>
   <div class="row">
-    <div class="large-12 columns">
+    <div class="medium-12 columns">
       Category:
       <p>
         <% post.categories.each do |category| %>
@@ -10,7 +10,7 @@
         <% end %>
       </p>
     </div>
-    <div class="large-12 columns">
+    <div class="medium-12 columns">
       <% if post.published_policy.active? %>
         <%= link_to 'Published', unpublish_account_post_path(post), method: :post, class: "small button secondary" %>
       <% else %>
