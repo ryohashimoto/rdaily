@@ -4,13 +4,13 @@
     <p>Rdaily setup is simple and easy.</p>
     <%= link_to 'Create new user for Rdaily', new_account_user_path, class: 'button'%>
   <% else %>
-  <div class="large-9 columns">
+  <div class="medium-9 columns">
     <%= render :partial => 'post', :collection => @posts %>
     <div class="pagination">
       <%= paginate @posts %>
     </div>
   </div>
-  <div id="archives" class="large-3 columns">
+  <div id="archives" class="medium-3 columns">
     <%= render :partial => 'post_archives', :locals => { :posts => @monthly_posts } %>
   </div>
   <% end %>
