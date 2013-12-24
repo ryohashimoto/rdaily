@@ -27,6 +27,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'foundation-rails'
 gem 'compass-rails'
+gem 'rails-assets-modernizr'
 gem 'rails-assets-handlebars'
 
 gem 'jquery-rails'

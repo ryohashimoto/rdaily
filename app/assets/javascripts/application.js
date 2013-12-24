@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require modernizr
 //= require foundation
 //= require handlebars
 //= require_tree .
