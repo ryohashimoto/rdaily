@@ -13,12 +13,11 @@ gem 'kaminari'  # for paginations
 gem 'gravtastic' # for gravatar
 gem 'carrierwave'
 gem 'unf'
-gem 'fog'
+gem 'fog', '>= 1.20.0'
 gem 'mini_magick'
 gem 'pygments.rb' # for syntax highlighting
 gem 'memcachier'
 gem 'dalli'
-gem 'amazon-ecs'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -33,7 +32,7 @@ gem 'rails-assets-handlebars'
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.1.0'
+gem 'bcrypt'
 
 # To use Jbuilder templates for JSON
 gem 'jbuilder'
@@ -56,7 +55,6 @@ group :development, :test do
   gem 'minitest'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'heroku'
 end
 
 group :test do
