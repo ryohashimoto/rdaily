@@ -7,11 +7,13 @@ class Account::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save!
+      builder = AboutPageBuilder.new(@user)
+      builder.create_page
       flash.notice = "User is successfully created."
       redirect_to account_path
     end
   end
-  
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)

@@ -22,6 +22,11 @@ feature "New account creation" do
 
     expect(current_path).to eq account_path
     expect(page).to have_content "Logged in as test."
+
+    visit page_path(:id => 'about')
+    expect(page).to have_content "You can modify this page in account/pages menu."
+
+    visit account_path
     expect(page).to have_content "New Post"
 
     fill_in "post_title", with: "First post"
