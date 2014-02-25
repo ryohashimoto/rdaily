@@ -9,5 +9,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def page_not_found
+    render 'errors/not_found'
+  end
+
+  def server_error
+    render 'errors/server_error'
+  end
+
   helper_method :current_user
 end

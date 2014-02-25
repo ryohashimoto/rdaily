@@ -6,6 +6,8 @@ Bundler.require(:default, Rails.env)
 
 module Rdaily
   class Application < Rails::Application
+    config.exceptions_app = self.routes
+
     config.generators do |g|
       g.test_framework :rspec
       g.fixture_replacement :factory_girl, dir: "spec/factories"
