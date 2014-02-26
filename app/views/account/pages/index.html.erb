@@ -3,6 +3,10 @@
   <li class="current"><%= link_to 'Your pages', account_pages_path %></li>
 </ul>
 
+<h2>Create page</h2>
+
+<%= render partial: 'account/pages/form', locals: { page: current_user.pages.build } %>
+
 <h2>Your pages</h2>
 
 <%= render partial: 'account/page', collection: @pages %>

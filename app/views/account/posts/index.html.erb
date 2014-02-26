@@ -3,6 +3,12 @@
   <li class="current"><%= link_to 'All posts', account_posts_path %></li>
 </ul>
 
+<h2>New post</h2>
+
+<%= render partial:'account/posts/form', locals: { post: current_user.posts.build } %>
+
+<hr>
+
 <h2>All posts</h2>
 
 <%= render partial: 'account/post', collection: @posts %>

@@ -37,7 +37,7 @@ class Account::CategoriesController < Account::BaseController
   
   def destroy
     if @category.destroy
-      redirect_to account_categories_path      
+      redirect_to account_categories_path
     end
   end
 

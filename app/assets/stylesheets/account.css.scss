@@ -2,6 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.sidebar {
+  background: #fafafa;
+  padding: 32px 20px;
+}
+
+.side-nav {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-setif !important;
+}
+
+.side-nav li {
+  font-size: 80% !important;
+}
+
 .category_selected {
   color: #fff;
   background-color: #2ba6cb;

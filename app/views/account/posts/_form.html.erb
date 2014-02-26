@@ -6,7 +6,7 @@
 <div class="row">
   <div class="small-4 columns">
     <%= f.label :category %>
-    <p><a href="#" data-dropdown="choose_post_categories" class="button small secondary">Choose...</a></p>
+    <p><a href="#" data-dropdown="choose_post_categories" class="tiny button secondary">Choose...</a></p>
     <ul id="choose_post_categories" class="f-dropdown" data-dropdown-content>
       <% if current_user.categories.empty? %>
       <li><%= link_to 'New Category', new_account_category_path %></li>
@@ -30,7 +30,7 @@
     </ul>
   </div>
   <div class="small-12 columns">
-    <%= f.submit class: 'button success' %>
+    <%= f.submit class: 'small button success' %>
     <% if params[:action] == 'edit' %>
     <%= hidden_field_tag 'post[category_ids]', "0,#{post.categories.map(&:id).join(',')}" %>
     <% else %>

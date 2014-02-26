@@ -7,17 +7,27 @@
 <% end %>
 <% if current_user %>
   <div class="medium-3 columns">
-      <h3><%= link_to 'Posts', account_posts_path %></h3>
-      <p><%= link_to 'Create New', new_account_post_path %></p>
-      <h3><%= link_to 'Pages', account_pages_path %></h3>
-      <p><%= link_to 'Create New', new_account_page_path%></p>
-      <h3><%= link_to 'Categories', account_categories_path %></h3>
-      <p><%= link_to 'Create New', new_account_category_path %></p>
-    <%= render :partial => 'account/sessions/form_logout' %>
+    <nav>
+      <div class="sidebar">
+        <ul class="side-nav">
+          <li class="heading">MENU</li>
+          <li>
+            <%= link_to 'Posts', account_posts_path %>
+          </li>
+          <li>
+            <%= link_to 'Pages', account_pages_path %>
+          </li>
+          <li>
+            <%= link_to 'Categories', account_categories_path %>
+          </li>
+        </ul>
+        <%= render :partial => 'account/sessions/form_logout' %>
+      </div>
+    </nav>
   </div>
   <div class="medium-9 columns">
     <%= yield %>
-  </div>  
+  </div>
 <% else %>
   <div class="medium-6 columns">
     <h2>Login</h2>
