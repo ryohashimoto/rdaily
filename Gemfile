@@ -49,7 +49,9 @@ gem 'jbuilder'
 # gem 'debugger'
 gem 'rails_12factor', group: :production
 
-gem 'pg'
+gem 'dotenv-rails'
+
+gem 'mysql2'
 gem 'thin'
 
 group :development, :test do

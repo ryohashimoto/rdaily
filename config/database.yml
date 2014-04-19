@@ -1,23 +1,14 @@
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: rdaily_development
-  pool: 5
-  username: postgres
-  password:
 
 test:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: rdaily_test
-  pool: 5
-  username: postgres
-  password:
 
 production:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8
   database: rdaily_production
-  pool: 5
-  username: postgres
-  password:
