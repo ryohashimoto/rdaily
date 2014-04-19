@@ -4,12 +4,9 @@ rvm:
 gemfile:
   - Gemfile
 env:
-  - DB=sqlite3
-before_script:
-  - sudo apt-get install postgresql-contrib
-  - sudo /etc/init.d/postgresql restart
-  - psql -c 'create database rdaily_test;' -U postgres
+  - DB=mysql
 script:
+  - RAILS_ENV=test budnle exec rake --trace db:setup
   - RAILS_ENV=test bundle exec rake --trace db:migrate
   - bundle exec rspec spec/
 notifications:
