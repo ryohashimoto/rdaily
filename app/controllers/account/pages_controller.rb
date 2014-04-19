@@ -19,7 +19,7 @@ class Account::PagesController < Account::BaseController
 
   def create
     @page = resources.new(page_params)
-    if @page.save!
+    if @page.save
       flash[:notice] = "Page is successfully created."
       redirect_to account_pages_path
     else
@@ -31,10 +31,11 @@ class Account::PagesController < Account::BaseController
     @page = resources.find(params[:id])
     if @page.update_attributes(page_params)
       flash[:notice] = "The page is successfully updated."
+      redirect_to account_pages_path
     else
       flash[:alert] = 'The page is not updated.'
+      render :edit
     end
-    redirect_to account_pages_path
   end
 
   def destroy

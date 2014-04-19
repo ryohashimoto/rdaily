@@ -6,11 +6,13 @@ class Account::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save!
+    if @user.save
       builder = AboutPageBuilder.new(@user)
       builder.create_page
       flash.notice = "User is successfully created."
       redirect_to account_path
+    else
+      render :new
     end
   end
 

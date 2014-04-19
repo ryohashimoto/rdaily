@@ -28,3 +28,12 @@ ul#new_post_categories {
     margin-right: 10px;
   }
 }
+
+.error {
+  label, small {
+    color: #a94442 !important;
+  }
+  input[type="text"], input[type="email"], input[type="password"], textarea {
+    border-color: #a94442;
+  }
+}

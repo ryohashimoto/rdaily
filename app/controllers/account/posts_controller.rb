@@ -22,7 +22,7 @@ class Account::PostsController < Account::BaseController
     @post = resources.new(post_form.to_params)
     @post.user_id = current_user.id
     @post.categorization_builder.build_from(post_form.category_ids)
-    if @post.save!
+    if @post.save
       flash[:notice] = "Post is successfully created."
       redirect_to account_path
     else
@@ -37,10 +37,10 @@ class Account::PostsController < Account::BaseController
     @post.categorization_builder.update_from(post_form.category_ids)    
     if @post.update_attributes(post_params)
       flash[:notice] = "The post is successfully updated."
+      redirect_to account_path
     else
-      flash[:alert] = 'The post is not updated.'
+      render :edit
     end
-    redirect_to account_path
   end
 
   def destroy

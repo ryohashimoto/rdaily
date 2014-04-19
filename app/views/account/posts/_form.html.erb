@@ -1,8 +1,6 @@
-<%= form_for [:account, post] do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-<%= f.label :body %>
-<%= f.text_area :body, :style => 'height: 160px;' %>
+<%= simple_form_for [:account, post] do |f| %>
+<%= f.input :title %>
+<%= f.input :body, input_html: { rows: 10 } %>
 <div class="row">
   <div class="small-4 columns">
     <%= f.label :category %>

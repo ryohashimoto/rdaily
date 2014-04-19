@@ -1,9 +1,6 @@
-<%= form_for [:account, page] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  <%= f.label :body %>
-  <%= f.text_area :body, :style => 'height: 160px;' %>
-  <%= f.label :slug %>
-  <%= f.text_field :slug, placeholder: 'option' %>
-  <%= f.submit class: 'small button success' %>
+<%= simple_form_for [:account, page] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :body %>
+  <%= f.input :slug, placeholder: 'option' %>
+  <%= f.button :submit, class: 'small success button' %>
 <% end %>
