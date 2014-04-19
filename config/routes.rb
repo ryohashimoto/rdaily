@@ -29,7 +29,11 @@ Rdaily::Application.routes.draw do
         post :unpublish
       end
     end
-    resources :categories
+    resources :categories do
+      collection do
+        get :cancel
+      end
+    end
     resources :photos
   end
 

@@ -29,6 +29,7 @@ gem 'foundation-icons-sass-rails'
 gem 'compass-rails'
 gem 'rails-assets-modernizr'
 gem 'rails-assets-handlebars'
+gem 'simple_form'
 
 gem 'jquery-rails'
 

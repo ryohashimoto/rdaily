@@ -3,7 +3,7 @@ class Category < ActiveRecord::Base
   validates :user_id, :presence => true
   validates :slug, :uniqueness => true, :presence => true
   before_validation :generate_slug
-  
+
   has_many :categorizations
   has_many :posts, :through => :categorizations
   belongs_to :user

@@ -1,7 +1,7 @@
 class Account::CategoriesController < Account::BaseController
   before_filter :find_category, :only => [:show, :edit, :update, :destroy]
   layout 'account'
-  
+
   def index
     @categories = resources.order('name asc')
   end
@@ -17,11 +17,9 @@ class Account::CategoriesController < Account::BaseController
   def create
     @category = resources.new(category_params)
     if @category.save
-      flash[:notice] = 'Category is successfully created.'
     else
-      flash[:alert] = 'Category is not created.'
+      render 'new'
     end
-    redirect_to account_categories_path
   end
 
   def edit
@@ -34,11 +32,14 @@ class Account::CategoriesController < Account::BaseController
       render :action => :edit
     end
   end
-  
+
   def destroy
     if @category.destroy
       redirect_to account_categories_path
     end
+  end
+
+  def cancel
   end
 
   private

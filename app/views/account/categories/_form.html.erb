@@ -1,5 +1,9 @@
-<%= form_for [:account, category] do |f| %>
-<%= f.label :name %>
-<%= f.text_field :name %>
-<%= f.submit :class => 'small button success' %>
+<% @category ||= current_user.categories.build %>
+<%= simple_form_for [:account, @category], remote: true do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.submit class: 'small button success' %>
+  <%= link_to cancel_account_categories_path, remote: true, class: 'small button secondary' do %>
+    Cancel
+  <% end %>
 <% end %>
