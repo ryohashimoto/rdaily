@@ -16,9 +16,9 @@ class Account::PostsController < Account::BaseController
   def edit
     @post = resources.find(params[:id])
   end
-  
+
   def create
-    post_form = ::Account::PostForm.new(params[:post])    
+    post_form = ::Account::PostForm.new(params[:post])
     @post = resources.new(post_form.to_params)
     @post.user_id = current_user.id
     @post.categorization_builder.build_from(post_form.category_ids)
@@ -34,7 +34,7 @@ class Account::PostsController < Account::BaseController
     post_form = ::Account::PostForm.new(params[:post])
     @post = resources.find(params[:id])
     post_params = post_form.to_params
-    @post.categorization_builder.update_from(post_form.category_ids)    
+    @post.categorization_builder.update_from(post_form.category_ids)
     if @post.update_attributes(post_params)
       flash[:notice] = "The post is successfully updated."
       redirect_to account_path

@@ -78,7 +78,7 @@ describe Account::PostsController do
       it "does not save the new post in the database" do
         expect {
           post :create, post: {body: "foobar1"}
-        }.to raise_error ActiveRecord::RecordInvalid
+        }.not_to change(Post, :count).by(1)
       end
     end
   end
@@ -107,7 +107,7 @@ describe Account::PostsController do
       end
       it "re-renders the #edit template" do
         put :update, id: @post, post: attributes_for(:post, title: "", body: "hogehoge")
-        expect(response).to redirect_to account_path
+        expect(response).to render_template(:edit)
       end
     end
   end
