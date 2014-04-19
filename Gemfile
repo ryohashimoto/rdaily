@@ -53,6 +53,7 @@ gem 'dotenv-rails'
 
 gem 'mysql2'
 gem 'thin'
+gem 'capistrano', '~> 3.0.1'
 
 group :development, :test do
   gem 'pry-rails'
