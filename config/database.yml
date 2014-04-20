@@ -8,6 +8,11 @@ test:
   encoding: utf8
   database: rdaily_test
 
+staging:
+  adapter: mysql2
+  encoding: utf8
+  database: rdaily_staging
+
 production:
   adapter: mysql2
   encoding: utf8
