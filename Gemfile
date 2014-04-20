@@ -53,9 +53,13 @@ gem 'dotenv-rails'
 
 gem 'mysql2'
 gem 'thin'
-gem 'capistrano', '~> 3.0.1'
+gem 'unicorn'
 
 group :development, :test do
+  gem 'capistrano', require: false
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-rbenv', require: false
+  gem 'capistrano-bundler', require: false
   gem 'pry-rails'
   gem 'minitest'
   gem 'rspec-rails'
