@@ -3,7 +3,7 @@ source 'https://rails-assets.org'
 
 ruby '2.1.2'
 
-gem 'rails', '4.1.1'
+gem 'rails', '4.1.4'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
