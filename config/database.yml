@@ -1,19 +1,19 @@
 development:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   database: rdaily_development
 
 test:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   database: rdaily_test
 
 staging:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   database: rdaily_staging
 
 production:
-  adapter: mysql2
+  adapter: postgresql
   encoding: utf8
   database: rdaily_production

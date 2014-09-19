@@ -5,13 +5,10 @@ gemfile:
   - Gemfile
 env:
   - DB=mysql
+addons:
+  postgresql: "9.3"
 before_script:
-  - mysql -e 'create database rdaily_test'
+  - psql -c 'create database rdaily_test;' -U postgres
 script:
   - RAILS_ENV=test bundle exec rake --trace db:migrate
   - bundle exec rspec spec/
-notifications:
-  emails:
-    - ryohashimoto@gmail.com
-  on_success: always
-  on_failure: always
