@@ -51,7 +51,6 @@ gem 'rails_12factor', group: :production
 
 gem 'dotenv-rails'
 
-gem 'mysql2'
 gem 'thin'
 gem 'unicorn'
 
@@ -61,6 +60,7 @@ gem 'capistrano-rbenv', require: false
 gem 'capistrano-bundler', require: false
 
 group :development, :test do
+  gem 'mysql2'
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
@@ -75,4 +75,5 @@ group :test do
 end
 
 group :production do
+  gem 'pg'
 end
