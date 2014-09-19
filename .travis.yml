@@ -4,7 +4,7 @@ rvm:
 gemfile:
   - Gemfile
 env:
-  - DB=mysql
+  - DB=postgresql
 addons:
   postgresql: "9.3"
 before_script:
