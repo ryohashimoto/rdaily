@@ -3,7 +3,7 @@ source 'https://rails-assets.org'
 
 ruby '2.1.2'
 
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -21,10 +21,10 @@ gem 'dalli'
 
 # Gems used only for assets and not required
 # in production environments by default.
-gem 'sass-rails',   '~> 4.0.0'
+gem 'sass-rails', '~> 4.0.3'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'foundation-rails'
+gem 'foundation-rails', '~> 5.3.0.1'
 gem 'foundation-icons-sass-rails'
 gem 'compass-rails'
 gem 'rails-assets-modernizr'
@@ -55,14 +55,15 @@ gem 'mysql2'
 gem 'thin'
 gem 'unicorn'
 
+gem 'capistrano', require: false
+gem 'capistrano-rails', require: false
+gem 'capistrano-rbenv', require: false
+gem 'capistrano-bundler', require: false
+
 group :development, :test do
-  gem 'capistrano', require: false
-  gem 'capistrano-rails', require: false
-  gem 'capistrano-rbenv', require: false
-  gem 'capistrano-bundler', require: false
   gem 'pry-rails'
-  gem 'minitest'
-  gem 'rspec-rails'
+  # gem 'minitest'
+  gem 'rspec-rails', '~> 2.14.0'
   gem 'factory_girl_rails'
 end
 
