@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Account::PostsController do
+describe Account::PostsController, :type => :controller do
   let(:user) { create(:user) }
   let(:post1) {
     post = user.posts.build
@@ -78,7 +78,7 @@ describe Account::PostsController do
       it "does not save the new post in the database" do
         expect {
           post :create, post: {body: "foobar1"}
-        }.not_to change(Post, :count).by(1)
+        }.not_to change(Post, :count)
       end
     end
   end

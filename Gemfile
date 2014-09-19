@@ -62,8 +62,7 @@ gem 'capistrano-bundler', require: false
 
 group :development, :test do
   gem 'pry-rails'
-  # gem 'minitest'
-  gem 'rspec-rails', '~> 2.14.0'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
 

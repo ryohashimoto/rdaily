@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Category do
+describe Category, :type => :model do
   before do
     @user = User.create(name: 'ryo', email: 'ryo@example.com', password: 'hogehoge', password_confirmation: 'hogehoge')
   end

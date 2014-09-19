@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User do
+describe User, :type => :model do
   let(:user) do
     build(:user)
   end
@@ -17,10 +17,10 @@ describe User do
     expect(user).to be_invalid
   end
   it "is invalid without a password" do
-    pending
+    skip
   end
   it "is invalid with a duplicate email address" do
-    expect(user.save!).to be_true
+    expect(user.save!).to be_truthy
     user2 = User.new(name: 'hashimoto', email: user.email, password: 'hogehoge')
     expect(user2).to be_invalid
   end

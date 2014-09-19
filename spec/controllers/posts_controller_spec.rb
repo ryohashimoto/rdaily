@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe PostsController do
+describe PostsController, :type => :controller do
   let(:user) { create(:user) }
   let(:post1) {
     post = user.posts.build
@@ -37,7 +37,7 @@ describe PostsController do
 
   describe 'GET #feed' do
     it "popurates an array of posts published by a user" do
-      pending
+      skip
       get :feed
       expect(assigns(:posts)).to match_array [post1]
     end
