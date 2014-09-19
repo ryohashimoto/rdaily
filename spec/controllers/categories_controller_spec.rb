@@ -40,7 +40,7 @@ describe CategoriesController do
 
     context "when accessing using category's slug" do
       it "popurates an array of posts for a category" do
-        pending
+        skip
         get :show, id: category1.slug
         expect(assigns(:posts)).to eq [post1]
       end

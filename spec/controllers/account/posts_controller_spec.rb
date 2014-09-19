@@ -78,7 +78,7 @@ describe Account::PostsController do
       it "does not save the new post in the database" do
         expect {
           post :create, post: {body: "foobar1"}
-        }.not_to change(Post, :count).by(1)
+        }.not_to change(Post, :count)
       end
     end
   end

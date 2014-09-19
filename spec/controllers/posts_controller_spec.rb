@@ -37,7 +37,7 @@ describe PostsController do
 
   describe 'GET #feed' do
     it "popurates an array of posts published by a user" do
-      pending
+      skip
       get :feed
       expect(assigns(:posts)).to match_array [post1]
     end
