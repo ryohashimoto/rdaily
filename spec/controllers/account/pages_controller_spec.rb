@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Account::PagesController, :type => :controller do
+describe Account::PagesController do
   let(:user) { create(:user) }
   let(:page1) {
     page = user.pages.build

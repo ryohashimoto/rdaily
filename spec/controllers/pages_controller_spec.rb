@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe PagesController, :type => :controller do
+describe PagesController do
 
 end

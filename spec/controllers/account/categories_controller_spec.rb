@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe Account::CategoriesController, :type => :controller do
+describe Account::CategoriesController do
 end

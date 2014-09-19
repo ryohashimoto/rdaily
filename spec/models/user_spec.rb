@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe User, :type => :model do
+describe User do
   let(:user) do
     build(:user)
   end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Post, :type => :model do
+describe Post do
   let(:post) do
     create(:post)
   end

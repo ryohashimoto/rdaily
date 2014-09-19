@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Account::PhotosController, :type => :controller do
+describe Account::PhotosController do
 
 end

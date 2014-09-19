@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe Account::SessionsController, :type => :controller do
+describe Account::SessionsController do
 
 end
