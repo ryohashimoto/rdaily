@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe ArchivesController do
+describe ArchivesController, :type => :controller do
 
 end

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe CategoriesController do
+describe CategoriesController, :type => :controller do
   let(:user) { create(:user) }
   let(:category1) do
     category = user.categories.build

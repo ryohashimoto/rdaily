@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Account::PostsController do
+describe Account::PostsController, :type => :controller do
   let(:user) { create(:user) }
   let(:post1) {
     post = user.posts.build
