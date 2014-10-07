@@ -5,7 +5,7 @@ feature "New account creation" do
     visit root_path
 
     expect(page).to have_content "Welcome to Rdaily !"
-    click_link "Create new user for Rdaily"
+    click_link "Create new user"
 
     expect(current_path).to eq new_account_user_path
     fill_in "user_name", with: "test"
