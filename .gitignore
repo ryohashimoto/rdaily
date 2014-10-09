@@ -37,4 +37,5 @@ pickle-email-*.html
 .env
 .ruby-version
 .ruby-gemset
+dump.rdb
 
