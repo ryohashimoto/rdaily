@@ -17,6 +17,8 @@ gem 'mini_magick'
 gem 'pygments.rb' # for syntax highlighting
 gem 'memcachier'
 gem 'dalli'
+gem 'resque'
+gem 'resque-scheduler'
 
 # Gems used only for assets and not required
 # in production environments by default.
