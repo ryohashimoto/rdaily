@@ -2,6 +2,7 @@ require "rails_helper"
 
 feature "New account creation" do
   scenario "User creates a new account", js: true do
+    pending
     visit root_path
 
     expect(page).to have_content "Welcome to Rdaily !"
