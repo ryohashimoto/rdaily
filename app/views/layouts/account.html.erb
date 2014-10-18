@@ -21,7 +21,7 @@
             <%= link_to 'Categories', account_categories_path %>
           </li>
         </ul>
-        <%= render :partial => 'account/sessions/form_logout' %>
+        <%= render partial: 'account/sessions/form_logout' %>
       </div>
     </nav>
   </div>
@@ -31,13 +31,13 @@
 <% else %>
   <div class="medium-6 columns">
     <h2>Login</h2>
-    <%= render :partial => 'account/sessions/form_login' %>
+    <%= render partial: 'account/sessions/form_login' %>
   </div>
 
   <div class="medium-6 column">
     <% if false %>
     <h2>Create your account</h2>
-    <%= render :partial => 'account/users/form', :locals => { :user => @user } %>
+    <%= render partial: 'account/users/form', locals: { user: @user } %>
     <% end %>
   </div>
 <% end %>

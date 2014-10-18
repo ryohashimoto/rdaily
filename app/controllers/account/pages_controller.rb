@@ -2,7 +2,7 @@ class Account::PagesController < Account::BaseController
   layout 'account'
 
   def index
-    @pages = resources.order("created_at desc").page(params[:page]).per(5)
+    @pages = resources.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   def show

@@ -7,7 +7,7 @@ class Account::SessionsController < ApplicationController
     user = User.find_by(email: params[:email])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to account_path, :notice => "Logged in as #{user.name}."
+      redirect_to account_path, notice: "Logged in as #{user.name}."
     else
       flash[:alert] = "Invalid email/password pair."
       render 'new'
@@ -16,6 +16,6 @@ class Account::SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_path, :notice => "Logged out."
+    redirect_to root_path, notice: "Logged out."
   end
 end

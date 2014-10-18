@@ -8,13 +8,13 @@
 -%>
 <% if current_page.last? %>
 <li class="arrow unavailable">
-  <%= link_to url, {:remote => remote} do %>
+  <%= link_to url, remote: remote do %>
     &raquo;
   <% end %>
 </li>
 <% else %>
 <li class="arrow">
-  <%= link_to url, {:remote => remote} do %>
+  <%= link_to url, remote: remote do %>
     &raquo;
   <% end %>
 </li>

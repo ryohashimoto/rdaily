@@ -5,9 +5,6 @@ ruby '2.1.3'
 
 gem 'rails', '4.1.6'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
 gem 'redcarpet' # for Markdown syntax
 gem 'kaminari'  # for paginations
 gem 'gravtastic' # for gravatar

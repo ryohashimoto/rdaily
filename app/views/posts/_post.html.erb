@@ -1,5 +1,5 @@
 <div class="post">
-  <h2><%= link_to post.title, post, :style => 'color:#333;' %></h2>
+  <h2><%= link_to post.title, post, style: 'color:#333;' %></h2>
   <p><%= markdown post.body %></p>
   <div class="row">
     <div class="medium-6 columns">
@@ -18,7 +18,7 @@
         </p>
       </div>
       <div style="width:60px;float:left;">
-        <%= image_tag post.user.gravatar_url, :width => 48, :height => 48 %>
+        <%= image_tag post.user.gravatar_url, width: 48, height: 48 %>
       </div>
       </div>
     </div>

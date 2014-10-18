@@ -5,9 +5,9 @@
 <h2>New Post</h2>
 
 <div id="new_post">
-  <%= render :partial => 'account/posts/form', :locals => { :post => @post } %>
+  <%= render partial: 'account/posts/form', locals: { post: @post } %>
 </div>
 
 <h2>Recent Posts</h2>
-<%= render :partial => 'post', :collection => @posts %>
+<%= render partial: 'post', collection: @posts %>
 <%= link_to 'More posts', account_posts_path, class: 'tiny button secondary' %>

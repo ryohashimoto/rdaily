@@ -1,9 +1,7 @@
-# encoding: utf-8
-
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
-  process :resize_to_fit => [1024, 768]
+  process resize_to_fit: [1024, 768]
 
   def extension_white_list
     %w(jpg jpeg gif png)
@@ -21,10 +19,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fit => [32, 32]
+    process resize_to_fit: [32, 32]
   end
 
   version :preview do
-    process :resize_to_fit => [128, 128]
+    process resize_to_fit: [128, 128]
   end
 end

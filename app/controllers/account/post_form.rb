@@ -2,7 +2,7 @@ module Account
   class PostForm
     include ActiveModel::Validations
     attr_accessor :title, :body, :category_ids
-    validates :title, :body, :category_ids, :presence => true
+    validates :title, :body, :category_ids, presence: true
 
     def initialize(params)
       @title = params[:title]

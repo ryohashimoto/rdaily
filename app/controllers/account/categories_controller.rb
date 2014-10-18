@@ -1,9 +1,9 @@
 class Account::CategoriesController < Account::BaseController
-  before_filter :find_category, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_category, only: [:show, :edit, :update, :destroy]
   layout 'account'
 
   def index
-    @categories = resources.order('name asc')
+    @categories = resources.order(:name)
   end
 
   def new
@@ -18,7 +18,7 @@ class Account::CategoriesController < Account::BaseController
     @category = resources.new(category_params)
     if @category.save
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -29,7 +29,7 @@ class Account::CategoriesController < Account::BaseController
     if @cateogry.update_attributes(category_params)
       redirect_to account_categories_path
     else
-      render :action => :edit
+      render action: :edit
     end
   end
 

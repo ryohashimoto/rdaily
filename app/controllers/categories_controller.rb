@@ -1,12 +1,12 @@
 class CategoriesController < ApplicationController
 
   def show
-    @posts = resources.page(params[:page]).per(5)
+    @posts = posts.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   private
-  def resources
-    category.posts.where("published_at is not null").order("created_at desc")
+  def posts
+    category.posts.published
   end
 
   def category

@@ -4,4 +4,4 @@
   <li class="current"><%= link_to "Page ##{@page.id}", account_page_path(id: @page.id) %></li>
 </ul>
 
-<%= render :partial => 'pages/page', :locals => { :page => @page } %>
+<%= render partial: 'pages/page', locals: { page: @page } %>

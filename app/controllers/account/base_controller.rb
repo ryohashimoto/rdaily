@@ -3,7 +3,7 @@ class Account::BaseController < ApplicationController
 
   def authenticate_user!
     unless current_user
-      redirect_to login_path, :alert => 'Please login.'
+      redirect_to login_path, alert: 'Please login.'
     end
   end
 end

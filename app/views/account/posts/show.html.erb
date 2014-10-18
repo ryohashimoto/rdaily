@@ -4,4 +4,4 @@
   <li class="current"><%= link_to "Post ##{@post.id}", account_post_path(id: @post.id) %></li>
 </ul>
 
-<%= render :partial => 'posts/post', :locals => { :post => @post } %>
+<%= render partial: 'posts/post', locals: { post: @post } %>
