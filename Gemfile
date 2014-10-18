@@ -1,5 +1,4 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
 ruby '2.1.3'
 
@@ -23,11 +22,7 @@ gem 'dalli'
 gem 'sass-rails', '>= 5.0.0.beta1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'foundation-rails'
-gem 'foundation-icons-sass-rails'
 gem 'compass-rails'
-gem 'rails-assets-modernizr'
-gem 'rails-assets-handlebars'
 gem 'simple_form'
 
 gem 'jquery-rails'
