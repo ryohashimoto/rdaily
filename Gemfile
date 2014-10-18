@@ -25,6 +25,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'compass-rails'
 gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
+gem 'slim-rails' 
 
 gem 'jquery-rails'
 
