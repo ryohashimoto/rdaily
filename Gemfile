@@ -19,11 +19,12 @@ gem 'dalli'
 
 # Gems used only for assets and not required
 # in production environments by default.
+gem 'bootstrap-sass'
 gem 'sass-rails', '>= 5.0.0.beta1'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'compass-rails'
-gem 'simple_form'
+gem 'simple_form', github: 'plataformatec/simple_form', branch: 'master'
 
 gem 'jquery-rails'
 
