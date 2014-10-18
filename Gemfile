@@ -62,6 +62,10 @@ gem 'capistrano-rails', require: false
 gem 'capistrano-rbenv', require: false
 gem 'capistrano-bundler', require: false
 
+group :development do
+  gem 'web-console', '~> 2.0.0.beta3'
+end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
