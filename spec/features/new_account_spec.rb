@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 feature "New account creation" do
   scenario "User creates a new account", js: true do

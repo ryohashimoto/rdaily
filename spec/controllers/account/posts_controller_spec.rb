@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Account::PostsController do
   let(:user) { create(:user) }
