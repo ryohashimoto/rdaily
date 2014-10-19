@@ -1,10 +1,10 @@
 .post
   h2
-    = link_to page.title, [:account, page] %>
+    = link_to page.title, [:account, page]
   p
     = abbrev(page.body, 80)
   .row
-    .medium-12.columns
+    .col-md-12
       - if page.published_policy.active?
         = link_to 'Published', unpublish_account_page_path(page), method: :post, class: "tiny button secondary"
       - else

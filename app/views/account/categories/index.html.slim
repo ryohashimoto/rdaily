@@ -1,15 +1,10 @@
-ul.breadcrumbs
+ul.breadcrumb
   li
-    | <%= link_to 'Dashboard', account_path %>
-  li.current
-    | <%= link_to 'All categories', account_categories_path %>
-h2
-  | New category
-#new_category
-  |  <%= link_to new_account_category_path, remote: true, class: 'tiny button secondary' do %> 
-  i.fi-plus
-  |  New <% end %> 
-|  <% if @categories.count > 0 %> 
-h2
-  | All categories
-|  <%= render partial: 'account/category', collection: @categories %> <% end %> 
+    = link_to 'Dashboard', account_path
+  li.active
+    = link_to 'Categories', account_categories_path
+h2 New category
+= link_to 'New', new_account_category_path, class: 'btn btn-lg btn-success'
+- if @categories.count > 0
+  h2 All categories
+  = render partial: 'account/category', collection: @categories

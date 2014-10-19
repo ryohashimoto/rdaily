@@ -27,17 +27,20 @@ html lang="ja"
       .row
         .col-md-12
           - if flash[:error]
-            .alert-box.alert data-alert="" 
+            .alert.alert-danger.alert-dismissible role="alert" 
+              button.close data-dismiss="alert" type="button" 
+                span aria-hidden="true"  &times;
               = flash[:error]
-              a.close href="#"  &times;
           - if flash[:notice]
-            .alert-box data-alert="" 
+            .alert.alert-success.alert-dismissible role="alert" 
+              button.close data-dismiss="alert" type="button" 
+                span aria-hidden="true"  &times;
               = flash[:notice]
-              a.close href="#"  &times;
           - if flash[:alert]
-            .alert-box.warning data-alert="" 
+            .alert.alert-warning.alert-dismissible role="alert" 
+              button.close data-dismiss="alert" type="button" 
+                span aria-hidden="true"  &times;
               = flash[:alert]
-              a.close href="#"  &times;
           = yield
       .row.rd-footer
         .col-md-12

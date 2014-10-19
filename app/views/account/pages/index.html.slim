@@ -1,13 +1,11 @@
-ul.breadcrumbs
+ul.breadcrumb
   li
-    | <%= link_to 'Dashboard', account_path %>
-  li.current
-    | <%= link_to 'Your pages', account_pages_path %>
-h2
-  | Create page
-|  <%= render partial: 'account/pages/form', locals: { page: current_user.pages.build } %> 
-h2
-  | Your pages
-|  <%= render partial: 'account/page', collection: @pages %> 
+    = link_to 'Dashboard', account_path
+  li.active
+    = link_to 'Pages', account_pages_path
+h2 Create page
+= render partial: 'account/pages/form', locals: { page: current_user.pages.build }
+h2 Your pages
+= render partial: 'account/page', collection: @pages
 .pagination
-  |  <%= paginate @pages %> 
+= paginate @pages

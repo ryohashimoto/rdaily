@@ -4,6 +4,8 @@ ol.breadcrumb
 h2 New Post
 #new_post
   = render partial: 'account/posts/form', locals: { post: @post }
-h2 Recent Posts
-= render partial: 'post', collection: @posts
-= link_to 'More posts', account_posts_path, class: 'btn'
+- if @posts.count > 0
+  hr
+  h2 Recent Posts
+  = render partial: 'post', collection: @posts
+  = link_to 'More posts', account_posts_path, class: 'btn'
