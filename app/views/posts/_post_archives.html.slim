@@ -1,0 +1,8 @@
+h2 Archives
+- posts.sort.reverse.each do |month, posts|
+  h3
+    = h month.strftime("%B %Y")
+  ul.list-unstyled
+    - posts.each do |post|
+      li
+        = h link_to post.title, post_path(post)

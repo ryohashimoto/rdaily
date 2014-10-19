@@ -1,0 +1,7 @@
+- content_for :title do
+  = rdaily_title(@post.title)
+.row
+  .col-md-9
+    = render partial: 'post', locals: { post: @post }
+  #archives.col-md-3
+    = render partial: 'post_archives', locals: { posts: @monthly_posts }

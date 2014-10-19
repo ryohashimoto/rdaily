@@ -1,0 +1,7 @@
+.col-md-4
+  - if current_user
+    h2 Logout
+    = render partial: 'form_logout'
+  - else
+    h2 Login
+    = render partial: 'form_login'

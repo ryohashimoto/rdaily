@@ -1,0 +1,1 @@
+| <% @category ||= current_user.categories.build %> <%= simple_form_for [:account, @category], remote: true do |f| %> <%= f.input :name %> <%= f.button :submit, class: 'small success button' %> <%= link_to cancel_account_categories_path, remote: true, class: 'small secondary button' do %> Cancel <% end %> <% end %> 

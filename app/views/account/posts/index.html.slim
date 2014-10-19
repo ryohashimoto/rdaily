@@ -1,0 +1,12 @@
+ul.breadcrumbs
+  li
+    = link_to 'Dashboard', account_path
+  li.current
+    = link_to 'All posts', account_posts_path
+h2 New post
+= render partial:'account/posts/form', locals: { post: current_user.posts.build } 
+hr
+h2 All posts
+= render partial: 'account/post', collection: @posts
+.pagination
+  = paginate @posts

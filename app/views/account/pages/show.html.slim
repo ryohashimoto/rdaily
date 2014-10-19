@@ -1,0 +1,8 @@
+ul.breadcrumbs
+  li
+    | <%= link_to 'Dashboard', account_path %>
+  li
+    | <%= link_to "All pages", account_pages_path %>
+  li.current
+    | <%= link_to "Page ##{@page.id}", account_page_path(id: @page.id) %>
+|  <%= render partial: 'pages/page', locals: { page: @page } %> 

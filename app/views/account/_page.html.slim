@@ -1,0 +1,13 @@
+.post
+  h2
+    = link_to page.title, [:account, page] %>
+  p
+    = abbrev(page.body, 80)
+  .row
+    .medium-12.columns
+      - if page.published_policy.active?
+        = link_to 'Published', unpublish_account_page_path(page), method: :post, class: "tiny button secondary"
+      - else
+        = link_to 'Publish', publish_account_page_path(page), method: :post, class: "tiny button"
+      = link_to 'Edit', edit_account_page_path(page), class: "tiny button"
+      = link_to 'Delete', account_page_path(page), method: :delete, class: "tiny button alert", confirm: "Are you sure?"

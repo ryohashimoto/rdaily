@@ -1,0 +1,44 @@
+doctype html
+html lang="ja" 
+  head
+    meta charset="utf-8" /
+    meta content="width=device-width, initial-scale=1.0" name="viewport" /
+    title= content_for?(:title) ? yield(:title) : "Rdaily"
+    = stylesheet_link_tag    "application"
+    = csrf_meta_tags
+    = auto_discovery_link_tag :atom, "/feed"
+    = auto_discovery_link_tag :rss, "/feed.rss"
+  body.rdaily
+    nav.navbar.navbar-default role="navigation" 
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed data-target="#rd-navbar-collapse-1" data-toggle="collapse" type="button" 
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="/"  Rdaily
+        #rd-navbar-collapse.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li
+              a href="/pages/about"  About
+    .container
+      .row
+        .col-md-12
+          - if flash[:error]
+            .alert-box.alert data-alert="" 
+              = flash[:error]
+              a.close href="#"  &times;
+          - if flash[:notice]
+            .alert-box data-alert="" 
+              = flash[:notice]
+              a.close href="#"  &times;
+          - if flash[:alert]
+            .alert-box.warning data-alert="" 
+              = flash[:alert]
+              a.close href="#"  &times;
+          = yield
+      .row.rd-footer
+        .col-md-12
+          p &copy; 2013-2014 Rdaily all rights reverved.
+    = javascript_include_tag "application"

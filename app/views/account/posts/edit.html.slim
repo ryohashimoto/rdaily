@@ -1,0 +1,10 @@
+ul.breadcrumbs
+  li
+    | <%= link_to 'Dashboard', account_path %>
+  li
+    | <%= link_to "Listing posts", account_posts_path %>
+  li.current
+    | <%= link_to "Editing post ##{@post.id}", edit_account_post_path(id: @post.id) %>
+h2
+  | Editing post #<%= @post.id %>
+|  <%= render partial: 'form', locals: { post: @post } %> 

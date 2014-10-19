@@ -1,0 +1,14 @@
+ul.breadcrumbs
+  li
+    | <%= link_to 'Dashboard', account_path %>
+  li
+    | <%= link_to "Your pages", account_pages_path %>
+  li.current
+    | <%= link_to "Editing page (#{@page.title})", edit_account_page_path(@page) %>
+|  <% if @page.title.present? %> 
+h2
+  | Editing page (<%= @page.title %>)
+|  <% else %> 
+h2
+  | Editing page
+|  <% end %> <%= render partial: 'form', locals: {page: @page } %> 

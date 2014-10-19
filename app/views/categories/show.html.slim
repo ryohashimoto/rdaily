@@ -1,0 +1,6 @@
+h2
+  | Category: 
+  = @category.name
+= render partial: 'posts/post', collection: @posts
+.pagination
+  = paginate @posts
