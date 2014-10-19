@@ -15,10 +15,8 @@
           div[style="width:120px;height:48px;float:left;"]
             p[style="font-size:small;text-align:right;vertical-align:middle;"]
               by 
-              b
-                = post.user.name
+              = post.user.name
               br
                 = post.created_at.strftime("%B %d, %Y")
           div[style="width:60px;float:left;"]
             = image_tag post.user.gravatar_url, width: 48, height: 48
-  
