@@ -9,7 +9,6 @@ class Account::UsersController < ApplicationController
     if @user.save
       builder = AboutPageBuilder.new(@user)
       builder.create_page
-      UserMailer.registered(@user).deliver_later!(wait: 1.minutes)
       flash.notice = "User is successfully created."
       redirect_to account_path
     else

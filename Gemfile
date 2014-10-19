@@ -17,9 +17,6 @@ gem 'mini_magick'
 gem 'pygments.rb' # for syntax highlighting
 gem 'memcachier'
 gem 'dalli'
-gem 'resque'
-gem 'resque-scheduler'
-gem 'mailcatcher'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -78,7 +75,4 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
-end
-
-group :production do
 end
