@@ -1,3 +1,8 @@
-h2
-  = page.title
-= markdown page.body
+- content_for :title do
+  = rdaily_title(page.title)
+.row
+  .col-md-9
+    h3
+      = page.title
+    = markdown page.body
+  .col-md-3

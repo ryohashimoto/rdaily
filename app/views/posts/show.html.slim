@@ -3,5 +3,5 @@
 .row
   .col-md-9
     = render partial: 'post', locals: { post: @post }
-  #archives.col-md-3
+  .col-md-3.rd-post-archives
     = render partial: 'post_archives', locals: { posts: @monthly_posts }
