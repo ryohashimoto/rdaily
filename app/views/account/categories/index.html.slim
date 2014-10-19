@@ -4,7 +4,7 @@ ul.breadcrumb
   li.active
     = link_to 'Categories', account_categories_path
 h2 New category
-= link_to 'New', new_account_category_path, class: 'btn btn-lg btn-success'
+= link_to 'New', new_account_category_path, class: 'btn btn-lg rd-btn-success'
 - if @categories.count > 0
   h2 Categories
   .row
@@ -18,6 +18,6 @@ h2 New category
             td #{category.name}
             td
               = link_to 'Edit', edit_account_category_path(category), class: 'btn btn-link btn-xs'
-              = link_to 'Delete', account_category_path(category), method: :delete, class: 'btn btn-link rd-btn-danger btn-xs',
+              = link_to 'Delete', account_category_path(category), method: :delete, class: 'btn btn-link rd-danger btn-xs',
               data: { confirm: 'Are you sure?' }
     
