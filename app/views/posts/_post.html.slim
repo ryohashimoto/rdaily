@@ -5,18 +5,16 @@
     = markdown post.body
   .row
     .col-md-6
-      p
-        | Category: 
+      | Category: 
       - post.categories.each do |category|
         = link_to category.name, category
         |  
-    .col-md-6[style="text-align: right;"]
-        div[style="float:right;height:48px;"]
-          div[style="width:120px;height:48px;float:left;"]
-            p[style="font-size:small;text-align:right;vertical-align:middle;"]
-              by 
-              = post.user.name
-              br
-                = post.created_at.strftime("%B %d, %Y")
-          div[style="width:60px;float:left;"]
+    .col-md-6.text-right
+        div.rd-post-by
+          div.rd-post-by-description
+            by 
+            = post.user.name
+            br
+            = post.created_at.strftime("%B %d, %Y")
+          div.rd-post-by-avator
             = image_tag post.user.gravatar_url, width: 48, height: 48
