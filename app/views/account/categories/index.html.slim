@@ -4,20 +4,24 @@ ul.breadcrumb
   li.active
     = link_to 'Categories', account_categories_path
 h2 New category
-= link_to 'New', new_account_category_path, class: 'btn btn-lg rd-btn-success'
+button.btn.rd-btn-primary.btn-lg data-target="#new_category_modal" data-toggle="modal" 
+  | New
 - if @categories.count > 0
   h2 Categories
   .row
-    .col-md-6
-      table.table.table-striped
-        tr
-          th Name
-          th Actions
-        - @categories.each do |category|
-          tr
-            td #{category.name}
-            td
-              = link_to 'Edit', edit_account_category_path(category), class: 'btn btn-link btn-xs'
-              = link_to 'Delete', account_category_path(category), method: :delete, class: 'btn btn-link rd-danger btn-xs',
-              data: { confirm: 'Are you sure?' }
-    
+    #rd_categories.col-md-6
+      = render partial: 'categories', locals: { categories: @categories }
+#new_category_modal.modal aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button" 
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Create a new category
+      - @category ||= current_user.categories.build
+      = simple_form_for [:account, @category], remote: true do |f|
+        .modal-body
+          = f.input :name
+        .modal-footer
+          = f.button :submit, class: 'btn rd-btn-success'
+
