@@ -6,6 +6,6 @@ class ArchivesController < ApplicationController
 
   private
   def resources
-    Post.published
+    Post.published.includes(:categories, :categorizations, :user)
   end
 end

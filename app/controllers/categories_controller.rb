@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
 
   private
   def posts
-    category.posts.published
+    category.posts.published.includes(:categories, :categorizations, :user)
   end
 
   def category

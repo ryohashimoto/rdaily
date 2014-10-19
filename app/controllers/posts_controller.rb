@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   private
   def resources
-    Post.published
+    Post.published.includes(:categories, :categorizations, :user)
   end
 
   def monthly_posts

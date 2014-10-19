@@ -66,7 +66,7 @@ class Account::PagesController < Account::BaseController
 
   private
   def resources
-    current_user.pages
+    current_user.pages.includes(:user)
   end
 
   def page_params

@@ -6,6 +6,6 @@ class PagesController < ApplicationController
   
   private
   def resources
-    Page.published
+    Page.published.includes(:user)
   end
 end
