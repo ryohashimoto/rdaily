@@ -1,23 +1,32 @@
 set :application, 'rdaily'
+set :repo_url, 'git@github.com:ryohashimoto/rdaily.git'
+
+set :branch, 'master'
+
+set :deploy_to, '/var/www/rdaily'
 
 set :scm, :git
-set :repo_url, 'git@github.com:ryohashimoto/rdaily.git'
-set :branch, 'master'
-set :deploy_to, "$HOME/#{fetch(:application)}"
-set :deploy_via, :remote_cache
+
+set :user, 'ops'
+set :rbenv_type, :system
+set :rbenv_ruby, '2.1.3'
+set :rbenv_path, '/usr/local/rbenv'
+
+set :linked_dirs, (fetch(:linked_dirs) + ['tmp/pids'])
+
+set :default_env, {
+  rbenv_root: '/usr/local/rbenv',
+  path: '/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH'
+}
+
 set :keep_releases, 5
 
-set :bundle_cmd, "$HOME/.rbenv/shims/bundle"
+set :unicorn_rack_env, 'none'
+set :unicorn_config_path, 'config/unicorn.rb'
 
-set :format, :pretty
-set :log_level, :debug
-
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-
+after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
-  desc 'Restart application'
   task :restart do
     invoke 'unicorn:restart'
   end
 end
-after 'deploy:publishing', 'deploy:restart'
