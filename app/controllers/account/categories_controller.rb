@@ -16,10 +16,8 @@ class Account::CategoriesController < Account::BaseController
 
   def create
     @category = resources.new(category_params)
-    if @category.save
-    else
-      render :new
-    end
+    return render :new unless @category.save
+    @categories = resources
   end
 
   def edit
@@ -35,6 +33,7 @@ class Account::CategoriesController < Account::BaseController
 
   def destroy
     if @category.destroy
+      flash[:notice] = 'The category was successfully deleted.'
       redirect_to account_categories_path
     end
   end

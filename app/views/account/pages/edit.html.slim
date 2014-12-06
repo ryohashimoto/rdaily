@@ -1,0 +1,10 @@
+ul.breadcrumb
+  li
+    = link_to 'Dashboard', account_path
+  li
+    = link_to 'Pages', account_pages_path
+  li.active
+    = link_to "Edit '#{@page.title}'", edit_account_page_path(@page)
+h2
+  | Edit '#{@page.title}'
+= render partial: 'form', locals: {page: @page }

@@ -35,3 +35,6 @@ rerun.txt
 pickle-email-*.html
 .project
 .env
+.ruby-version
+.ruby-gemset
+

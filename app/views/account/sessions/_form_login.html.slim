@@ -1,0 +1,10 @@
+= form_tag account_sessions_path, role: 'form' do
+  .form-group
+    = label_tag :email, 'Email:'
+    br
+    = text_field_tag :email, params[:email], class: 'form-control'
+  .form-group
+    = label_tag :password, 'Password:'
+    br
+    = password_field_tag :password, params[:password], class: 'form-control'
+  = submit_tag 'Login', class: 'btn btn-lg rd-btn-success'

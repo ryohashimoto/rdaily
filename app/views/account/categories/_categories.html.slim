@@ -1,0 +1,11 @@
+table.table.table-striped
+  tr
+    th Name
+    th Actions
+  - categories.each do |category|
+    tr
+      td #{category.name}
+      td
+        = link_to 'Edit', edit_account_category_path(category), class: 'btn btn-link btn-xs'
+        = link_to 'Delete', account_category_path(category), method: :delete, class: 'btn btn-link rd-danger btn-xs',
+        data: { confirm: 'Are you sure?' }

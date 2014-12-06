@@ -1,0 +1,8 @@
+ul.breadcrumbs
+  li
+    | <%= link_to 'Dashboard', account_path %>
+  li
+    | <%= link_to "Listing posts", account_posts_path %>
+  li.current
+    | <%= link_to "Post ##{@post.id}", account_post_path(id: @post.id) %>
+|  <%= render partial: 'posts/post', locals: { post: @post } %> 

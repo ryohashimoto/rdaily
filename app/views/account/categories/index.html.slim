@@ -1,0 +1,27 @@
+ul.breadcrumb
+  li
+    = link_to 'Dashboard', account_path
+  li.active
+    = link_to 'Categories', account_categories_path
+h2 New category
+button.btn.rd-btn-primary.btn-lg data-target="#new_category_modal" data-toggle="modal" 
+  | New
+- if @categories.count > 0
+  h2 Categories
+  .row
+    #rd_categories.col-md-6
+      = render partial: 'categories', locals: { categories: @categories }
+#new_category_modal.modal aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" 
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close data-dismiss="modal" type="button" 
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Create a new category
+      - @category ||= current_user.categories.build
+      = simple_form_for [:account, @category], remote: true do |f|
+        .modal-body
+          = f.input :name
+        .modal-footer
+          = f.button :submit, class: 'btn rd-btn-success'
+

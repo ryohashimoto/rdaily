@@ -1,0 +1,5 @@
+html = '<%= j render partial: 'categories', locals: { categories: @categories } %>';
+$('#rd_categories').html(html);
+html_alert = '<%= j render partial: 'notice_create_success', locals: { category: @category } %>'
+$('#rd_alert').html(html_alert);
+$('#new_category_modal').modal('hide');

@@ -1,0 +1,13 @@
+ul.breadcrumb
+  li
+    = link_to 'Dashboard', account_path
+  li.active
+    = link_to 'Pages', account_pages_path
+h2 New page
+= render partial: 'account/pages/form', locals: { page: current_user.pages.build }
+- if @pages.count > 0
+  hr
+  h2 Your pages
+  = render partial: 'account/page', collection: @pages
+  .pagination
+    = paginate @pages

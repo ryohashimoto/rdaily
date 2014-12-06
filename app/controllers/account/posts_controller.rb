@@ -71,6 +71,6 @@ class Account::PostsController < Account::BaseController
 
   private
   def resources
-    current_user.posts
+    current_user.posts.includes(:categories, :categorizations, :user)
   end
 end

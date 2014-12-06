@@ -1,0 +1,26 @@
+- content_for :title do
+  - if current_user
+    = rdaily_title('Dashboard')
+  - else
+    = rdaily_title('Login')
+- if current_user
+  .col-md-9.rd-account
+    = yield
+  .col-md-3.rd-account
+    h3 MENU
+    ul.list-group
+      li.list-group-item
+        = link_to 'Posts', account_posts_path
+      li.list-group-item
+        = link_to 'Pages', account_pages_path
+      li.list-group-item
+        = link_to 'Categories', account_categories_path
+- else
+  .col-md-6
+    h2 Login
+    = render partial: 'account/sessions/form_login'
+  .col-md-6
+    - if false
+      h2 Create your account
+      = render partial: 'account/users/form', locals: { user: @user }
+- parent_layout 'application'

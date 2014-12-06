@@ -1,9 +1,8 @@
 source 'https://rubygems.org'
-source 'https://rails-assets.org'
 
-ruby '2.1.3'
+ruby '2.1.5'
 
-gem 'rails', '4.1.6'
+gem 'rails', '4.1.8'
 
 gem 'redcarpet' # for Markdown syntax
 gem 'kaminari'  # for paginations
@@ -18,23 +17,22 @@ gem 'dalli'
 
 # Gems used only for assets and not required
 # in production environments by default.
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 4.0.3'
+gem 'sass', '~> 3.2.19'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'foundation-rails', '~> 5.3.0.1'
-gem 'foundation-icons-sass-rails'
 gem 'compass-rails'
-gem 'rails-assets-modernizr'
-gem 'rails-assets-handlebars'
-gem 'simple_form'
+gem 'simple_form', '~> 3.1.0'
+gem 'slim-rails' 
 
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt'
+gem 'bcrypt', '~> 3.1.7'
 
 # To use Jbuilder templates for JSON
-gem 'jbuilder'
+gem 'jbuilder', '~> 2.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -57,6 +55,12 @@ gem 'capistrano-rails', require: false
 gem 'capistrano-rbenv', require: false
 gem 'capistrano-bundler', require: false
 
+group :development do
+  gem 'spring'
+  gem 'binding_of_caller'
+  gem 'better_errors'
+end
+
 group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
@@ -69,7 +73,4 @@ group :test do
   gem 'database_cleaner'
   gem 'launchy'
   gem 'poltergeist'
-end
-
-group :production do
 end

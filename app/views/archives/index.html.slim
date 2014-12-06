@@ -1,0 +1,14 @@
+.row
+  .col-md-9
+    = render partial: 'posts/post', collection: @posts %> 
+    .pagination
+      = paginate @posts %> 
+  .col-md-3
+    h2 Archives
+    - @monthly_posts.sort.reverse.each do |month, posts|
+      h4
+        = h month.strftime("%B %Y")
+      ul
+        - posts.each do |post|
+          li
+            = h link_to post.title, post_path(post)

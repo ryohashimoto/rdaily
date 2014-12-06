@@ -12,14 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require modernizr
-//= require foundation
-//= require handlebars
+//= require bootstrap-sprockets
 //= require_tree .
 
-$(document).foundation();
-setTimeout(function() {
-  $('.alert-box').fadeOut();
-}, 2000);
-
-$(function(){ $(document).foundation(); });

@@ -1,11 +1,12 @@
-require "spec_helper"
+require "rails_helper"
 
 feature "New account creation" do
   scenario "User creates a new account", js: true do
+    pending
     visit root_path
 
     expect(page).to have_content "Welcome to Rdaily !"
-    click_link "Create new user for Rdaily"
+    click_link "Create new user"
 
     expect(current_path).to eq new_account_user_path
     fill_in "user_name", with: "test"

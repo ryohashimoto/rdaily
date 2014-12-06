@@ -1,0 +1,11 @@
+ol.breadcrumb
+  li.active
+    = link_to 'Dashboard', account_path
+h2 New Post
+#new_post
+  = render partial: 'account/posts/form', locals: { post: @post }
+- if @posts.count > 0
+  hr
+  h2 Recent Posts
+  = render partial: 'post', collection: @posts
+  = link_to 'More posts', account_posts_path, class: 'btn'

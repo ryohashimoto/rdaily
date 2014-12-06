@@ -1,0 +1,23 @@
+.post
+  h3
+    = link_to page.title, [:account, page]
+  p
+    = abbrev(page.body, 80)
+  .row
+    .col-md-12
+      .btn-group.btn-group-sm
+        - if page.published_policy.active?
+          = link_to unpublish_account_page_path(page), method: :post, class: 'btn btn-default rd-success' do
+            span.glyphicon.glyphicon-ok
+            |  Published
+        - else
+          = link_to publish_account_page_path(page), method: :post, class: 'btn btn-default' do
+            span.glyphicon.glyphicon-share
+            |  Publish
+        = link_to edit_account_page_path(page), class: 'btn btn-default' do
+          span.glyphicon.glyphicon-edit
+          |  Edit
+        = link_to account_page_path(page), method: :delete, class: 'btn btn-default rd-danger',
+        data: { confirm: "Are you sure?" } do
+          span.glyphicon.glyphicon-trash
+          |  Delete
