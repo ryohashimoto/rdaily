@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-ruby '2.1.5'
+ruby '2.2.0'
 
-gem 'rails', '4.1.8'
+gem 'rails', '4.2.0'
+gem 'responders'
 
 gem 'redcarpet' # for Markdown syntax
 gem 'kaminari'  # for paginations
@@ -18,11 +19,10 @@ gem 'dalli'
 # Gems used only for assets and not required
 # in production environments by default.
 gem 'bootstrap-sass'
-gem 'sass-rails', '~> 4.0.3'
+gem 'sass-rails', '~> 5.0'
 gem 'sass', '~> 3.2.19'
-gem 'coffee-rails', '~> 4.0.0'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'compass-rails'
 gem 'simple_form', '~> 3.1.0'
 gem 'slim-rails' 
 
