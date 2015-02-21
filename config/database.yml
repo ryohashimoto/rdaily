@@ -2,17 +2,14 @@ development:
   adapter: postgresql
   encoding: utf8
   database: rdaily_development
-
 test:
   adapter: postgresql
   encoding: utf8
   database: rdaily_test
-
 staging:
   adapter: postgresql
   encoding: utf8
   database: rdaily_staging
-
 production:
   adapter: postgresql
   encoding: utf8
