@@ -16,17 +16,17 @@ ActiveRecord::Schema.define(version: 20130719060032) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.string   "slug"
   end
 
   add_index "categories", ["slug"], name: "index_categories_on_slug", using: :btree
 
-  create_table "categorizations", force: true do |t|
+  create_table "categorizations", force: :cascade do |t|
     t.integer  "post_id"
     t.integer  "category_id"
     t.datetime "created_at"
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20130719060032) do
   add_index "categorizations", ["category_id"], name: "index_categorizations_on_category_id", using: :btree
   add_index "categorizations", ["post_id"], name: "index_categorizations_on_post_id", using: :btree
 
-  create_table "pages", force: true do |t|
+  create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "sequence"
@@ -50,14 +50,14 @@ ActiveRecord::Schema.define(version: 20130719060032) do
   add_index "pages", ["id"], name: "index_pages_on_id", unique: true, using: :btree
   add_index "pages", ["published_at"], name: "index_pages_on_published_at", using: :btree
 
-  create_table "photos", force: true do |t|
+  create_table "photos", force: :cascade do |t|
     t.string   "image",      null: false
     t.integer  "user_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 20130719060032) do
   add_index "posts", ["id"], name: "index_posts_on_id", unique: true, using: :btree
   add_index "posts", ["published_at"], name: "index_posts_on_published_at", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
     t.string   "password_digest"
