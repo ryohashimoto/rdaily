@@ -16,8 +16,6 @@ gem 'pygments.rb' # for syntax highlighting
 gem 'memcachier'
 gem 'dalli'
 
-# Gems used only for assets and not required
-# in production environments by default.
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 gem 'sass', '~> 3.2.19'
@@ -59,6 +57,7 @@ group :development do
   gem 'spring'
   gem 'binding_of_caller'
   gem 'better_errors'
+  gem 'quiet_assets'
 end
 
 group :development, :test do
