@@ -1,3 +1,4 @@
 h2
-  | Category: <%= @category.name %>
-|  <%= render partial: 'account/post', collection: @posts %> 
+  | Category: #{@category.name}
+
+= render partial: 'account/post', collection: @posts

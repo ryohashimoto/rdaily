@@ -1,9 +1,9 @@
 ul.breadcrumbs
   li
-    | <%= link_to 'Dashboard', account_path %>
+    = link_to 'Dashboard', account_path
   li.current
-    | <%= link_to 'Create a new post', new_account_post_path %>
-|  <div class="medium-8" columns"> 
+    = link_to 'Create a new post', new_account_post_path
+
 h2
   | Create a new post
-|  <%= render partial: 'form', locals: { post: @post } %> 
+= render partial: 'form', locals: { post: @post }
