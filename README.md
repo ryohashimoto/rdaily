@@ -1,7 +1,7 @@
 # Rdaily
 
 * Author: Ryo Hashimoto
-* Copyright: Copyright (c) 2013-2014 Ryo Hashimoto
+* Copyright: Copyright (c) 2013-2017 Ryo Hashimoto
 * License: MIT License
 
 Blog software powered by Ruby on Rails 4.2 and Twitter Bootstrap 3
