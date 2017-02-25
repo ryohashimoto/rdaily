@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.8'
+gem 'rails', '5.0.1'
+gem 'puma', '~> 3.0'
 gem 'responders'
 
 gem 'redcarpet' # for Markdown syntax
@@ -15,11 +16,11 @@ gem 'memcachier'
 gem 'dalli'
 
 gem 'bootstrap-sass'
-gem 'sass-rails', '~> 5.0'
+gem 'sass-rails'
 gem 'sass', '~> 3.2.19'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 1.3.0'
-gem 'simple_form', '~> 3.1.0'
+gem 'simple_form'
 gem 'slim-rails'
 
 gem 'jquery-rails'
@@ -55,12 +56,12 @@ group :development do
   gem 'spring'
   gem 'binding_of_caller'
   gem 'better_errors'
-  gem 'quiet_assets'
+  # gem 'quiet_assets'
 end
 
 group :development, :test do
   gem 'pry-rails'
-  gem 'rspec-rails'
+  # gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
 
