@@ -1,4 +1,4 @@
-class Category < ActiveRecord::Base
+class Category < ApplicationRecord
   validates :name, uniqueness: true, presence: true
   validates :user_id, presence: true
   validates :slug, uniqueness: true, presence: true
