@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '5.0.1'
-gem 'puma', '~> 3.0'
+gem 'puma'
 gem 'responders'
 
 gem 'redcarpet' # for Markdown syntax
