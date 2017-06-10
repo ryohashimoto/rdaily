@@ -17,7 +17,7 @@ gem 'dalli'
 
 gem 'bootstrap-sass'
 gem 'sass-rails'
-gem 'sass', '~> 3.2.19'
+gem 'sass'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'simple_form'
