@@ -9,7 +9,7 @@ gem 'kaminari'  # for paginations
 gem 'gravtastic' # for gravatar
 gem 'carrierwave'
 gem 'unf'
-gem 'fog', '>= 1.20.0'
+gem 'fog-aws'
 gem 'mini_magick'
 gem 'pygments.rb' # for syntax highlighting
 gem 'memcachier'
