@@ -19,17 +19,17 @@ gem 'bootstrap-sass'
 gem 'sass-rails'
 gem 'sass'
 gem 'coffee-rails'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'simple_form'
 gem 'slim-rails'
 
 gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt'
 
 # To use Jbuilder templates for JSON
-gem 'jbuilder', '~> 2.0'
+gem 'jbuilder'
 
 # Use unicorn as the app server
 # gem 'unicorn'
