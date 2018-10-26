@@ -6,7 +6,7 @@
   .row
     .col-md-12
       .btn-group.btn-group-sm
-        - if page.published_policy.active?
+        - if page.published?
           = link_to unpublish_account_page_path(page), method: :post, class: 'btn btn-default rd-success' do
             span.glyphicon.glyphicon-ok
             |  Published

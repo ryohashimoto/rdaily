@@ -48,15 +48,13 @@ class Account::PagesController < Account::BaseController
 
   def publish
     @page = resources.find(params[:id])
-    policy = @page.published_policy
-    policy.activate! unless policy.active?
+    @page.publish if @page.unpublished?
     redirect_to account_pages_path
   end
 
   def unpublish
     @page = resources.find(params[:id])
-    policy = @page.published_policy
-    policy.stop! if policy.active?
+    @page.unpublish if @page.published?
     redirect_to account_pages_path
   end
 

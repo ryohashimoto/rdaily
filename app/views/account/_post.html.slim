@@ -5,13 +5,13 @@
     = abbrev(post.body, 80)
   .row
     .col-md-12
-      | Category: 
+      | Category:
       p
         - post.categories.each do |category|
           = link_to category.name, [:account, category]
     .col-md-12
       .btn-group.btn-group-sm
-        - if post.published_policy.active?
+        - if post.published?
           = link_to unpublish_account_post_path(post), method: :post,
           class: 'btn btn-default rd-success' do
             span.glyphicon.glyphicon-ok
@@ -28,4 +28,3 @@
         data: { confirm: 'Are you sure?' } do
           span.glyphicon.glyphicon-trash
           |  Delete
-  
