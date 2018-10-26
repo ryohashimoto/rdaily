@@ -43,7 +43,7 @@ gem 'rails_12factor', group: :production
 
 gem 'dotenv-rails'
 
-gem 'pg'
+gem "pg"
 gem 'thin'
 gem 'unicorn'
 
