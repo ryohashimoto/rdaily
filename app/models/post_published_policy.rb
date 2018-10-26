@@ -8,7 +8,7 @@ class PostPublishedPolicy
   end
 
   def activate!
-    @post.published_at = Time.now
+    @post.published_at = Time.current
     @post.save!
   end
 

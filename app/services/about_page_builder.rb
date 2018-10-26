@@ -7,7 +7,7 @@ class AboutPageBuilder
     @page = @user.pages.new(title: 'About',
                             body: 'You can modify this page in account/pages menu.',
                             slug: 'about',
-                            published_at: Time.now)
+                            published_at: Time.current)
     @page.save
   end
 end

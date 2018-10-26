@@ -15,7 +15,7 @@ class PublishedPolicy
   end
 
   def activate!
-    @model.published_at = Time.now
+    @model.published_at = Time.current
     @model.save!
   end
 
