@@ -1,6 +1,6 @@
 require 'faker'
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :post do
     association :user
     title { Faker::Lorem.sentence }
