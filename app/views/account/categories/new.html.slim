@@ -1,0 +1,11 @@
+ul.breadcrumb
+  li
+    = link_to "Dashboard", account_path
+  li
+    = link_to "Categories", account_categories_path
+  li.active
+    | New
+
+h2 New category
+
+= render "form", category: @category

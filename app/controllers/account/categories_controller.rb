@@ -1,5 +1,4 @@
 class Account::CategoriesController < Account::BaseController
-  before_action :find_category, only: [:show, :edit, :update, :destroy]
   layout "account"
 
   def index
@@ -11,20 +10,28 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def show
+    @category = resources.find_by(slug: params[:id])
     @posts = @category.posts
   end
 
   def create
     @category = resources.new(category_params)
-    return render :new unless @category.save
-
-    @categories = resources
+    if @category.save
+      flash[:notice] = "Category is successfully created."
+      redirect_to account_categories_path
+    else
+      render :new
+    end
   end
 
-  def edit; end
+  def edit
+    @category = resources.find_by(slug: params[:id])
+  end
 
   def update
-    if @cateogry.update(category_params)
+    @category = resources.find_by(slug: params[:id])
+    if @category.update(category_params)
+      flash[:notice] = "Category is successfully updated."
       redirect_to account_categories_path
     else
       render action: :edit
@@ -32,6 +39,7 @@ class Account::CategoriesController < Account::BaseController
   end
 
   def destroy
+    @category = resources.find_by(slug: params[:id])
     if @category.destroy
       flash[:notice] = "The category was successfully deleted."
       redirect_to account_categories_path
@@ -44,10 +52,6 @@ class Account::CategoriesController < Account::BaseController
 
   def resources
     current_user.categories
-  end
-
-  def find_category
-    @category ||= resources.find_by(slug: params[:id])
   end
 
   def category_params

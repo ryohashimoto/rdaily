@@ -1,0 +1,11 @@
+ul.breadcrumb
+  li
+    = link_to "Dashboard", account_path
+  li
+    = link_to "Categories", account_categories_path
+  li.active
+    | Edit '#{@category.name}'
+
+h2 Edit category
+
+= render "form", category: @category
