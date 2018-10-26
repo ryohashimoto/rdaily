@@ -35,7 +35,7 @@ class Account::PostsController < Account::BaseController
     @post = resources.find(params[:id])
     post_params = post_form.to_params
     @post.categorization_builder.update_from(post_form.category_ids)
-    if @post.update_attributes(post_params)
+    if @post.update(post_params)
       flash[:notice] = "The post is successfully updated."
       redirect_to account_path
     else

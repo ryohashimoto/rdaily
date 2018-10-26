@@ -29,7 +29,7 @@ class Account::PagesController < Account::BaseController
 
   def update
     @page = resources.find(params[:id])
-    if @page.update_attributes(page_params)
+    if @page.update(page_params)
       flash[:notice] = "The page is successfully updated."
       redirect_to account_pages_path
     else

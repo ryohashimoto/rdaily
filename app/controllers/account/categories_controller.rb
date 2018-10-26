@@ -24,7 +24,7 @@ class Account::CategoriesController < Account::BaseController
   def edit; end
 
   def update
-    if @cateogry.update_attributes(category_params)
+    if @cateogry.update(category_params)
       redirect_to account_categories_path
     else
       render action: :edit
