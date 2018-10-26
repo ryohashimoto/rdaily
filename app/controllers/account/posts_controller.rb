@@ -18,10 +18,7 @@ class Account::PostsController < Account::BaseController
   end
 
   def create
-    post_form = ::Account::PostForm.new(params[:post])
-    @post = resources.new(post_form.to_params)
-    @post.user_id = current_user.id
-    @post.categorization_builder.build_from(post_form.category_ids)
+    @post = resources.new(post_params)
     if @post.save
       flash[:notice] = "Post is successfully created."
       redirect_to account_path
@@ -31,10 +28,7 @@ class Account::PostsController < Account::BaseController
   end
 
   def update
-    post_form = ::Account::PostForm.new(params[:post])
     @post = resources.find(params[:id])
-    post_params = post_form.to_params
-    @post.categorization_builder.update_from(post_form.category_ids)
     if @post.update(post_params)
       flash[:notice] = "The post is successfully updated."
       redirect_to account_path
@@ -69,5 +63,9 @@ class Account::PostsController < Account::BaseController
 
   def resources
     current_user.posts.includes(:categories, :categorizations, :user)
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body, category_ids: [])
   end
 end
