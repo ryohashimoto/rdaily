@@ -5,6 +5,7 @@ ruby "2.5.3"
 gem "rails", "5.2.1"
 
 gem "bcrypt"
+gem "bootsnap"
 gem "bootstrap-sass"
 gem "capistrano", require: false
 gem "capistrano-bundler", require: false
@@ -19,6 +20,7 @@ gem "gravtastic"
 gem "jbuilder"
 gem "jquery-rails"
 gem "kaminari"
+gem "listen"
 gem "memcachier"
 gem "mini_magick"
 gem "pg"
