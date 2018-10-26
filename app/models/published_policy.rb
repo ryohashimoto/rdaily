@@ -11,7 +11,7 @@ class PublishedPolicy
   end
 
   def active?
-    !!@model.published_at
+    @model.published_at.present?
   end
 
   def activate!

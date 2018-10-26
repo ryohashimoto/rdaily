@@ -4,7 +4,7 @@ class PostPublishedPolicy
   end
 
   def active?
-    !!@post.published_at
+    @post.published_at.present?
   end
 
   def activate!
