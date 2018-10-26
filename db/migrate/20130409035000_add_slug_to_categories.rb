@@ -1,4 +1,4 @@
-class AddSlugToCategories < ActiveRecord::Migration
+class AddSlugToCategories < ActiveRecord::Migration[4.2]
   def self.up
     add_column :categories, :slug, :string, :after => :name
     add_index :categories, :slug
