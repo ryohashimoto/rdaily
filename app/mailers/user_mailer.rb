@@ -3,6 +3,6 @@ class UserMailer < ActionMailer::Base
 
   def registered(user)
     @user = user
-    mail(to: @user.email, subject: 'Welcome to Rdaily!')
+    mail(to: @user.email, subject: "Welcome to Rdaily!")
   end
 end

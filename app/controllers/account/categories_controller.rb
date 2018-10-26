@@ -1,6 +1,6 @@
 class Account::CategoriesController < Account::BaseController
   before_action :find_category, only: [:show, :edit, :update, :destroy]
-  layout 'account'
+  layout "account"
 
   def index
     @categories = resources.order(:name)
@@ -33,7 +33,7 @@ class Account::CategoriesController < Account::BaseController
 
   def destroy
     if @category.destroy
-      flash[:notice] = 'The category was successfully deleted.'
+      flash[:notice] = "The category was successfully deleted."
       redirect_to account_categories_path
     end
   end

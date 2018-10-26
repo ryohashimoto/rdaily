@@ -1,5 +1,5 @@
 class AccountController < Account::BaseController
-  layout 'account'
+  layout "account"
 
   def index
     if current_user

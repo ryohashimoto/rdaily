@@ -1,5 +1,5 @@
 class Account::PostsController < Account::BaseController
-  layout 'account'
+  layout "account"
 
   def index
     @posts = resources.order(created_at: :desc).page(params[:page]).per(5)
@@ -46,7 +46,7 @@ class Account::PostsController < Account::BaseController
   def destroy
     @post = resources.find(params[:id])
     if @post.destroy
-      flash[:notice] = 'The post is successfully deleted.'
+      flash[:notice] = "The post is successfully deleted."
       redirect_to account_path
     end
   end

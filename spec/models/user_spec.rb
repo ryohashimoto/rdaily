@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe User do
   let(:user) do
@@ -21,7 +21,7 @@ describe User do
   end
   it "is invalid with a duplicate email address" do
     expect(user.save!).to be_truthy
-    user2 = User.new(name: 'hashimoto', email: user.email, password: 'hogehoge')
+    user2 = User.new(name: "hashimoto", email: user.email, password: "hogehoge")
     expect(user2).to be_invalid
   end
 end

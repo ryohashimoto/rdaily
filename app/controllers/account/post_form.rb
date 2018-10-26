@@ -17,7 +17,7 @@ class Account::PostForm
     ids = params[:category_ids]
     @category_ids = []
     if ids && ids != "0"
-      @category_ids = ids.split(',').map(&:to_i)
+      @category_ids = ids.split(",").map(&:to_i)
       @category_ids.shift if @category_ids[0] == 0
     end
   end

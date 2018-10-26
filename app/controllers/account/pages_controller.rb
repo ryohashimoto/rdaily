@@ -1,5 +1,5 @@
 class Account::PagesController < Account::BaseController
-  layout 'account'
+  layout "account"
 
   def index
     @pages = resources.order(created_at: :desc).page(params[:page]).per(5)
@@ -33,7 +33,7 @@ class Account::PagesController < Account::BaseController
       flash[:notice] = "The page is successfully updated."
       redirect_to account_pages_path
     else
-      flash[:alert] = 'The page is not updated.'
+      flash[:alert] = "The page is not updated."
       render :edit
     end
   end
@@ -41,7 +41,7 @@ class Account::PagesController < Account::BaseController
   def destroy
     @page = resources.find(params[:id])
     if @page.destroy
-      flash[:notice] = 'The page is successfully deleted.'
+      flash[:notice] = "The page is successfully deleted."
       redirect_to account_pages_path
     end
   end

@@ -1,13 +1,13 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe Category do
   before do
-    @user = User.create(name: 'ryo', email: 'ryo@example.com', password: 'hogehoge', password_confirmation: 'hogehoge')
+    @user = User.create(name: "ryo", email: "ryo@example.com", password: "hogehoge", password_confirmation: "hogehoge")
   end
 
   it "is valid with a name" do
     category = @user.categories.build
-    category.name = 'rails'
+    category.name = "rails"
     expect(category.slug).to be_nil
     expect(category).to be_valid
     expect(category.slug).not_to be_nil
@@ -15,7 +15,7 @@ describe Category do
 
   it "is successfully saved with a name and a slug is generated." do
     category = @user.categories.build
-    category.name = 'rails'
+    category.name = "rails"
     category.save!
     expect(category.slug).not_to be_nil
   end

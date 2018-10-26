@@ -8,7 +8,7 @@ class Account::SessionsController < ApplicationController
       redirect_to account_path, notice: "Logged in as #{user.name}."
     else
       flash[:alert] = "Invalid email/password pair."
-      render 'new'
+      render "new"
     end
   end
 
