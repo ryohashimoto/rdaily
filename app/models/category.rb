@@ -14,6 +14,7 @@ class Category < ApplicationRecord
 
   def generate_slug
     return nil unless name
+
     self.slug ||= name.parameterize
   end
 end

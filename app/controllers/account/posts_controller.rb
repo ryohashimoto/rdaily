@@ -1,6 +1,6 @@
 class Account::PostsController < Account::BaseController
   layout 'account'
-  
+
   def index
     @posts = resources.order(created_at: :desc).page(params[:page]).per(5)
   end
@@ -50,26 +50,23 @@ class Account::PostsController < Account::BaseController
       redirect_to account_path
     end
   end
-  
+
   def publish
     @post = resources.find(params[:id])
     policy = @post.published_policy
-    unless policy.active?
-      policy.activate!
-    end
+    policy.activate! unless policy.active?
     redirect_to account_path
   end
-  
+
   def unpublish
     @post = resources.find(params[:id])
     policy = @post.published_policy
-    if policy.active?
-      policy.stop!
-    end
+    policy.stop! if policy.active?
     redirect_to account_path
   end
 
   private
+
   def resources
     current_user.posts.includes(:categories, :categorizations, :user)
   end

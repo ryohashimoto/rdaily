@@ -9,7 +9,7 @@ class CreatePosts < ActiveRecord::Migration[4.2]
       t.timestamps
     end
 
-    add_index :posts, :id, :unique => true
+    add_index :posts, :id, unique: true
     add_index :posts, :published_at
   end
 end

@@ -15,8 +15,8 @@ CarrierWave.configure do |config|
       config.fog_directory = ENV['AWS_S3_BUCKET_NAME']
     else
       config.storage = :file
-      config.permissions = 0666
-      config.directory_permissions = 0777
+      config.permissions = 0o666
+      config.directory_permissions = 0o777
     end
   end
   config.cache_dir = "#{Rails.root}/tmp/uploads"

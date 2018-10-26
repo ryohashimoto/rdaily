@@ -7,10 +7,10 @@ class CreatePages < ActiveRecord::Migration[4.2]
       t.integer :user_id
       t.datetime :published_at
 
-      t.timestamps      
+      t.timestamps
     end
-    
-    add_index :pages, :id, :unique => true
-    add_index :pages, :published_at    
+
+    add_index :pages, :id, unique: true
+    add_index :pages, :published_at
   end
 end

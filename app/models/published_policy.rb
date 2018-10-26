@@ -1,12 +1,11 @@
-module Rdaily
-  class PublishedPolicyException < StandardError; end
-end
+class Rdaily::PublishedPolicyException < StandardError; end
 
 class PublishedPolicy
   def initialize(model)
     unless model.class.columns_hash["published_at"] && model.class.columns_hash["published_at"].type == :datetime
       raise Rdaily::PublishedPolicyException, "Type of #{model.class}#published_at is not :datetime"
     end
+
     @model = model
   end
 

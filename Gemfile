@@ -1,27 +1,27 @@
 source 'https://rubygems.org'
 
-gem 'rails', '5.2.1'
 gem 'puma'
+gem 'rails', '5.2.1'
 gem 'responders'
 
-gem 'redcarpet' # for Markdown syntax
-gem 'kaminari'  # for paginations
-gem 'gravtastic' # for gravatar
 gem 'carrierwave'
-gem 'unf'
+gem 'dalli'
 gem 'fog-aws'
+gem 'gravtastic' # for gravatar
+gem 'kaminari' # for paginations
+gem 'memcachier'
 gem 'mini_magick'
 gem 'pygments.rb' # for syntax highlighting
-gem 'memcachier'
-gem 'dalli'
+gem 'redcarpet' # for Markdown syntax
+gem 'unf'
 
 gem 'bootstrap-sass'
-gem 'sass-rails'
-gem 'sass'
 gem 'coffee-rails'
-gem 'uglifier'
+gem 'sass'
+gem 'sass-rails'
 gem 'simple_form'
 gem 'slim-rails'
+gem 'uglifier'
 
 gem 'jquery-rails'
 
@@ -48,27 +48,27 @@ gem 'thin'
 gem 'unicorn'
 
 gem 'capistrano', require: false
+gem 'capistrano-bundler', require: false
 gem 'capistrano-rails', require: false
 gem 'capistrano-rbenv', require: false
-gem 'capistrano-bundler', require: false
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'rubocop', require: false
   gem 'spring'
-  gem 'binding_of_caller'
-  gem 'better_errors'
   # gem 'quiet_assets'
 end
 
 group :development, :test do
+  gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
 end
 
 group :test do
-  gem 'faker'
   gem 'capybara'
   gem 'database_cleaner'
+  gem 'faker'
   gem 'launchy'
 end

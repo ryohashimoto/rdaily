@@ -4,19 +4,19 @@ module ApplicationHelper
       Pygments.highlight(code, lexer: language)
     end
   end
-  
+
   def parent_layout(layout)
     @view_flow.set(:layout, output_buffer)
     self.output_buffer = render(file: "layouts/#{layout}")
   end
-  
+
   def rdaily_title(title)
     'Rdaily - ' + title
   end
-  
+
   def abbrev(text, max=100)
     if text.length >= max
-      simple_format(text[0..max-1] + '...')
+      simple_format(text[0..max - 1] + '...')
     else
       simple_format(text)
     end

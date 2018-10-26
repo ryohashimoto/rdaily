@@ -17,11 +17,11 @@ class Account::CategoriesController < Account::BaseController
   def create
     @category = resources.new(category_params)
     return render :new unless @category.save
+
     @categories = resources
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @cateogry.update_attributes(category_params)
@@ -38,10 +38,10 @@ class Account::CategoriesController < Account::BaseController
     end
   end
 
-  def cancel
-  end
+  def cancel; end
 
   private
+
   def resources
     current_user.categories
   end

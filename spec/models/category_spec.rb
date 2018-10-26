@@ -4,7 +4,7 @@ describe Category do
   before do
     @user = User.create(name: 'ryo', email: 'ryo@example.com', password: 'hogehoge', password_confirmation: 'hogehoge')
   end
-  
+
   it "is valid with a name" do
     category = @user.categories.build
     category.name = 'rails'
@@ -22,6 +22,6 @@ describe Category do
 
   it "is invalid without a name" do
     category = @user.categories.build
-    expect(category).to be_invalid 
+    expect(category).to be_invalid
   end
 end

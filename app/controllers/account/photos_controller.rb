@@ -1,6 +1,6 @@
 class Account::PhotosController < ApplicationController
   respond_to :json
-  
+
   def create
     @photo = current_user.photos.build
     @photo.image = params[:image]

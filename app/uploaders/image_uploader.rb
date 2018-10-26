@@ -4,7 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   process resize_to_fit: [1024, 768]
 
   def extension_white_list
-    %w(jpg jpeg gif png)
+    %w[jpg jpeg gif png]
   end
 
   def cache_dir
@@ -12,7 +12,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
-    if original_filename 
+    if original_filename
       @name ||= Digest::MD5.hexdigest(Time.current.to_s + File.dirname(current_path))
       "#{@name}.#{file.extension}"
     end

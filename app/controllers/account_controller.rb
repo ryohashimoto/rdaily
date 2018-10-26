@@ -1,6 +1,6 @@
 class AccountController < Account::BaseController
   layout 'account'
-  
+
   def index
     if current_user
       @post = posts.build
@@ -9,6 +9,7 @@ class AccountController < Account::BaseController
   end
 
   private
+
   def posts
     current_user.posts.includes(:categories, :categorizations, :user)
   end
