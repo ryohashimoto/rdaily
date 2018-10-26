@@ -53,6 +53,7 @@ gem 'capistrano-rbenv', require: false
 gem 'capistrano-bundler', require: false
 
 group :development do
+  gem 'rubocop', require: false
   gem 'spring'
   gem 'binding_of_caller'
   gem 'better_errors'
