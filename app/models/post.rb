@@ -14,4 +14,8 @@ class Post < ApplicationRecord
   scope :by_month, -> (year, month) {
     where(created_at: Date.new(year, month, 1).all_month)
   }
+
+  scope :by_day, -> (year, month, day) {
+    where(created_at: Date.new(year, month, day).all_day)
+  }
 end

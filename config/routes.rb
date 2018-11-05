@@ -13,7 +13,8 @@ Rdaily::Application.routes.draw do
   resources :archives, only: :none do
     collection do
       get ':year', action: :year, as: :year, constraints: Constraints::Year.new
-      get ':year/:month', action: :month, as: :month,　constraints: Constraints::YearMonth.new
+      get ':year/:month', action: :month, as: :month,　constraints: Constraints::Month.new
+      get ':year/:month/:day', action: :day, as: :day, constraints: Constraints::Day.new
     end
   end
 
