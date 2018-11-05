@@ -1,0 +1,11 @@
+.row
+  .col-md-9
+    h2 Archives for #{@year}
+
+    - if @posts.any?
+      = render partial: 'posts/post', collection: @posts
+      .pagination
+        = paginate @posts
+    - else
+      p Posts not found.
+  .col-md-3

@@ -1,3 +1,5 @@
+require_relative './constraints.rb'
+
 Rdaily::Application.routes.draw do
   root to: "posts#index"
 
@@ -8,6 +10,12 @@ Rdaily::Application.routes.draw do
   resources :posts, only: [:show]
   resources :pages, only: [:show]
   resources :categories, only: [:show]
+  resources :archives, only: :none do
+    collection do
+      get ':year', action: :year, as: :year, constraints: Constraints::Year.new
+      get ':year/:month', action: :month, as: :month,　constraints: Constraints::YearMonth.new
+    end
+  end
 
   namespace :account do
     get "/" => :index
