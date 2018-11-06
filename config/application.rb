@@ -16,5 +16,7 @@ module Rdaily
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.eager_load_paths << Rails.root.join("app", "lib")
+
+    config.active_job.queue_adapter = :sidekiq
   end
 end
