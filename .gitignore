@@ -38,3 +38,6 @@ pickle-email-*.html
 .ruby-version
 .ruby-gemset
 
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
