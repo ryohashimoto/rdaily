@@ -1,30 +1,24 @@
 class ArchivesController < ApplicationController
   def year
+    redirect_to_canonical_year
     @year = params[:year].to_i
-    return redirect_to year_archives_path(year: @year) unless canonical_year?
-
     @posts = resources.by_year(@year)
                       .order(:created_at).page(params[:page])
   end
 
   def month
+    redirect_to_canonical_month
     @year = params[:year].to_i
     @month = params[:month].to_i
-    return redirect_to month_archives_path(year: @year, month: @month) \
-      unless canonical_month?
-
     @posts = resources.by_month(@year, @month)
                       .order(:created_at).page(params[:page])
   end
 
   def day
+    redirect_to_canonical_day
     @year = params[:year].to_i
     @month = params[:month].to_i
     @day = params[:day].to_i
-    date = canonical_date
-    return redirect_to day_archives_path(year: date.year, month: date.month, day: date.day) \
-      unless canonical_date?
-
     @posts = resources.by_day(@year, @month, @day)
                       .order(:created_at).page(params[:page])
   end
@@ -51,5 +45,20 @@ class ArchivesController < ApplicationController
     date = canonical_date
     date.year.to_s == params[:year] && date.month.to_s == params[:month] &&
       date.day.to_s == params[:day]
+  end
+
+  def redirect_to_canonical_year
+    return redirect_to year_archives_path(year: params[:year].to_i) unless canonical_year?
+  end
+
+  def redirect_to_canonical_month
+    return redirect_to month_archives_path(year: params[:year].to_i, month: params[:month].to_i) \
+      unless canonical_month?
+  end
+
+  def redirect_to_canonical_day
+    date = canonical_date
+    redirect_to day_archives_path(year: date.year, month: date.month, day: date.day) \
+      unless canonical_date?
   end
 end
