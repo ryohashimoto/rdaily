@@ -181,3 +181,8 @@ Style/SymbolArray:
 # URISchemes: http, https
 Metrics/LineLength:
   Max: 124
+
+AllCops:
+  Exclude:
+    - db/schema.rb
+    - db/migrate/*.rb
