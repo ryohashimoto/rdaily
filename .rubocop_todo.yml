@@ -129,6 +129,9 @@ Style/IfInsideElse:
   Exclude:
     - 'config/initializers/carrierwave.rb'
 
+Style/Lambda:
+  Enabled: false
+
 # Offense count: 2
 Style/MixinUsage:
   Exclude:

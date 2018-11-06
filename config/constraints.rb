@@ -38,7 +38,7 @@ module Constraints
       begin
         Date.new(year, month, day)
         true
-      rescue ArgumentError => e # フォーマットは正しいが実在しない日付(2/30など)の場合
+      rescue ArgumentError # for data that does not exist
         false
       end
     end
