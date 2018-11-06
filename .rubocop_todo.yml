@@ -184,5 +184,7 @@ Metrics/LineLength:
 
 AllCops:
   Exclude:
+    - bin/**/*
     - db/schema.rb
     - db/migrate/*.rb
+    - node_modules/**/*
