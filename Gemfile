@@ -38,6 +38,7 @@ gem "thin"
 gem "uglifier"
 gem "unf"
 gem "unicorn"
+gem "webpacker"
 
 group :development do
   gem "better_errors"
