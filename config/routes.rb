@@ -1,4 +1,4 @@
-require_relative './constraints.rb'
+require_relative "./constraints.rb"
 
 Rdaily::Application.routes.draw do
   root to: "posts#index"
@@ -12,9 +12,9 @@ Rdaily::Application.routes.draw do
   resources :categories, only: [:show]
   resources :archives, only: :none do
     collection do
-      get ':year', action: :year, as: :year, constraints: Constraints::Year.new
-      get ':year/:month', action: :month, as: :month,　constraints: Constraints::Month.new
-      get ':year/:month/:day', action: :day, as: :day, constraints: Constraints::Day.new
+      get ":year", action: :year, as: :year, constraints: Constraints::Year.new
+      get ":year/:month", action: :month, as: :month, 　constraints: Constraints::Month.new
+      get ":year/:month/:day", action: :day, as: :day, constraints: Constraints::Day.new
     end
   end
 

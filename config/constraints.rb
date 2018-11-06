@@ -1,7 +1,7 @@
 module Constraints
-  YEARS = 1900..2100
-  MONTHS = 1..12
-  DAYS = 1..31
+  YEARS = (1900..2100).freeze
+  MONTHS = (1..12).freeze
+  DAYS = (1..31).freeze
 
   class Year
     def matches?(request)
@@ -34,6 +34,7 @@ module Constraints
     def valid?(year, month, day)
       return false unless Month.new.valid?(year, month)
       return false unless DAYS.include?(day)
+
       begin
         Date.new(year, month, day)
         true

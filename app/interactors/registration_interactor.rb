@@ -7,8 +7,10 @@ class RegistrationInteractor < ApplicationInteractor
 
   def execute
     return fail! unless user.save
+
     page = user.pages.new(new_page_params)
     return fail! unless page.save
+
     success!
   end
 
