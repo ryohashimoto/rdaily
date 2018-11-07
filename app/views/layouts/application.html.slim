@@ -36,8 +36,9 @@ html lang="ja"
                   li
                     = link_to "Log out", logout_path
                 - else
-                  li
-                    = link_to "Sign up", new_account_user_path
+                  - if allow_new_user?
+                    li
+                      = link_to "Sign up", new_account_user_path
                   li
                     = link_to "Log in", login_path
     .container

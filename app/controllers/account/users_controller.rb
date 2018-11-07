@@ -1,4 +1,6 @@
 class Account::UsersController < ApplicationController
+  before_action :redirect_if_user_exists
+
   def new
     @user = User.new
   end
@@ -19,5 +21,12 @@ class Account::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def redirect_if_user_exists
+    return if allow_new_user?
+
+    flash[:error] = "User already exists."
+    redirect_to root_path
   end
 end
