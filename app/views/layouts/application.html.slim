@@ -1,5 +1,5 @@
 doctype html
-html lang="ja" 
+html lang="ja"
   head
     meta charset="utf-8" /
     meta content="width=device-width, initial-scale=1.0" name="viewport" /
@@ -10,10 +10,10 @@ html lang="ja"
     = auto_discovery_link_tag :rss, "/feed.rss"
     link href="http://fonts.googleapis.com/css?family=Ruda:400,700,900" rel="stylesheet" type="text/css" /
   body.rdaily
-    nav.navbar.navbar-default.rd-navbar role="navigation" 
+    nav.navbar.navbar-default.rd-navbar role="navigation"
       .container
         .navbar-header
-          button.navbar-toggle.collapsed data-target="#rd-navbar-collapse" data-toggle="collapse" type="button" 
+          button.navbar-toggle.collapsed data-target="#rd-navbar-collapse" data-toggle="collapse" type="button"
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
@@ -23,23 +23,40 @@ html lang="ja"
           ul.nav.navbar-nav
             li
               a href="/pages/about"  About
+          ul.nav.navbar-nav.navbar-right
+            li.dropdown
+              a.dropdown-toggle data-toggle="dropdown" href="#" role="button"
+                - if current_user
+                  = current_user.name
+                - else
+                  | Menu
+                span.caret
+              ul.dropdown-menu
+                - if current_user
+                  li
+                    = link_to "Log out", logout_path
+                - else
+                  li
+                    = link_to "Sign up", new_account_user_path
+                  li
+                    = link_to "Log in", login_path
     .container
       .row
         .col-md-12
           #rd_alert
           - if flash[:error]
-            .alert.alert-danger.alert-dismissible role="alert" 
-              button.close data-dismiss="alert" type="button" 
+            .alert.alert-danger.alert-dismissible role="alert"
+              button.close data-dismiss="alert" type="button"
                 span aria-hidden="true"  &times;
               = flash[:error]
           - if flash[:notice]
-            .alert.alert-success.alert-dismissible role="alert" 
-              button.close data-dismiss="alert" type="button" 
+            .alert.alert-success.alert-dismissible role="alert"
+              button.close data-dismiss="alert" type="button"
                 span aria-hidden="true"  &times;
               = flash[:notice]
           - if flash[:alert]
-            .alert.alert-warning.alert-dismissible role="alert" 
-              button.close data-dismiss="alert" type="button" 
+            .alert.alert-warning.alert-dismissible role="alert"
+              button.close data-dismiss="alert" type="button"
                 span aria-hidden="true"  &times;
               = flash[:alert]
           = yield
