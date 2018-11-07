@@ -1,17 +1,14 @@
 class ArchivesController < ApplicationController
   def year
     redirect_to_canonical_year
-    @year = params[:year].to_i
-    @pager = create_pager resources.by_year(@year).order(:created_at), page: params[:page]
-    @posts = @pager.scoped
+    facade = Archives::YearFacade.new(params)
+    retrieve facade, :year, :pager, :posts
   end
 
   def month
     redirect_to_canonical_month
-    @year = params[:year].to_i
-    @month = params[:month].to_i
-    @pager = create_pager resources.by_month(@year, @month).order(:created_at), page: params[:page]
-    @posts = @pager.scoped
+    facade = Archives::MonthFacade.new(params)
+    retrieve facade, :year, :month, :pager, :posts
   end
 
   def day
@@ -21,10 +18,6 @@ class ArchivesController < ApplicationController
   end
 
   private
-
-  def resources
-    Post.published.includes(:categories, :categorizations, :user)
-  end
 
   def canonical_year?
     params[:year].to_i.to_s == params[:year]
