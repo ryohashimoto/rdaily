@@ -9,7 +9,7 @@
       - if @posts.any?
         = render partial: 'post', collection: @posts
         .pagination
-          = paginate @posts
+          = render_pager @pager
       - else
         .alert.alert-warning
           | There are no posts. Please create a post from the #{link_to 'account page', account_path}.

@@ -22,6 +22,7 @@ GEM
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    actionpager (0.0.2)
     actionview (5.2.1)
       activesupport (= 5.2.1)
       builder (~> 3.1)
@@ -160,18 +161,6 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
-    kaminari (1.1.1)
-      activesupport (>= 4.1.0)
-      kaminari-actionview (= 1.1.1)
-      kaminari-activerecord (= 1.1.1)
-      kaminari-core (= 1.1.1)
-    kaminari-actionview (1.1.1)
-      actionview
-      kaminari-core (= 1.1.1)
-    kaminari-activerecord (1.1.1)
-      activerecord
-      kaminari-core (= 1.1.1)
-    kaminari-core (1.1.1)
     kgio (2.11.2)
     launchy (2.4.3)
       addressable (~> 2.3)
@@ -369,6 +358,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionpager
   bcrypt
   better_errors
   binding_of_caller
@@ -390,7 +380,6 @@ DEPENDENCIES
   gravtastic
   jbuilder
   jquery-rails
-  kaminari
   launchy
   lightrails
   listen

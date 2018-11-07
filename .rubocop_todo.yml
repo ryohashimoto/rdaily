@@ -82,6 +82,8 @@ Style/BracesAroundHashParameters:
 Style/ClassAndModuleChildren:
   EnforcedStyle: compact
   Exclude:
+    - 'app/lib/action_pager/pagination.rb'
+    - 'app/helpers/action_pager/pagination_helper.rb'
     - 'config/application.rb'
 
 # Offense count: 1

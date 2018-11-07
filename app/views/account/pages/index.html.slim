@@ -10,4 +10,4 @@ h2 New page
   h2 Your pages
   = render partial: 'account/page', collection: @pages
   .pagination
-    = paginate @pages
+    = render_pager @pager

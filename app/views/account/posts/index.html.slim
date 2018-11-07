@@ -10,4 +10,4 @@ h2 New post
   h2 All posts
   = render partial: 'account/post', collection: @posts
   .pagination
-    = paginate @posts
+    = render_pager @pager

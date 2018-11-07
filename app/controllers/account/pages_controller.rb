@@ -2,7 +2,8 @@ class Account::PagesController < Account::BaseController
   layout "account"
 
   def index
-    @pages = resources.order(created_at: :desc).page(params[:page]).per(5)
+    @pager = create_pager resources.order(created_at: :desc), page: params[:page]
+    @pages = @pager.scoped
   end
 
   def show

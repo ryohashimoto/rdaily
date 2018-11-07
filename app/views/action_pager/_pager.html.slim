@@ -1,0 +1,22 @@
+ul.pagination
+  - unless pager.first_page?
+    li.first
+      = link_to url_for_page(page: pager.first_page) do
+        | &laquo;
+    li.prev
+      = link_to url_for_page(page: pager.prev_page), rel: "prev" do
+        | &lsaquo;
+  - (1..(pager.last_page)).to_a.each do |page|
+    - if pager.current_page == page
+      li.page.active
+        = link_to page, url_for_page(page: page)
+    - else
+      li.page
+        = link_to page, url_for_page(page: page)
+  - unless pager.last_page?
+    li.next
+      = link_to url_for_page(page: pager.next_page), rel: "next" do
+        | &rsaquo;
+    li.last
+      = link_to url_for_page(page: pager.last_page) do
+        | &raquo;

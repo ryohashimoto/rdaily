@@ -5,7 +5,7 @@
     - if @posts.any?
       = render partial: 'posts/post', collection: @posts
       .pagination
-        = paginate @posts
+        = render_pager @pager
     - else
       p Posts not found.
   .col-md-3

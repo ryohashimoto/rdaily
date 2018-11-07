@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
   def show
-    @posts = posts.order(created_at: :desc).page(params[:page]).per(5)
+    @pager = create_pager resources.order(created_at: :desc), page: params[:page]
+    @posts = @pager.scoped
   end
 
   private

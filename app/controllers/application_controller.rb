@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  include ActionFacade::Retrieval
+  include ActionPager::Pagination
+
   protect_from_forgery
 
   def current_user
