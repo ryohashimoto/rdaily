@@ -4,7 +4,7 @@ class Archives::YearFacade < ApplicationFacade
   end
 
   def pager
-    @pager ||= create_pager resources.by_year(year).order(:created_at), page: params[:page]
+    @pager ||= pager_for resources.by_year(year).order(:created_at), page: params[:page]
   end
 
   def posts

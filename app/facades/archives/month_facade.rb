@@ -8,7 +8,7 @@ class Archives::MonthFacade < ApplicationFacade
   end
 
   def pager
-    @pager ||= create_pager resources.by_month(year, month).order(:created_at), page: params[:page]
+    @pager ||= pager_for resources.by_month(year, month).order(:created_at), page: params[:page]
   end
 
   def posts

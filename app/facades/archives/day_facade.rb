@@ -12,7 +12,7 @@ class Archives::DayFacade < ApplicationFacade
   end
 
   def pager
-    @pager ||= create_pager resources.by_day(year, month, day).order(:created_at), page: params[:page]
+    @pager ||= pager_for resources.by_day(year, month, day).order(:created_at), page: params[:page]
   end
 
   def posts

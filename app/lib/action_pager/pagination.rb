@@ -2,7 +2,7 @@ module ActionPager
   module Pagination
     DEFAULTS = { page: 1, per: 5 }.freeze
 
-    def create_pager(collection, options={})
+    def pager_for(collection, options={})
       opts = DEFAULTS.merge(options.reject { |_k, v| v.to_i.zero? })
       ActionPager::Pager.new(
         collection,
