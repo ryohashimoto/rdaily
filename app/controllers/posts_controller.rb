@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @no_user = User.count.zero?
     @posts = resources.order(created_at: :desc).page(params[:page]).per(5)
     @monthly_posts = monthly_posts
   end
