@@ -4,15 +4,15 @@
       h2 Welcome to Rdaily!
       p Rdaily setup is simple and easy.
       = link_to 'Create new user', new_account_user_path, class: 'btn btn-lg rd-btn-success'
-  - else 
+  - else
     .col-md-9
-      - if @posts.count == 0
-        .alert.alert-warning
-          | There are no posts. Please create a post from the #{link_to 'account page', account_path}.
-      - else
+      - if @posts.any?
         = render partial: 'post', collection: @posts
         .pagination
           = paginate @posts
+      - else
+        .alert.alert-warning
+          | There are no posts. Please create a post from the #{link_to 'account page', account_path}.
     .col-md-3.rd-post-archives
-      - unless @posts.count == 0
+      - if @posts.any?
         = render partial: 'post_archives', locals: { posts: @monthly_posts }
