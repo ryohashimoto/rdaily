@@ -1,8 +1,9 @@
 class RegistrationInteractor < ApplicationInteractor
   attr_reader :user
 
-  def initialize(params)
-    @user = params[:user]
+  def initialize(payload)
+    @user = payload[:user]
+    super
   end
 
   def execute
